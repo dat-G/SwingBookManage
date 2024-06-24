@@ -100,7 +100,7 @@ public class mainFrame extends JFrame {
         btnNewButton.setIcon(new ImageIcon(mainFrame.class.getResource("/img/书 (2).png")));
         btnNewButton.setForeground(new Color(51, 51, 255));
         btnNewButton.setBackground(new Color(175, 238, 238));
-        btnNewButton.setFont(new Font("新宋体", Font.BOLD, 16));
+//        btnNewButton.setFont(new Font("新宋体", Font.BOLD, 16));
         panel.add(btnNewButton);
 
         JButton btnNewButton_1 = new JButton("信息查询");
@@ -113,7 +113,7 @@ public class mainFrame extends JFrame {
         btnNewButton_1.setIcon(new ImageIcon(mainFrame.class.getResource("/img/查询 (1).png")));
         btnNewButton_1.setForeground(new Color(51, 51, 255));
         btnNewButton_1.setBackground(new Color(255, 192, 203));
-        btnNewButton_1.setFont(new Font("新宋体", Font.BOLD, 16));
+//        btnNewButton_1.setFont(new Font("新宋体", Font.BOLD, 16));
         panel.add(btnNewButton_1);
 
         JButton btnNewButton_2 = new JButton("图书销售");
@@ -126,7 +126,7 @@ public class mainFrame extends JFrame {
         btnNewButton_2.setIcon(new ImageIcon(mainFrame.class.getResource("/img/销售 (1).png")));
         btnNewButton_2.setForeground(new Color(51, 51, 255));
         btnNewButton_2.setBackground(new Color(152, 251, 152));
-        btnNewButton_2.setFont(new Font("新宋体", Font.BOLD, 16));
+//        btnNewButton_2.setFont(new Font("新宋体", Font.BOLD, 16));
         panel.add(btnNewButton_2);
 
         JButton btnNewButton_3 = new JButton("系统设置");
@@ -138,7 +138,7 @@ public class mainFrame extends JFrame {
         btnNewButton_3.setIcon(new ImageIcon(mainFrame.class.getResource("/img/设置 (1).png")));
         btnNewButton_3.setForeground(new Color(51, 51, 255));
         btnNewButton_3.setBackground(new Color(176, 196, 222));
-        btnNewButton_3.setFont(new Font("新宋体", Font.BOLD, 16));
+//        btnNewButton_3.setFont(new Font("新宋体", Font.BOLD, 16));
         panel.add(btnNewButton_3);
 
         JButton btnNewButton_4 = new JButton("退出系统");
@@ -153,7 +153,7 @@ public class mainFrame extends JFrame {
         btnNewButton_4.setIcon(new ImageIcon(mainFrame.class.getResource("/img/退出 (1).png")));
         btnNewButton_4.setForeground(new Color(51, 51, 255));
         btnNewButton_4.setBackground(UIManager.getColor("Button.light"));
-        btnNewButton_4.setFont(new Font("新宋体", Font.BOLD, 16));
+//        btnNewButton_4.setFont(new Font("新宋体", Font.BOLD, 16));
         panel.add(btnNewButton_4);
 
         JLabel welcome_mess = new JLabel("");
@@ -165,7 +165,7 @@ public class mainFrame extends JFrame {
         JLabel day_mess = new JLabel("");
         String string = ConnectionManager.getday();
         day_mess.setText(string);
-        day_mess.setFont(new Font("宋体", Font.BOLD, 15));
+//        day_mess.setFont(new Font("宋体", Font.BOLD, 15));
         day_mess.setBounds(541, 543, 153, 20);
         contentPane.add(day_mess);
 

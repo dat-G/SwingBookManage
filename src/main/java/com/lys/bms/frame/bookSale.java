@@ -74,7 +74,7 @@ public class bookSale extends JPanel {
 		panel_3.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("ISBN：");
-		lblNewLabel.setFont(new Font("宋体", Font.BOLD, 19));
+		//lblNewLabel.setFont(new Font("宋体", Font.BOLD, 19));
 		lblNewLabel.setBounds(68, 6, 91, 28);
 		panel_3.add(lblNewLabel);
 		
@@ -102,18 +102,18 @@ public class bookSale extends JPanel {
 				
 			}
 		});
-		jt_isbn.setFont(new Font("宋体", Font.BOLD, 19));
+		//jt_isbn.setFont(new Font("宋体", Font.BOLD, 19));
 		jt_isbn.setBounds(131, 10, 171, 21);
 		panel_3.add(jt_isbn);
 		jt_isbn.setColumns(25);
 		
 		JLabel lblNewLabel_1 = new JLabel("书名：");
-		lblNewLabel_1.setFont(new Font("宋体", Font.BOLD, 19));
+		//lblNewLabel_1.setFont(new Font("宋体", Font.BOLD, 19));
 		lblNewLabel_1.setBounds(352, 6, 75, 28);
 		panel_3.add(lblNewLabel_1);
 		
 		jt_bookname = new JTextField();
-		jt_bookname.setFont(new Font("宋体", Font.BOLD, 19));
+		//jt_bookname.setFont(new Font("宋体", Font.BOLD, 19));
 		jt_bookname.setColumns(25);
 		jt_bookname.setBounds(420, 10, 171, 21);
 		panel_3.add(jt_bookname);
@@ -124,30 +124,30 @@ public class bookSale extends JPanel {
 		panel_2.add(panel_3_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("购买数量：");
-		lblNewLabel_2.setFont(new Font("宋体", Font.BOLD, 19));
+		//lblNewLabel_2.setFont(new Font("宋体", Font.BOLD, 19));
 		lblNewLabel_2.setBounds(37, 6, 122, 28);
 		panel_3_1.add(lblNewLabel_2);
 		
 		jt_num = new JTextField();
-		jt_num.setFont(new Font("宋体", Font.BOLD, 19));
+		//jt_num.setFont(new Font("宋体", Font.BOLD, 19));
 		jt_num.setColumns(25);
 		jt_num.setBounds(131, 10, 171, 21);
 		panel_3_1.add(jt_num);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("价格：");
-		lblNewLabel_1_1.setFont(new Font("宋体", Font.BOLD, 19));
+		//lblNewLabel_1_1.setFont(new Font("宋体", Font.BOLD, 19));
 		lblNewLabel_1_1.setBounds(352, 6, 75, 28);
 		panel_3_1.add(lblNewLabel_1_1);
 		
 		jt_price = new JTextField();
-		jt_price.setFont(new Font("宋体", Font.BOLD, 19));
+		//jt_price.setFont(new Font("宋体", Font.BOLD, 19));
 		jt_price.setColumns(25);
 		jt_price.setBounds(420, 10, 171, 21);
 		panel_3_1.add(jt_price);
 		
 		trips_1 = new JLabel("");
 		trips_1.setForeground(Color.RED);
-		trips_1.setFont(new Font("宋体", Font.BOLD, 16));
+		//trips_1.setFont(new Font("宋体", Font.BOLD, 16));
 		trips_1.setBounds(131, 37, 274, 21);
 		panel_3_1.add(trips_1);
 		
@@ -157,20 +157,20 @@ public class bookSale extends JPanel {
 		panel_2.add(panel_3_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("折扣：");
-		lblNewLabel_3.setFont(new Font("宋体", Font.BOLD, 19));
+		//lblNewLabel_3.setFont(new Font("宋体", Font.BOLD, 19));
 		lblNewLabel_3.setBounds(68, 6, 91, 28);
 		panel_3_2.add(lblNewLabel_3);
 		
 		jt_zhekou = new JTextField();
 		jt_zhekou.setText(Double.toString(mainFrame.zhekou));
 		jt_zhekou.setEditable(false);
-		jt_zhekou.setFont(new Font("宋体", Font.BOLD, 19));
+		//jt_zhekou.setFont(new Font("宋体", Font.BOLD, 19));
 		jt_zhekou.setColumns(25);
 		jt_zhekou.setBounds(131, 10, 171, 21);
 		panel_3_2.add(jt_zhekou);
 		
 		JLabel lblNewLabel_1_2 = new JLabel("应付：");
-		lblNewLabel_1_2.setFont(new Font("宋体", Font.BOLD, 19));
+		//lblNewLabel_1_2.setFont(new Font("宋体", Font.BOLD, 19));
 		lblNewLabel_1_2.setBounds(352, 6, 75, 28);
 		panel_3_2.add(lblNewLabel_1_2);
 		
@@ -222,13 +222,13 @@ public class bookSale extends JPanel {
 		panel_2.add(panel_3_3);
 		
 		trips = new JLabel("");
-		trips.setFont(new Font("宋体", Font.BOLD, 16));
+		//trips.setFont(new Font("宋体", Font.BOLD, 16));
 		trips.setForeground(Color.RED);
 		trips.setBounds(131, 35, 202, 21);
 		panel_3_3.add(trips);
 		
 		JLabel lblNewLabel_4 = new JLabel("收取：");
-		lblNewLabel_4.setFont(new Font("宋体", Font.BOLD, 19));
+		//lblNewLabel_4.setFont(new Font("宋体", Font.BOLD, 19));
 		lblNewLabel_4.setBounds(68, 6, 91, 28);
 		panel_3_3.add(lblNewLabel_4);
 		
@@ -255,18 +255,18 @@ public class bookSale extends JPanel {
 				
 			}
 		});
-		jt_receive.setFont(new Font("宋体", Font.BOLD, 19));
+		//jt_receive.setFont(new Font("宋体", Font.BOLD, 19));
 		jt_receive.setColumns(25);
 		jt_receive.setBounds(131, 10, 171, 21);
 		panel_3_3.add(jt_receive);
 		
 		JLabel lblNewLabel_1_3 = new JLabel("找零：");
-		lblNewLabel_1_3.setFont(new Font("宋体", Font.BOLD, 19));
+		//lblNewLabel_1_3.setFont(new Font("宋体", Font.BOLD, 19));
 		lblNewLabel_1_3.setBounds(352, 6, 75, 28);
 		panel_3_3.add(lblNewLabel_1_3);
 		
 		jt_return = new JTextField();
-		jt_return.setFont(new Font("宋体", Font.BOLD, 19));
+		//jt_return.setFont(new Font("宋体", Font.BOLD, 19));
 		jt_return.setColumns(25);
 		jt_return.setBounds(420, 10, 171, 21);
 		panel_3_3.add(jt_return);
@@ -287,7 +287,7 @@ public class bookSale extends JPanel {
 				jt_return.setText("");
 			}
 		});
-		btnNewButton.setFont(new Font("宋体", Font.BOLD, 18));
+		//btnNewButton.setFont(new Font("宋体", Font.BOLD, 18));
 		btnNewButton.setBounds(155, 322, 113, 30);
 		panel.add(btnNewButton);
 		
@@ -375,7 +375,7 @@ public class bookSale extends JPanel {
 				
 			}
 		});
-		btnNewButton_1.setFont(new Font("宋体", Font.BOLD, 18));
+		//btnNewButton_1.setFont(new Font("宋体", Font.BOLD, 18));
 		btnNewButton_1.setBounds(455, 322, 113, 30);
 		panel.add(btnNewButton_1);
 		
@@ -401,7 +401,7 @@ public class bookSale extends JPanel {
 		scrollPane.setViewportView(table);
 		
 		JLabel lblNewLabel_5 = new JLabel("订单总数：");
-		lblNewLabel_5.setFont(new Font("宋体", Font.BOLD, 19));
+		//lblNewLabel_5.setFont(new Font("宋体", Font.BOLD, 19));
 		lblNewLabel_5.setBounds(468, 10, 124, 23);
 		panel_1.add(lblNewLabel_5);
 		
@@ -420,7 +420,7 @@ public class bookSale extends JPanel {
 		panel_5.add(panel_6);
 		
 		find_text = new JTextField();
-		find_text.setFont(new Font("宋体", Font.BOLD, 20));
+		//find_text.setFont(new Font("宋体", Font.BOLD, 20));
 		panel_6.add(find_text);
 		find_text.setColumns(30);
 		
@@ -476,21 +476,21 @@ public class bookSale extends JPanel {
 		panel_5.add(panel_7);
 		
 		JLabel lblNewLabel_6 = new JLabel("查询方式：");
-		lblNewLabel_6.setFont(new Font("宋体", Font.BOLD, 18));
+		//lblNewLabel_6.setFont(new Font("宋体", Font.BOLD, 18));
 		panel_7.add(lblNewLabel_6);
 		
 		jrb_isbn = new JRadioButton("ISBN");
 		jrb_isbn.setSelected(true);
-		jrb_isbn.setFont(new Font("宋体", Font.BOLD, 18));
+		//jrb_isbn.setFont(new Font("宋体", Font.BOLD, 18));
 		panel_7.add(jrb_isbn);
 		
 		jrb_bookname = new JRadioButton("书名");
-		jrb_bookname.setFont(new Font("宋体", Font.BOLD, 18));
+		//jrb_bookname.setFont(new Font("宋体", Font.BOLD, 18));
 		panel_7.add(jrb_bookname);
 		
 		jrb_time = new JRadioButton("交易时间");
 		jrb_time.setForeground(Color.BLACK);
-		jrb_time.setFont(new Font("宋体", Font.BOLD, 18));
+		//jrb_time.setFont(new Font("宋体", Font.BOLD, 18));
 		panel_7.add(jrb_time);
 		
 //		按钮组
@@ -507,13 +507,13 @@ public class bookSale extends JPanel {
 		scrollPane_1.setViewportView(table_1);
 		
 		JLabel lblNewLabel_7 = new JLabel("查询结果：");
-		lblNewLabel_7.setFont(new Font("宋体", Font.PLAIN, 17));
+		//lblNewLabel_7.setFont(new Font("宋体", Font.PLAIN, 17));
 		lblNewLabel_7.setBounds(38, 120, 86, 18);
 		panel_5.add(lblNewLabel_7);
 		
 		yes_no = new JLabel("");
 		yes_no.setForeground(Color.RED);
-		yes_no.setFont(new Font("宋体", Font.PLAIN, 17));
+		//yes_no.setFont(new Font("宋体", Font.PLAIN, 17));
 		yes_no.setBounds(121, 120, 183, 20);
 		panel_5.add(yes_no);
 		
