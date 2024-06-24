@@ -11,9 +11,7 @@ import javax.swing.border.TitledBorder;
 
 
 import javax.swing.border.EtchedBorder;
-import java.awt.Color;
-
-import java.awt.Font;
+import java.awt.*;
 
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
@@ -119,38 +117,39 @@ public class settingPanel extends JPanel {
 		panel.setLayout(null);
 		
 		JPanel panel_2 = new JPanel();
-		panel_2.setBounds(10, 44, 665, 41);
+		panel_2.setBounds(10, 44, 500, 41);
 		panel.add(panel_2);
 		
-		JLabel lblNewLabel_2 = new JLabel("请输入");
+		//JLabel lblNewLabel_2 = new JLabel("请输入");
 //		lblNewLabel_2.setFont(new Font("宋体", Font.BOLD, 26));
-		panel_2.add(lblNewLabel_2);
-		
+		//panel_2.add(lblNewLabel_2);
+
 		OriginalCode = new JTextField();
 //		OriginalCode.setFont(new Font("宋体", Font.BOLD, 25));
 		OriginalCode.setColumns(10);
-		OriginalCode.setBounds(215, 124, 299, 29);
+		OriginalCode.setBounds(200, 120, 280, 50);
 		panel.add(OriginalCode);
-		
+
 		JLabel lblNewLabel = new JLabel("原密码：");
 //		lblNewLabel.setFont(new Font("宋体", Font.BOLD, 25));
-		lblNewLabel.setBounds(116, 95, 122, 87);
+		lblNewLabel.setBounds(116, 95, 130, 100);
 		panel.add(lblNewLabel);
+
 		JLabel lblNewLabel_1 = new JLabel("新密码：");
 //		lblNewLabel_1.setFont(new Font("宋体", Font.BOLD, 25));
-		lblNewLabel_1.setBounds(116, 163, 105, 97);
+		lblNewLabel_1.setBounds(116, 163, 130, 100);
 		panel.add(lblNewLabel_1);
 		
 		NewPassword = new JTextField();
 //		NewPassword.setFont(new Font("宋体", Font.BOLD, 25));
 		NewPassword.setColumns(10);
-		NewPassword.setBounds(215, 197, 299, 29);
+		NewPassword.setBounds(200, 200, 280, 50);
 		panel.add(NewPassword);
 		
 		JButton btnNewButton = new JButton("重置");
 		btnNewButton.setIcon(new ImageIcon(settingPanel.class.getResource("/img/重置.png")));
 //		btnNewButton.setFont(new Font("宋体", Font.BOLD, 21));
-		btnNewButton.setBounds(145, 285, 97, 23);
+		btnNewButton.setBounds(120, 300, 150, 60);
 		panel.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("确定");
@@ -191,7 +190,7 @@ public class settingPanel extends JPanel {
 			}
 		});
 //		btnNewButton_1.setFont(new Font("宋体", Font.BOLD, 21));
-		btnNewButton_1.setBounds(390, 285, 97, 23);
+		btnNewButton_1.setBounds(360, 300, 150, 60);
 		panel.add(btnNewButton_1);
 
 	}
