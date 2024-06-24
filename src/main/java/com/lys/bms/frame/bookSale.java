@@ -309,17 +309,17 @@ public class bookSale extends JPanel {
                                 String sqlString3 = "update book_stack set num=? where ISBN=?";
                                 int m = ConnectionManager.Update(sqlString3, new Object[]{stocknum, isbn});
                                 if (m > 0) {
-                                    System.out.println("(book-stack table图书数量更新完毕，购买" + num + "现在还剩下" + stocknum);
+                                    JOptionPane.showMessageDialog(null, "图书数量更新完毕，购买" + num + "现在还剩下" + stocknum + "本。", "提示", JOptionPane.INFORMATION_MESSAGE);
                                 } else {
-                                    System.out.println("图书数量更新失败！");
+                                    JOptionPane.showMessageDialog(null, "图书数量更新失败！", "警告", JOptionPane.WARNING_MESSAGE);
                                 }
 //								新书表
                                 String sqlString4 = "update new_book_in set num=? where ISBN=?";
                                 int k = ConnectionManager.Update(sqlString4, new Object[]{stocknum, isbn});
                                 if (k > 0) {
-                                    System.out.println("(new book table)图书数量更新完毕，购买" + num + "现在还剩下" + stocknum);
+                                    JOptionPane.showMessageDialog(null, "图书数量更新完毕，购买" + num + "现在还剩下" + stocknum + "本。", "提示", JOptionPane.INFORMATION_MESSAGE);
                                 } else {
-                                    System.out.println("图书数量更新失败！");
+                                    JOptionPane.showMessageDialog(null, "图书数量更新失败！", "警告", JOptionPane.WARNING_MESSAGE);
                                 }
 //								刷新表格
 

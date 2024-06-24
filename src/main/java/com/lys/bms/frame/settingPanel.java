@@ -206,7 +206,7 @@ public class settingPanel extends JPanel {
         panel_9.setLayout(new GridLayout(1, 4, 20, 0));
         panel_9.setBounds(10, 60, 650, 30);
 		userPane.add(panel_9);
-		JTextField pwd = new JTextField();
+		JPasswordField pwd = new JPasswordField();
 		pwd.setColumns(30);
         JLabel lblpwd = new JLabel("密码：");
         panel_9.add(lblpwd);
@@ -229,7 +229,20 @@ public class settingPanel extends JPanel {
         btnUsrSubmitButton.setIcon(svg.getSVGIcon("/svg/check-square.svg", "#515151", 20, 20));
         btnUsrSubmitButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                String usrText = usr.getText();
+                String pwdText = pwd.getText();
 
+                if(usrText.equals("") || pwdText.equals("")) {
+                    JOptionPane.showMessageDialog(null, "用户名或密码为空！", "警告", JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+                String sqlString = "insert into manager values(?,?,?);";
+                try {
+                    ConnectionManager.Update(sqlString, new Object[]{null, usrText, pwdText});
+                    JOptionPane.showMessageDialog(null, "用户添加成功！", "提示", JOptionPane.INFORMATION_MESSAGE);
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, "用户添加失败！", "警告", JOptionPane.WARNING_MESSAGE);
+                }
             }
         });
         panel_8.add(btnUsrSubmitButton);
