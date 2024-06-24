@@ -98,7 +98,6 @@ public class settingPanel extends JPanel {
             public void actionPerformed(ActionEvent e) {
 //				拿到数据,设置新数值
                 try {
-                    mainFrame.inprice_add = Double.parseDouble(jt1.getText());
                     mainFrame.discount = Double.parseDouble(jt2.getText());
                 } catch (Exception ex) {
                     mainFrame.statusWarn("输入值不合法。", 5);
