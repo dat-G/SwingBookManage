@@ -51,37 +51,18 @@ public class settingPanel extends JPanel {
         panel_4.setBounds(10, 20, 650, 30);
         panel_3.add(panel_4);
 
-        JLabel lblNewLabel_4 = new JLabel("标价  =  进价  *");
-        panel_4.add(lblNewLabel_4);
-        jt1 = new JTextField();
-        panel_4.add(jt1);
-        jt1.setColumns(10);
-        jt1.setText(Double.toString(mainFrame.inprice_add));
-
-        JPanel panel_4_1 = new JPanel();
-        panel_3.add(panel_4_1);
-        panel_4_1.setLayout(new GridLayout(1, 4, 20, 0));
-        panel_4_1.setBounds(10, 60, 650, 30);
-
-
-        JLabel lblNewLabel_4_13 = new JLabel("");
-        panel_4.add(lblNewLabel_4_13);
-
-
         JLabel lblNewLabel_4_1 = new JLabel("今日折扣： ");
-        panel_4_1.add(lblNewLabel_4_1);
+        panel_4.add(lblNewLabel_4_1);
 
         jt2 = new JTextField();
         jt2.setColumns(10);
         jt2.setBounds(330, 25, 136, 33);
-        panel_4_1.add(jt2);
+        panel_4.add(jt2);
         jt2.setText(Double.toString(mainFrame.discount));
 
         JPanel panel_4_1_1 = new JPanel();
         panel_4_1_1.setBounds(10, 263, 665, 80);
         panel_3.add(panel_4_1_1);
-        JLabel lblNewLabel_4_133 = new JLabel("");
-        panel_4_1.add(lblNewLabel_4_133);
         JButton jb_reset = new JButton("重置");
         jb_reset.setIcon(svg.getSVGIcon("/svg/arrow-clockwise.svg", "#2F4F4F", 20, 20));
         jb_reset.setBounds(420, 0, 150, 35);
@@ -107,7 +88,7 @@ public class settingPanel extends JPanel {
             }
         });
         jb_ok.setBounds(420, 40, 150, 35);
-        panel_4_1.add(jb_ok);
+        panel_4.add(jb_ok);
         JPanel panel = new JPanel();
         tabbedPane.addTab("修改密码", svg.getSVGIcon("/svg/key.svg", "#2F4F4F", 20, 20), panel, null);
         panel.setLayout(null);
