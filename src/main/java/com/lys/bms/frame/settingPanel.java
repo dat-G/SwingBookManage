@@ -42,7 +42,7 @@ public class settingPanel extends JPanel {
         add(tabbedPane);
 
         JPanel panel_3 = new JPanel();
-        tabbedPane.addTab("买卖设置", svg.getSVGIcon("/svg/sliders.svg", "#5555FF", 20, 20), panel_3, null);
+        tabbedPane.addTab("买卖设置", svg.getSVGIcon("/svg/sliders.svg", "#2F4F4F", 20, 20), panel_3, null);
         panel_3.setLayout(null);
 
         JPanel panel_4 = new JPanel();

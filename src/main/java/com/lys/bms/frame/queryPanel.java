@@ -52,7 +52,7 @@ public class queryPanel extends JPanel {
 		add(tabbedPane);
 
 		JPanel panel_1 = new JPanel();
-		tabbedPane.addTab("库存查询", svg.getSVGIcon("/svg/search.svg","#5555FF",20,20), panel_1, null);
+		tabbedPane.addTab("库存查询", svg.getSVGIcon("/svg/search.svg","#1296DB",20,20), panel_1, null);
 		panel_1.setLayout(null);
 		
 		JPanel panel_5_1 = new JPanel();
@@ -70,7 +70,7 @@ public class queryPanel extends JPanel {
 		panel_6_1.add(jt_text2);
 		
 		JButton jb_find = new JButton("查询");
-		jb_find.setIcon(svg.getSVGIcon("/svg/search.svg","#5555FF",20,20));
+		jb_find.setIcon(svg.getSVGIcon("/svg/search.svg","#1296DB",20,20));
 		
 //		jb_find.setFont(new Font("宋体", Font.BOLD, 20));
 		panel_6_1.add(jb_find);

@@ -71,7 +71,7 @@ public class Login extends JFrame {
 
 //        setBackground(new Color(224, 255, 255));
 //         Login.class.getResource("/img/线性图书 (1).png")
-        setIconImage(svg.getSVGImg("/svg/book-half.svg", "#0000FF", 256, 256));
+        setIconImage(svg.getSVGImg("/svg/book-half.svg", "#515151", 256, 256));
         setTitle("图书信息管理系统");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 350, 270);
@@ -104,7 +104,7 @@ public class Login extends JFrame {
 
         JLabel lblNewLabel_1 = new JLabel("账号：");
         lblNewLabel_1.setBounds(20, 10, 80, 30);
-        lblNewLabel_1.setIcon(svg.getSVGIcon("/svg/person-circle.svg","#5555FF ",20,20));
+        lblNewLabel_1.setIcon(svg.getSVGIcon("/svg/person-circle.svg","#1296DB ",20,20));
 //        lblNewLabel_1.setFont(new Font("宋体", Font.BOLD, 20));
         panel_1.add(lblNewLabel_1);
 
@@ -128,7 +128,7 @@ public class Login extends JFrame {
 
         JLabel lblNewLabel_1_1 = new JLabel("密码：");
         lblNewLabel_1_1.setBounds(20, 10, 80, 30);
-        lblNewLabel_1_1.setIcon(svg.getSVGIcon("/svg/key.svg","#5555FF",25,25));
+        lblNewLabel_1_1.setIcon(svg.getSVGIcon("/svg/key.svg","#1296DB",25,25));
 //        lblNewLabel_1_1.setFont(new Font("宋体", Font.BOLD, 20));
         panel_1_1.add(lblNewLabel_1_1);
 

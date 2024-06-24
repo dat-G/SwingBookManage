@@ -64,7 +64,7 @@ public class bookSale extends JPanel {
 		add(tabbedPane);
 		
 		JPanel panel = new JPanel();
-		tabbedPane.addTab("图书销售", svg.getSVGIcon("/svg/cart-check.svg","#5555FF",20,20), panel, null);
+		tabbedPane.addTab("图书销售", svg.getSVGIcon("/svg/cart-check.svg","#2F4F4F",20,20), panel, null);
 		panel.setLayout(null);
 
         JPanel panel_3 = new JPanel();
@@ -357,7 +357,7 @@ public class bookSale extends JPanel {
 
 
 		JPanel panel_1 = new JPanel();
-		tabbedPane.addTab("订单一览", svg.getSVGIcon("/svg/eye.svg","#5555FF",25,25), panel_1, null);
+		tabbedPane.addTab("订单一览", svg.getSVGIcon("/svg/eye.svg","#2F4F4F",25,25), panel_1, null);
 		panel_1.setLayout(null);
 
 		JPanel panel_4 = new JPanel();
@@ -389,7 +389,7 @@ public class bookSale extends JPanel {
 		dingdan_nums.setColumns(10);
 		
 		JPanel panel_5 = new JPanel();
-		tabbedPane.addTab("订单查询", svg.getSVGIcon("/svg/search.svg","#5555FF",20,20), panel_5, null);
+		tabbedPane.addTab("订单查询", svg.getSVGIcon("/svg/search.svg","#2F4F4F",20,20), panel_5, null);
 		panel_5.setLayout(null);
 
 		JPanel panel_6 = new JPanel();
@@ -402,7 +402,7 @@ public class bookSale extends JPanel {
 		find_text.setColumns(30);
 
 		JButton btnNewButton_2 = new JButton("查询");
-		btnNewButton_2.setIcon(svg.getSVGIcon("/svg/search.svg","#5555FF",20,20));
+		btnNewButton_2.setIcon(svg.getSVGIcon("/svg/search.svg","#1296DB",20,20));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 //				获取文本框数据

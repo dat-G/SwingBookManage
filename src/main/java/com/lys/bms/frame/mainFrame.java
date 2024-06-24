@@ -48,7 +48,7 @@ public class mainFrame extends JFrame {
         }
         this.manager = manager;
 
-        setIconImage(svg.getSVGImg("/svg/book.svg","#5555FF",25,25));
+        setIconImage(svg.getSVGImg("/svg/book.svg","#1296DB",25,25));
         setFont(new Font("Courier New", Font.BOLD, 21));
         setTitle("图书信息管理系统");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -56,9 +56,9 @@ public class mainFrame extends JFrame {
         setResizable(false);
 
         JMenuBar menuBar = new JMenuBar();
-        JMenuItem libManageMenuItem = new JMenuItem("书库管理", svg.getSVGIcon("/svg/gear.svg","#5555FF",18,18));
-        JMenuItem queryPanelMenuItem = new JMenuItem("信息查询",svg.getSVGIcon("/svg/search.svg","#5555FF",18,18));
-        JMenuItem bookSaleMenuItem = new JMenuItem("图书销售",svg.getSVGIcon("/svg/cart4.svg","#5555FF",18,18));
+        JMenuItem libManageMenuItem = new JMenuItem("书库管理", svg.getSVGIcon("/svg/gear.svg","#1296DB",18,18));
+        JMenuItem queryPanelMenuItem = new JMenuItem("信息查询",svg.getSVGIcon("/svg/search.svg","#1296DB",18,18));
+        JMenuItem bookSaleMenuItem = new JMenuItem("图书销售",svg.getSVGIcon("/svg/cart4.svg","#1296DB",18,18));
         JMenu advanceMenu = new JMenu("高级");
         JMenuItem settingPanelMenuItem = new JMenuItem("设置",svg.getSVGIcon("/svg/gear.svg","#2F4F4F",18,18));
         JMenuItem logOutMenuItem = new JMenuItem("登出",svg.getSVGIcon("/svg/box-arrow-in-left.svg","#2F4F4F",18,18));

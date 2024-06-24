@@ -54,7 +54,7 @@ public class libManage extends JPanel {
         add(tabbedPane);
 
         JPanel panel = new JPanel();
-        tabbedPane.addTab("信息编辑", svg.getSVGIcon("/svg/card-list.svg","#5555FF",25,25), panel, null);
+        tabbedPane.addTab("信息编辑", svg.getSVGIcon("/svg/card-list.svg","#2F4F4F",25,25), panel, null);
         panel.setLayout(null);
 
         JPanel panel_3 = new JPanel();
@@ -416,7 +416,7 @@ public class libManage extends JPanel {
         panel_3_3.add(btnNewButton_2);
 
         JPanel panel_2 = new JPanel();
-        tabbedPane.addTab("进书记录", svg.getSVGIcon("/svg/bag.svg","#5555FF",20,20), panel_2, null);
+        tabbedPane.addTab("进书记录", svg.getSVGIcon("/svg/bag.svg","#2F4F4F",20,20), panel_2, null);
         panel_2.setLayout(null);
 
         JScrollPane scrollPane_1 = new JScrollPane();
@@ -450,7 +450,7 @@ public class libManage extends JPanel {
         jt_get_all.setColumns(10);
 
         JPanel panel_1 = new JPanel();
-        tabbedPane.addTab("库存记录", svg.getSVGIcon("/svg/house.svg","#5555FF",20,20), panel_1, null);
+        tabbedPane.addTab("库存记录", svg.getSVGIcon("/svg/house.svg","#2F4F4F",20,20), panel_1, null);
         panel_1.setLayout(null);
 
         JScrollPane scrollPane = new JScrollPane();
