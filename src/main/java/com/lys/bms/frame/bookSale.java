@@ -123,7 +123,7 @@ public class bookSale extends JPanel {
 //		lblNewLabel_2.setFont(new Font("宋体", Font.BOLD, 19));
 		lblNewLabel_2.setBounds(70, 6, 89, 28);
 		panel_3_1.add(lblNewLabel_2);
-		
+
 		jt_num = new JTextField();
 //		jt_num.setFont(new Font("宋体", Font.BOLD, 19));
 		jt_num.setColumns(25);
@@ -490,21 +490,21 @@ public class bookSale extends JPanel {
 		panel_5.add(panel_7);
 		
 		JLabel lblNewLabel_6 = new JLabel("查询方式：");
-		lblNewLabel_6.setFont(new Font("宋体", Font.BOLD, 18));
+//		lblNewLabel_6.setFont(new Font("宋体", Font.BOLD, 18));
 		panel_7.add(lblNewLabel_6);
 		
 		jrb_isbn = new JRadioButton("ISBN");
 		jrb_isbn.setSelected(true);
-		jrb_isbn.setFont(new Font("宋体", Font.BOLD, 18));
+//		jrb_isbn.setFont(new Font("宋体", Font.BOLD, 18));
 		panel_7.add(jrb_isbn);
 		
 		jrb_bookname = new JRadioButton("书名");
-		jrb_bookname.setFont(new Font("宋体", Font.BOLD, 18));
+//		jrb_bookname.setFont(new Font("宋体", Font.BOLD, 18));
 		panel_7.add(jrb_bookname);
 		
 		jrb_time = new JRadioButton("交易时间");
 		jrb_time.setForeground(Color.BLACK);
-		jrb_time.setFont(new Font("宋体", Font.BOLD, 18));
+//		jrb_time.setFont(new Font("宋体", Font.BOLD, 18));
 		panel_7.add(jrb_time);
 		
 //		按钮组
@@ -521,7 +521,7 @@ public class bookSale extends JPanel {
 		scrollPane_1.setViewportView(table_1);
 		
 		JLabel lblNewLabel_7 = new JLabel("查询结果：");
-		lblNewLabel_7.setFont(new Font("宋体", Font.PLAIN, 17));
+//		lblNewLabel_7.setFont(new Font("宋体", Font.PLAIN, 17));
 		lblNewLabel_7.setBounds(38, 120, 86, 18);
 		panel_5.add(lblNewLabel_7);
 		
