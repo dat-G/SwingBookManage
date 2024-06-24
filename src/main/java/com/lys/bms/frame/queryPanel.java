@@ -64,7 +64,7 @@ public class queryPanel extends JPanel {
 		
 		jt_text2 = new JTextField();
 //		jt_text2.setFont(new Font("宋体", Font.BOLD, 20));
-		jt_text2.setColumns(30);
+		jt_text2.setColumns(52);
 		panel_6_1.add(jt_text2);
 		
 		JButton jb_find = new JButton("查询");
@@ -108,13 +108,13 @@ public class queryPanel extends JPanel {
 		
 		JLabel lblNewLabel_7_1 = new JLabel("查询结果：");
 //		lblNewLabel_7_1.setFont(new Font("宋体", Font.PLAIN, 17));
-		lblNewLabel_7_1.setBounds(38, 120, 86, 18);
+		lblNewLabel_7_1.setBounds(2, 120, 86, 18);
 		panel_5_1.add(lblNewLabel_7_1);
 		
 		jl2 = new JLabel("");
 //		jl2.setFont(new Font("宋体", Font.PLAIN, 16));
 		jl2.setForeground(Color.RED);
-		jl2.setBounds(123, 111, 183, 27);
+		 jl2.setBounds(123, 111, 183, 27);
 		panel_5_1.add(jl2);
 		jb_find.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
