@@ -60,7 +60,7 @@ public class bookSale extends JPanel {
 		setLayout(null);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(10, 24, 690, 426);
+		tabbedPane.setBounds(10, 24, 690, 495);
 		add(tabbedPane);
 		
 		JPanel panel = new JPanel();
@@ -361,12 +361,12 @@ public class bookSale extends JPanel {
 		panel_1.setLayout(null);
 
 		JPanel panel_4 = new JPanel();
-		panel_4.setBounds(10, 43, 665, 344);
+		panel_4.setBounds(0, 43, 685, 470);
 		panel_1.add(panel_4);
 		panel_4.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 0, 665, 344);
+		scrollPane.setBounds(0, 0, 685, 415);
 		panel_4.add(scrollPane);
 		
 		o1=new Object[] {"序号","ISBN","书名","购买数量","标价","折扣","应付","收取","找零","下单时间"};
@@ -397,7 +397,7 @@ public class bookSale extends JPanel {
 		panel_5.add(panel_6);
 
 		find_text = new JTextField();
-		find_text.setFont(new Font("宋体", Font.BOLD, 20));
+//		find_text.setFont(new Font("宋体", Font.BOLD, 20));
 		panel_6.add(find_text);
 		find_text.setColumns(30);
 
@@ -476,7 +476,7 @@ public class bookSale extends JPanel {
         bGroup.add(jrb_isbn);
 
         JScrollPane scrollPane_1 = new JScrollPane();
-        scrollPane_1.setBounds(0, 148, 685, 249);
+        scrollPane_1.setBounds(0, 148, 685, 310);
         panel_5.add(scrollPane_1);
 
         table_1 = new JTable(o2, o1);
