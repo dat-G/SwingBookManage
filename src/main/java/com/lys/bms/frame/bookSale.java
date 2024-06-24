@@ -144,12 +144,12 @@ public class bookSale extends JPanel {
 		jt_price.setBounds(420, 10, 171, 21);
 		panel_3_1.add(jt_price);
 
-//		trips_1 = new JLabel("");
-//		trips_1.setForeground(Color.RED);
-////		trips_1.setFont(new Font("宋体", Font.BOLD, 16));
-//		trips_1.setBounds(131, 37, 274, 21);
+		trips_1 = new JLabel("");
+		trips_1.setForeground(Color.RED);
+//		trips_1.setFont(new Font("宋体", Font.BOLD, 16));
+//		trips_1.setBounds(131, 250, 274, 21);
 //		panel_3_1.add(trips_1);
-//
+
 		JPanel panel_3_2 = new JPanel();
 		panel_3_2.setLayout(new GridLayout(1,4,20,0));
 		panel_3_2.setBounds(10, 100, 650, 30);
@@ -220,10 +220,10 @@ public class bookSale extends JPanel {
 		panel_3_3.setBounds(10, 140, 650, 30);
 		panel.add(panel_3_3);
 
-//		trips = new JLabel("");
+		trips = new JLabel("");
 ////		trips.setFont(new Font("宋体", Font.BOLD, 16));/
 //		trips.setForeground(Color.RED);
-//		trips.setBounds(131, 35, 202, 21);
+//		trips.setBounds(131, 245, 202, 21);
 //		panel_3_3.add(trips);
 
 		JLabel lblNewLabel_4 = new JLabel("收取：");
