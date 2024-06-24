@@ -61,14 +61,14 @@ public class queryPanel extends JPanel {
 		panel_5_1.add(panel_6_1);
 		
 		jt_text2 = new JTextField();
-		jt_text2.setFont(new Font("宋体", Font.BOLD, 20));
+//		jt_text2.setFont(new Font("宋体", Font.BOLD, 20));
 		jt_text2.setColumns(30);
 		panel_6_1.add(jt_text2);
 		
 		JButton jb_find = new JButton("查询");
 		jb_find.setIcon(new ImageIcon(queryPanel.class.getResource("/img/查询 (3).png")));
 		
-		jb_find.setFont(new Font("宋体", Font.BOLD, 20));
+//		jb_find.setFont(new Font("宋体", Font.BOLD, 20));
 		panel_6_1.add(jb_find);
 		
 		JPanel panel_7_1 = new JPanel();
@@ -76,16 +76,16 @@ public class queryPanel extends JPanel {
 		panel_5_1.add(panel_7_1);
 		
 		JLabel lblNewLabel_6_1 = new JLabel("查询方式：");
-		lblNewLabel_6_1.setFont(new Font("宋体", Font.BOLD, 18));
+//		lblNewLabel_6_1.setFont(new Font("宋体", Font.BOLD, 18));
 		panel_7_1.add(lblNewLabel_6_1);
 		
 		JRadioButton jrb1_isbn = new JRadioButton("ISBN");
 		jrb1_isbn.setSelected(true);
-		jrb1_isbn.setFont(new Font("宋体", Font.BOLD, 18));
+//		jrb1_isbn.setFont(new Font("宋体", Font.BOLD, 18));
 		panel_7_1.add(jrb1_isbn);
 		
 		JRadioButton jrb2_name = new JRadioButton("书名");
-		jrb2_name.setFont(new Font("宋体", Font.BOLD, 18));
+//		jrb2_name.setFont(new Font("宋体", Font.BOLD, 18));
 		panel_7_1.add(jrb2_name);
 		
 //		按钮组
@@ -105,12 +105,12 @@ public class queryPanel extends JPanel {
 		scrollPane_1_1.setViewportView(table_1);
 		
 		JLabel lblNewLabel_7_1 = new JLabel("查询结果：");
-		lblNewLabel_7_1.setFont(new Font("宋体", Font.PLAIN, 17));
+//		lblNewLabel_7_1.setFont(new Font("宋体", Font.PLAIN, 17));
 		lblNewLabel_7_1.setBounds(38, 120, 86, 18);
 		panel_5_1.add(lblNewLabel_7_1);
 		
 		jl2 = new JLabel("");
-		jl2.setFont(new Font("宋体", Font.PLAIN, 16));
+//		jl2.setFont(new Font("宋体", Font.PLAIN, 16));
 		jl2.setForeground(Color.RED);
 		jl2.setBounds(123, 111, 183, 27);
 		panel_5_1.add(jl2);
