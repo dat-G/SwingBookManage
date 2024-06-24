@@ -71,7 +71,7 @@ public class Login extends JFrame {
 
 //        setBackground(new Color(224, 255, 255));
 //         Login.class.getResource("/img/线性图书 (1).png")
-        setIconImage(svg.getSVGImg("/svg/book-half.svg", "#515151", 256, 256));
+        setIconImage(svg.getSVGImg("/svg/book-half.svg", "#0000FF", 256, 256));
         setTitle("图书信息管理系统");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 350, 270);
@@ -89,7 +89,7 @@ public class Login extends JFrame {
         panel.setLayout(null);
 
         JLabel lblNewLabel = new JLabel("登录");
-        lblNewLabel.setIcon(svg.getSVGIcon("/svg/box-arrow-in-right.svg","#515151", 25, 25));
+        lblNewLabel.setIcon(svg.getSVGIcon("/svg/box-arrow-in-right.svg","#000000", 25, 25));
         lblNewLabel.setIconTextGap(20);
         lblNewLabel.setBounds(110, 5, 400, 30);
 //        lblNewLabel.setForeground(new Color(0, 0, 0));
@@ -104,7 +104,7 @@ public class Login extends JFrame {
 
         JLabel lblNewLabel_1 = new JLabel("账号：");
         lblNewLabel_1.setBounds(20, 10, 80, 30);
-        lblNewLabel_1.setIcon(svg.getSVGIcon("/svg/person-circle.svg","#515151",20,20));
+        lblNewLabel_1.setIcon(svg.getSVGIcon("/svg/person-circle.svg","#5555FF ",20,20));
 //        lblNewLabel_1.setFont(new Font("宋体", Font.BOLD, 20));
         panel_1.add(lblNewLabel_1);
 
@@ -128,7 +128,7 @@ public class Login extends JFrame {
 
         JLabel lblNewLabel_1_1 = new JLabel("密码：");
         lblNewLabel_1_1.setBounds(20, 10, 80, 30);
-        lblNewLabel_1_1.setIcon(svg.getSVGIcon("/svg/key.svg","#515151",25,25));
+        lblNewLabel_1_1.setIcon(svg.getSVGIcon("/svg/key.svg","#5555FF",25,25));
 //        lblNewLabel_1_1.setFont(new Font("宋体", Font.BOLD, 20));
         panel_1_1.add(lblNewLabel_1_1);
 
@@ -158,13 +158,13 @@ public class Login extends JFrame {
                 jt_psw.setText("");
             }
         });
-        jb_reset.setIcon(svg.getSVGIcon("/svg/arrow-clockwise.svg","#515151",20,20));
+        jb_reset.setIcon(svg.getSVGIcon("/svg/arrow-clockwise.svg","#2F4F4F",20,20));
 //        jb_reset.setFont(new Font("宋体", Font.BOLD, 17));
         jb_reset.setBounds(40, 20, 100, 30);
         panel_2.add(jb_reset);
 
-        JButton jb_login = new JButton("登录");
-        jb_login.setIcon(svg.getSVGIcon("/svg/box-arrow-in-right.svg","#515151",20,20));
+        JButton jb_login = new JButton("提交");
+        jb_login.setIcon(svg.getSVGIcon("/svg/arrow-bar-up.svg","#2F4F4F",20,20));
         jb_login.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 //				获取账号和密码
