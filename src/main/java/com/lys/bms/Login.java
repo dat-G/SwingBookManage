@@ -71,6 +71,7 @@ public class Login extends JFrame {
         setTitle("图书信息管理系统");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 350, 270);
+        setResizable(false);
         contentPane = new JPanel();
 //        contentPane.setBackground(SystemColor.menu);
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
