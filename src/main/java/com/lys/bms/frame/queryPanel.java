@@ -25,6 +25,7 @@ public class queryPanel extends JPanel {
 	private JTable table;
 	private JTextField jt_text2;
 	private JTable table_1;
+	private JTextField jt_isbn;
 	private JLabel jl_result; 
 	private Object[] o1;
 	private JLabel jl2;
@@ -36,11 +37,12 @@ public class queryPanel extends JPanel {
 	public queryPanel() {
 		try {
 			UIManager.setLookAndFeel( new FlatIntelliJLaf() );
+			UIManager.put( "TabbedPane.showTabSeparators", true );
 		} catch( Exception ex ) {
 			System.err.println( "Failed to initialize LaF" );
 		}
-		setBackground(new Color(255, 192, 203));
-		setBorder(new TitledBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "\u4FE1\u606F\u67E5\u8BE2\u6A21\u5757", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)), "\u4FE1\u606F\u67E5\u8BE2\u6A21\u5757", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		setBorder(new TitledBorder(null, "\u4FE1\u606F\u67E5\u8BE2\u6A21\u5757", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+
 		setLayout(null);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
@@ -87,7 +89,7 @@ public class queryPanel extends JPanel {
 		JRadioButton jrb2_name = new JRadioButton("书名");
 //		jrb2_name.setFont(new Font("宋体", Font.BOLD, 18));
 		panel_7_1.add(jrb2_name);
-		
+
 //		按钮组
 		ButtonGroup bGroup=new ButtonGroup();
 		bGroup.add(jrb2_name);
@@ -205,7 +207,5 @@ public class queryPanel extends JPanel {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
 	}
-	
 }

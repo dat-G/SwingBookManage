@@ -2,7 +2,6 @@
 package com.lys.bms.frame;
 
 import com.formdev.flatlaf.FlatIntelliJLaf;
-import com.formdev.flatlaf.FlatLightLaf;
 import com.lys.bms.Login;
 import com.lys.bms.jdbc.ConnectionManager;
 import com.lys.bms.model.Manager;
@@ -11,10 +10,8 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.Font;
 import java.awt.Color;
-import javax.swing.border.TitledBorder;
 
 
-import java.awt.FlowLayout;
 import java.awt.Toolkit;
 import java.awt.CardLayout;
 import java.awt.event.ActionListener;
@@ -25,7 +22,7 @@ public class mainFrame extends JFrame {
 
     //	当前用户
     static Manager manager;
-    private JPanel contentPane;
+    private JPanel panel;
     CardLayout cardLayout = new CardLayout();
     //	标价设置
     static double inprice_add = 1.0;
@@ -40,6 +37,7 @@ public class mainFrame extends JFrame {
     public mainFrame(Manager manager) throws SQLException {
         try {
             UIManager.setLookAndFeel( new FlatIntelliJLaf() );
+            UIManager.put( "TabbedPane.showTabSeparators", true );
         } catch( Exception ex ) {
             System.err.println( "Failed to initialize LaF" );
         }
@@ -67,53 +65,53 @@ public class mainFrame extends JFrame {
         advanceMenu.add(logOutMenuItem);
         setJMenuBar(menuBar);
 
-        contentPane = new JPanel();
-        contentPane.setForeground(new Color(51, 51, 255)); // 前景色
-        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-        setContentPane(contentPane);
-        contentPane.setLayout(null);
+        panel = new JPanel();
+        panel.setForeground(new Color(51, 51, 255)); // 前景色
+        panel.setBorder(new EmptyBorder(5, 5, 5, 5));
+        setContentPane(panel);
+        panel.setLayout(null);
 
 //		内容显示面板，可切换，卡片布局
 
-        JPanel main_panel = new JPanel();
-        main_panel.setBounds(5, 10, 730, 530);
-        contentPane.add(main_panel);
-        main_panel.setLayout(new CardLayout(0, 0));
+        JPanel tabViewPane = new JPanel();
+        tabViewPane.setBounds(5, 10, 730, 530);
+        panel.add(tabViewPane);
+        tabViewPane.setLayout(new CardLayout(0, 0));
 //		给内容面板设置卡片布局
-        main_panel.setLayout(cardLayout);
+        tabViewPane.setLayout(cardLayout);
 //		添加图书面板
         libManage libManage = new libManage();
-        main_panel.add(libManage, "libManage");
+        tabViewPane.add(libManage, "libManage");
 //		添加信息查询面板
         queryPanel queryPanel = new queryPanel();
-        main_panel.add(queryPanel, "queryPanel");
+        tabViewPane.add(queryPanel, "queryPanel");
 //		添加图书销售模块
         bookSale bookSale = new bookSale();
-        main_panel.add(bookSale, "bookSale");
+        tabViewPane.add(bookSale, "bookSale");
 //		添加系统设置面板
         settingPanel settingPanel = new settingPanel();
-        main_panel.add(settingPanel, "4");
+        tabViewPane.add(settingPanel, "4");
 
         libManageMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                cardLayout.show(main_panel, "libManage");
+                cardLayout.show(tabViewPane, "libManage");
             }
         });
         queryPanelMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                cardLayout.show(main_panel, "queryPanel");
+                cardLayout.show(tabViewPane, "queryPanel");
             }
 
         });
         bookSaleMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                cardLayout.show(main_panel, "bookSale");
+                cardLayout.show(tabViewPane, "bookSale");
 
             }
         });
         settingPanelMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                cardLayout.show(main_panel, "4");
+                cardLayout.show(tabViewPane, "4");
             }
         });
         logOutMenuItem.addActionListener(new ActionListener() {
@@ -126,17 +124,15 @@ public class mainFrame extends JFrame {
         });
 
         JLabel welcome_mess = new JLabel("");
-//        welcome_mess.setFont(new Font("宋体", Font.BOLD, 15));
-        welcome_mess.setBounds(48, 543, 153, 20);
-        contentPane.add(welcome_mess);
-        welcome_mess.setText("你好！" + manager.getUserString());
+        welcome_mess.setBounds(90, 540, 150, 20);
+        panel.add(welcome_mess);
+        welcome_mess.setText("当前用户ID: " + manager.getUserString());
 
         JLabel day_mess = new JLabel("");
         String string = ConnectionManager.getday();
         day_mess.setText(string);
-//        day_mess.setFont(new Font("宋体", Font.BOLD, 15));
-        day_mess.setBounds(541, 543, 153, 20);
-        contentPane.add(day_mess);
+        day_mess.setBounds(540, 540, 150, 20);
+        panel.add(day_mess);
 
 
     }
