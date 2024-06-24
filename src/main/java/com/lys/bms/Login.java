@@ -163,8 +163,8 @@ public class Login extends JFrame {
         jb_reset.setBounds(40, 20, 100, 30);
         panel_2.add(jb_reset);
 
-        JButton jb_login = new JButton("登录");
-        jb_login.setIcon(svg.getSVGIcon("/svg/box-arrow-in-right.svg","#515151",20,20));
+        JButton jb_login = new JButton("提交");
+        jb_login.setIcon(svg.getSVGIcon("/svg/arrow-bar-up.svg","#515151",20,20));
         jb_login.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 //				获取账号和密码

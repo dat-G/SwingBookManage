@@ -61,7 +61,7 @@ public class mainFrame extends JFrame {
         JMenuItem bookSaleMenuItem = new JMenuItem("图书销售",svg.getSVGIcon("/svg/cart4.svg","#515151",18,18));
         JMenu advanceMenu = new JMenu("高级");
         JMenuItem settingPanelMenuItem = new JMenuItem("设置",svg.getSVGIcon("/svg/gear.svg","#515151",18,18));
-        JMenuItem logOutMenuItem = new JMenuItem("登出",svg.getSVGIcon("/svg/power.svg","#515151",18,18));
+        JMenuItem logOutMenuItem = new JMenuItem("登出",svg.getSVGIcon("/svg/box-arrow-in-left.svg","#515151",18,18));
         menuBar.add(libManageMenuItem);
         menuBar.add(queryPanelMenuItem);
         menuBar.add(bookSaleMenuItem);
