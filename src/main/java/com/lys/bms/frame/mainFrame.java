@@ -27,12 +27,13 @@ public class mainFrame extends JFrame {
     //	当前用户
     static Manager manager;
     private JPanel panel;
-    private JLabel statusBar;
+    private static JLabel statusBar;
     CardLayout cardLayout = new CardLayout();
     //	标价设置
     static double inprice_add = 1.0;
     //	折扣设置
     static double zhekou = 1.00;
+
 
     /**
      * Create the frame.
@@ -48,7 +49,7 @@ public class mainFrame extends JFrame {
         }
         this.manager = manager;
 
-        setIconImage(svg.getSVGImg("/svg/book.svg","#515151",25,25));
+        setIconImage(svg.getSVGImg("/svg/book.svg", "#515151", 25, 25));
         setFont(new Font("Courier New", Font.BOLD, 21));
         setTitle("图书信息管理系统");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -56,12 +57,12 @@ public class mainFrame extends JFrame {
         setResizable(false);
 
         JMenuBar menuBar = new JMenuBar();
-        JMenuItem libManageMenuItem = new JMenuItem("书库管理", svg.getSVGIcon("/svg/gear.svg","#515151",18,18));
-        JMenuItem queryPanelMenuItem = new JMenuItem("信息查询",svg.getSVGIcon("/svg/search.svg","#515151",18,18));
-        JMenuItem bookSaleMenuItem = new JMenuItem("图书销售",svg.getSVGIcon("/svg/cart4.svg","#515151",18,18));
+        JMenuItem libManageMenuItem = new JMenuItem("书库管理", svg.getSVGIcon("/svg/gear.svg", "#515151", 18, 18));
+        JMenuItem queryPanelMenuItem = new JMenuItem("信息查询", svg.getSVGIcon("/svg/search.svg", "#515151", 18, 18));
+        JMenuItem bookSaleMenuItem = new JMenuItem("图书销售", svg.getSVGIcon("/svg/cart4.svg", "#515151", 18, 18));
         JMenu advanceMenu = new JMenu("高级");
-        JMenuItem settingPanelMenuItem = new JMenuItem("设置",svg.getSVGIcon("/svg/gear.svg","#515151",18,18));
-        JMenuItem logOutMenuItem = new JMenuItem("登出",svg.getSVGIcon("/svg/power.svg","#515151",18,18));
+        JMenuItem settingPanelMenuItem = new JMenuItem("设置", svg.getSVGIcon("/svg/gear.svg", "#515151", 18, 18));
+        JMenuItem logOutMenuItem = new JMenuItem("登出", svg.getSVGIcon("/svg/power.svg", "#515151", 18, 18));
         menuBar.add(libManageMenuItem);
         menuBar.add(queryPanelMenuItem);
         menuBar.add(bookSaleMenuItem);
@@ -152,12 +153,12 @@ public class mainFrame extends JFrame {
 
     }
 
-    public void statusRecover() {
+    public static void statusRecover() {
         statusBar.setForeground(Color.BLACK);
         statusBar.setText("[Information] 当前用户ID: " + manager.getUserString() + " | 服务器日期: " + ConnectionManager.getday());
     }
 
-    public void statusWarn(String msg, int time) {
+    public static void statusWarn(String msg, int time) {
         statusBar.setForeground(Color.RED);
         statusBar.setText("[Warning] " + msg);
         Timer timer = new Timer(time * 1000, new ActionListener() {
