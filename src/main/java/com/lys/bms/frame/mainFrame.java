@@ -48,7 +48,7 @@ public class mainFrame extends JFrame {
         }
         this.manager = manager;
 
-        setIconImage(svg.getSVGImg("/svg/book.svg","#1296DB",25,25));
+        setIconImage(svg.getSVGImg("/svg/book.svg","#2F4F4F",25,25));
         setFont(new Font("Courier New", Font.BOLD, 21));
         setTitle("图书信息管理系统");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

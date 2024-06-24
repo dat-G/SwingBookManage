@@ -191,27 +191,27 @@ public class settingPanel extends JPanel {
         panel_8.setLayout(new GridLayout(1, 4, 20, 0));
         panel_8.setBounds(10, 20, 650, 30);
         userPane.add(panel_8);
-
         JTextField usr = new JTextField();
-        usr.setColumns(10);
-
-
+        usr.setColumns(30);
         JLabel lblusr = new JLabel("用户名：");
         panel_8.add(lblusr);
         panel_8.add(usr);
+		JLabel lblusr1 = new JLabel("");
+		panel_8.add(lblusr1);
 
-//        JPanel panel_7 = new JPanel();
-//        panel_7.setLayout(new GridLayout(1, 4, 20, 0));
-//        panel_7.setBounds(10, 60, 650, 30);
-//        panel.add(panel_7);
-
+        JPanel panel_9 = new JPanel();
+        panel_9.setLayout(new GridLayout(1, 4, 20, 0));
+        panel_9.setBounds(10, 60, 650, 30);
+		userPane.add(panel_9);
+		JTextField pwd = new JTextField();
+		pwd.setColumns(30);
         JLabel lblpwd = new JLabel("密码：");
-        panel_8.add(lblpwd);
-
-        JPasswordField pwd = new JPasswordField();
-        pwd.setColumns(10);
-        panel_8.add(pwd);
-
+        panel_9.add(lblpwd);
+        panel_9.add(pwd);
+		JLabel lblusr12= new JLabel("");
+		panel_9.add(lblusr12);
+		JLabel lblusr123 = new JLabel("");
+		panel_9.add(lblusr123);
         JButton btnUsrNewButton = new JButton("重置");
         btnUsrNewButton.addActionListener(new ActionListener() {
             @Override
