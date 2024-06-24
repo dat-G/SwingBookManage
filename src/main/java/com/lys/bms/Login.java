@@ -83,7 +83,7 @@ public class Login extends JFrame {
         contentPane.add(panel);
         panel.setLayout(null);
 
-        JLabel lblNewLabel = new JLabel("登入");
+        JLabel lblNewLabel = new JLabel("登录");
         lblNewLabel.setIcon(new ImageIcon(Login.class.getResource("/img/welcome.png")));
         lblNewLabel.setIconTextGap(20);
         lblNewLabel.setBounds(110, 5, 400, 30);
