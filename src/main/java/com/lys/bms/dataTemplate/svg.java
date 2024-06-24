@@ -29,6 +29,11 @@ public class svg {
         return tmpIcon.getImage();
     }
 
+    public static ImageIcon getSVGIcon(String svgPath, String renderColor) throws IOException {
+        BufferedImage tmpSVGImg = loadSvgImage(svgPath, renderColor);
+        ImageIcon tmpIcon = new ImageIcon(tmpSVGImg);
+        return tmpIcon;
+    }
 
     public static BufferedImage loadSvgImage(String resourceName, String renderColor) throws IOException {
         System.out.println(renderColor);
