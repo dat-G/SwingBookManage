@@ -60,7 +60,7 @@ public class bookSale extends JPanel {
 		setLayout(null);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(10, 24, 690, 495);
+		tabbedPane.setBounds(10, 23, 690, 495);
 		add(tabbedPane);
 		
 		JPanel panel = new JPanel();
@@ -378,13 +378,13 @@ public class bookSale extends JPanel {
 		scrollPane.setViewportView(table);
 		
 		JLabel lblNewLabel_5 = new JLabel("订单总数：");
-		lblNewLabel_5.setFont(new Font("宋体", Font.BOLD, 19));
-		lblNewLabel_5.setBounds(468, 10, 124, 23);
+//		lblNewLabel_5.setFont(new Font("宋体", Font.BOLD, 19));
+		lblNewLabel_5.setBounds(468, 10, 124, 28);
 		panel_1.add(lblNewLabel_5);
 		
 		dingdan_nums = new JTextField();
 		dingdan_nums.setEditable(false);
-		dingdan_nums.setBounds(556, 10, 93, 21);
+		dingdan_nums.setBounds(556, 10, 93, 28);
 		panel_1.add(dingdan_nums);
 		dingdan_nums.setColumns(10);
 		
@@ -399,7 +399,7 @@ public class bookSale extends JPanel {
 		find_text = new JTextField();
 //		find_text.setFont(new Font("宋体", Font.BOLD, 20));
 		panel_6.add(find_text);
-		find_text.setColumns(30);
+		find_text.setColumns(52);
 
 		JButton btnNewButton_2 = new JButton("查询");
 		btnNewButton_2.setIcon(svg.getSVGIcon("/svg/search.svg","#1296DB",20,20));
@@ -484,7 +484,7 @@ public class bookSale extends JPanel {
 
         JLabel lblNewLabel_7 = new JLabel("查询结果：");
 //		lblNewLabel_7.setFont(new Font("宋体", Font.PLAIN, 17));
-        lblNewLabel_7.setBounds(38, 120, 86, 18);
+        lblNewLabel_7.setBounds(2, 120, 86, 18);
         panel_5.add(lblNewLabel_7);
 
 

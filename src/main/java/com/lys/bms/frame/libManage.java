@@ -441,11 +441,11 @@ public class libManage extends JPanel {
 
         JLabel lblNewLabel_5 = new JLabel("总计：");
 //        lblNewLabel_5.setFont(new Font("宋体", Font.BOLD, 16));
-        lblNewLabel_5.setBounds(536, 10, 58, 23);
+        lblNewLabel_5.setBounds(536, 10, 58, 28);
         panel_2.add(lblNewLabel_5);
 
         jt_get_all.setEditable(false);
-        jt_get_all.setBounds(578, 10, 97, 21);
+        jt_get_all.setBounds(578, 10, 97, 28);
         panel_2.add(jt_get_all);
         jt_get_all.setColumns(10);
 
@@ -470,7 +470,7 @@ public class libManage extends JPanel {
 
         jt_get_sum.setEditable(false);
         jt_get_sum.setColumns(10);
-        jt_get_sum.setBounds(578, 10, 97, 21);
+        jt_get_sum.setBounds(578, 10, 97, 28);
         panel_1.add(jt_get_sum);
 
         table_bookstock = new JTable(objects3, a);
@@ -483,7 +483,7 @@ public class libManage extends JPanel {
 
         JLabel lblNewLabel_5_1 = new JLabel("总计：");
 //        lblNewLabel_5_1.setFont(new Font("宋体", Font.BOLD, 16));
-        lblNewLabel_5_1.setBounds(536, 10, 58, 23);
+        lblNewLabel_5_1.setBounds(536, 10, 58, 28);
         panel_1.add(lblNewLabel_5_1);
     }
 
