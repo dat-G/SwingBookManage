@@ -61,4 +61,5 @@ create table if not exists new_book_in
 INSERT INTO bm.book_stack (ISBN, bookname, author, num, mark_price) VALUES ('7-5111-5645-2', '有机食品加工技术', '邹磊', 3, 48.00);
 INSERT INTO bm.new_book_in (ID, ISBN, bookname, author, cost_price, num, time, mark_price) VALUES (1, '7-5111-5645-2', '有机食品加工技术', '邹磊', 24.00, 3, '2024-06-25 03:31:53', 48.00);
 
-INSERT INTO bm.manager (ID, user, password) VALUES (1, 'admin', 'admin');
+INSERT INTO bm.manager (ID, user, password) VALUES (1, 'admin', '21232f297a57a5a743894a0e4a801fc3');
+

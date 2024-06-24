@@ -10,6 +10,7 @@ import javax.swing.text.Document;
 
 import com.formdev.flatlaf.FlatIntelliJLaf;
 import com.formdev.flatlaf.FlatLightLaf;
+import com.lys.bms.dataTemplate.md5;
 import com.lys.bms.dataTemplate.svg;
 import com.lys.bms.frame.mainFrame;
 import com.lys.bms.jdbc.ConnectionManager;
@@ -181,15 +182,14 @@ public class Login extends JFrame {
                             String user = set.getString("user");
                             String psw = set.getString("password");
 
-                            System.out.println(user + psw);
 //							判断密码
                             if (pswString.equals("")) {
                                 JOptionPane.showMessageDialog(null, "密码不能为空！", "警告", JOptionPane.WARNING_MESSAGE);
-                            } else if (psw.equals(pswString)) {
+                            } else if (psw.equals(md5.generateMD5(pswString))) {
 //								登录成功
                                 JOptionPane.showMessageDialog(null, "登陆成功！", "提示", JOptionPane.INFORMATION_MESSAGE);
 //								打开新窗口
-                                jrame = new mainFrame(new Manager(userString, pswString));
+                                jrame = new mainFrame(new Manager(userString, md5.generateMD5(pswString)));
 //								关闭当前
                                 dispose();
                                 jrame.setVisible(true);

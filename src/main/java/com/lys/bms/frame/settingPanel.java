@@ -2,6 +2,7 @@ package com.lys.bms.frame;
 
 import com.formdev.flatlaf.FlatIntelliJLaf;
 import com.lys.bms.Login;
+import com.lys.bms.dataTemplate.md5;
 import com.lys.bms.dataTemplate.svg;
 import com.lys.bms.jdbc.ConnectionManager;
 
@@ -157,15 +158,17 @@ public class settingPanel extends JPanel {
         btnNewButton_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 //				先获取输入的密码与已经登录的密码匹配是否一致
-                String originalCodeString = OriginalPassword.getText();
-                if (originalCodeString.equals(mainFrame.manager.getPswString())) {
+                if (OriginalPassword.getText().equals("") || NewPassword.getText().equals("")) {
+                    JOptionPane.showMessageDialog(null, "密码不能为空！", "警告", JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+                if (md5.generateMD5(OriginalPassword.getText()).equals(mainFrame.manager.getPswString())) {
 //					获取新密码
-                    String newPasswordString = NewPassword.getText();
 //					保存新密码到用户表中
-                    System.out.println(newPasswordString);
+//                    System.out.println(newPasswordString);
                     String sql = "update manager set password=? where user=?";
                     try {
-                        int n = ConnectionManager.Update(sql, new Object[]{newPasswordString, mainFrame.manager.getUserString()});
+                        int n = ConnectionManager.Update(sql, new Object[]{md5.generateMD5(NewPassword.getText()), mainFrame.manager.getUserString()});
                         if (n > 0) {
 //							密码修改成功
                             JOptionPane.showMessageDialog(null, "修改成功，请重新登录！", "提示", JOptionPane.INFORMATION_MESSAGE);
@@ -237,8 +240,9 @@ public class settingPanel extends JPanel {
                     return;
                 }
                 String sqlString = "insert into manager values(?,?,?);";
+                String encryptedPWD = md5.generateMD5(pwdText);
                 try {
-                    ConnectionManager.Update(sqlString, new Object[]{null, usrText, pwdText});
+                    ConnectionManager.Update(sqlString, new Object[]{null, usrText, encryptedPWD});
                     JOptionPane.showMessageDialog(null, "用户添加成功！", "提示", JOptionPane.INFORMATION_MESSAGE);
                 } catch (SQLException ex) {
                     JOptionPane.showMessageDialog(null, "用户添加失败！", "警告", JOptionPane.WARNING_MESSAGE);

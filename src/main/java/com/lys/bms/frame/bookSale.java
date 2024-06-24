@@ -331,7 +331,7 @@ public class bookSale extends JPanel {
                             }
 
 //							保存数据到表
-                                String sqlstring = "insert into book_out values(?,?,?,?,?,?,?,?,?,?);";
+                            String sqlstring = "insert into book_out values(?,?,?,?,?,?,?,?,?,?);";
                             int n = ConnectionManager.Update(sqlstring, new Object[]{null, isbnString, bookname, num, mark_price, discount, shouldpay, receive, returnmoney, time});
                             if (n > 0) {
 //                                JOptionPane.showMessageDialog(null, "下单成功！", "提示", JOptionPane.INFORMATION_MESSAGE);
