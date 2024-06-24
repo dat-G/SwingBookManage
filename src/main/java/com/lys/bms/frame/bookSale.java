@@ -1,8 +1,8 @@
 package com.lys.bms.frame;
 
 import com.formdev.flatlaf.FlatIntelliJLaf;
-import com.lys.bms.dataTemplate.svg;
 import com.lys.bms.dataTemplate.isbn;
+import com.lys.bms.dataTemplate.svg;
 import com.lys.bms.jdbc.ConnectionManager;
 
 import javax.swing.*;
@@ -14,14 +14,12 @@ import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.text.Document;
-
-
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.awt.event.ActionEvent;
 
 public class bookSale extends JPanel {
     private JTextField jt_isbn;
@@ -59,7 +57,7 @@ public class bookSale extends JPanel {
         setLayout(null);
 
         JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(10, 23, 690, 495);
+        tabbedPane.setBounds(10, 23, 690, 495);
         add(tabbedPane);
 
         JPanel panel = new JPanel();
@@ -173,6 +171,21 @@ public class bookSale extends JPanel {
         jt_discount.setColumns(25);
         jt_discount.setBounds(131, 10, 171, 21);
         panel_3_2.add(jt_discount);
+
+        jt_discount.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (!(jt_price.getText().equals("") || jt_discount.getText().equals(""))) {
+                    Integer num = Integer.parseInt(jt_num.getValue().toString());
+                    double price = Double.parseDouble(jt_price.getText());
+                    double discount = Double.parseDouble(jt_discount.getText());
+//				计算应付金额
+                    double shouldpay = num * price * discount;
+                    jt_shouldpay.setText(String.format("%.2f", shouldpay));
+                }
+
+            }
+        });
 
         JLabel lblNewLabel_1_2 = new JLabel("应付：");
 //		lblNewLabel_1_2.setFont(new Font("宋体", Font.BOLD, 19));
@@ -292,31 +305,40 @@ public class bookSale extends JPanel {
                             String returnmoney = jt_return.getText();
 //							下单时间
                             String time = ConnectionManager.gettime();
+                            int questnum = 0;
+                            try {
+                                questnum = Integer.parseInt(num);
+                            } catch (NumberFormatException ex) {
+                                JOptionPane.showMessageDialog(null, "数量不合法。", "警告", JOptionPane.WARNING_MESSAGE);
+                                return;
+                            }
+                            int stocknum = 0;
+                            String sqlString2 = "select num from book_stack where ISBN=?";
+                            ResultSet set1 = ConnectionManager.query(sqlString2, new Object[]{isbnString});
+                            if (set1.next()) {
+                                stocknum = set1.getInt("num");
+                            }
+                            stocknum = stocknum - questnum;
+                            if (stocknum < 0) {
+                                JOptionPane.showMessageDialog(null, "库存不足", "警告", JOptionPane.WARNING_MESSAGE);
+                                return;
+                            }
+
+                            Double total = questnum * Double.parseDouble(mark_price) * Double.parseDouble(discount);
+                            if (total > Double.parseDouble(receive)){
+                                JOptionPane.showMessageDialog(null, "收取钱款不足", "警告", JOptionPane.WARNING_MESSAGE);
+                                return;
+                            }
+
 //							保存数据到表
-                            String sqlstring = "insert into book_out values(?,?,?,?,?,?,?,?,?,?);";
+                                String sqlstring = "insert into book_out values(?,?,?,?,?,?,?,?,?,?);";
                             int n = ConnectionManager.Update(sqlstring, new Object[]{null, isbnString, bookname, num, mark_price, discount, shouldpay, receive, returnmoney, time});
                             if (n > 0) {
 //                                JOptionPane.showMessageDialog(null, "下单成功！", "提示", JOptionPane.INFORMATION_MESSAGE);
-//								修改库存数量
-                                int stocknum = 0;
-                                String sqlString2 = "select num from book_stack where ISBN=?";
-                                ResultSet set1 = ConnectionManager.query(sqlString2, new Object[]{isbnString});
-                                if (set1.next()) {
-                                    stocknum = set1.getInt("num");
-                                }
-                                stocknum = stocknum - Integer.parseInt(num);
 //								保存更改后的数量-库存
                                 String sqlString3 = "update book_stack set num=? where ISBN=?";
                                 int m = ConnectionManager.Update(sqlString3, new Object[]{stocknum, isbn});
                                 if (m > 0) {
-                                    JOptionPane.showMessageDialog(null, "图书数量更新完毕，购买" + num + "现在还剩下" + stocknum + "本。", "提示", JOptionPane.INFORMATION_MESSAGE);
-                                } else {
-                                    JOptionPane.showMessageDialog(null, "图书数量更新失败！", "警告", JOptionPane.WARNING_MESSAGE);
-                                }
-//								新书表
-                                String sqlString4 = "update new_book_in set num=? where ISBN=?";
-                                int k = ConnectionManager.Update(sqlString4, new Object[]{stocknum, isbn});
-                                if (k > 0) {
                                     JOptionPane.showMessageDialog(null, "图书数量更新完毕，购买" + num + "现在还剩下" + stocknum + "本。", "提示", JOptionPane.INFORMATION_MESSAGE);
                                 } else {
                                     JOptionPane.showMessageDialog(null, "图书数量更新失败！", "警告", JOptionPane.WARNING_MESSAGE);
@@ -375,12 +397,12 @@ public class bookSale extends JPanel {
 
         JLabel lblNewLabel_5 = new JLabel("订单总数：");
 //		lblNewLabel_5.setFont(new Font("宋体", Font.BOLD, 19));
-		lblNewLabel_5.setBounds(468, 10, 124, 28);
+        lblNewLabel_5.setBounds(468, 10, 124, 28);
         panel_1.add(lblNewLabel_5);
 
         dingdan_nums = new JTextField();
         dingdan_nums.setEditable(false);
-		dingdan_nums.setBounds(556, 10, 93, 28);
+        dingdan_nums.setBounds(556, 10, 93, 28);
         panel_1.add(dingdan_nums);
         dingdan_nums.setColumns(10);
 
@@ -395,7 +417,7 @@ public class bookSale extends JPanel {
         find_text = new JTextField();
 //		find_text.setFont(new Font("宋体", Font.BOLD, 20));
         panel_6.add(find_text);
-		find_text.setColumns(52);
+        find_text.setColumns(52);
 
         JButton btnNewButton_2 = new JButton("查询");
         btnNewButton_2.setIcon(svg.getSVGIcon("/svg/search.svg", "#1296DB", 20, 20));
@@ -517,7 +539,7 @@ public class bookSale extends JPanel {
      */
     public void get_shouldpay() throws SQLException {
 //		获取该书的库存量
-        boolean extis = false;
+        boolean exist = false;
         String isbn = jt_isbn.getText();
         int num;
         String sql = "select num from book_stack where ISBN=?";
@@ -531,11 +553,11 @@ public class bookSale extends JPanel {
         int stock_num = 0;
         while (set.next()) {
             stock_num = set.getInt("num");
-            extis = true;
+            exist = true;
 
         }
 
-        if (extis) {
+        if (exist) {
 //			购买数量超过库存
             num = Integer.parseInt(jt_num.getValue().toString());
             if (num > stock_num) {
@@ -547,7 +569,7 @@ public class bookSale extends JPanel {
 //				计算应付金额
                 double shouldpay = num * price * discount;
 //				会显
-                jt_shouldpay.setText(Double.toString(shouldpay));
+                jt_shouldpay.setText(String.format("%.2f", shouldpay));
             }
 
         }
@@ -571,7 +593,7 @@ public class bookSale extends JPanel {
                 mainFrame.statusWarn("应收款不足。", 5);
             } else {
                 double returnmoney = receive - shouldpay;
-                jt_return.setText(Double.toString(returnmoney));
+                jt_return.setText(String.format("%.2f",returnmoney));
             }
         }
     }
