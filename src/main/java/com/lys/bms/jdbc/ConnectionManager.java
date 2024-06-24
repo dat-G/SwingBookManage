@@ -3,6 +3,7 @@ package com.lys.bms.jdbc;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.sql.*;
+
 /**
  * 简述：
  *数据库管理类
@@ -14,7 +15,7 @@ public class ConnectionManager {
     /**
      * 连接数据库的四大必需属性
      */
-    private static final String driver = "com.mysql.cj.jdbc.Driver";
+    private static final String driver = "com.mysql.jdbc.Driver";
     private static final String url = "jdbc:mysql://localhost:3306/bm?useSSL=false&serverTimezone=Asia/Shanghai";
     private static final String user = "root";
     private static final String psd = "root";

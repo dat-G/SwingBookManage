@@ -71,8 +71,7 @@ public class Login extends JFrame {
 
 //        setBackground(new Color(224, 255, 255));
 //         Login.class.getResource("/img/线性图书 (1).png")
-        Color iconColor = new Color(112,112,112);
-        setIconImage(svg.getSVGImg("/svg/book-half.svg", "#515151"));
+        setIconImage(svg.getSVGImg("/svg/book-half.svg", "#515151", 256, 256));
         setTitle("图书信息管理系统");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 350, 270);
@@ -90,7 +89,7 @@ public class Login extends JFrame {
         panel.setLayout(null);
 
         JLabel lblNewLabel = new JLabel("登录");
-        lblNewLabel.setIcon(new ImageIcon(Login.class.getResource("/img/welcome.png")));
+        lblNewLabel.setIcon(svg.getSVGIcon("/svg/emoji-smile.svg","#515151", 32, 32));
         lblNewLabel.setIconTextGap(20);
         lblNewLabel.setBounds(110, 5, 400, 30);
 //        lblNewLabel.setForeground(new Color(0, 0, 0));

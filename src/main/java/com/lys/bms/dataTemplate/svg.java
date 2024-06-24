@@ -23,19 +23,19 @@ import java.io.StringWriter;
 import java.net.URL;
 
 public class svg {
-    public static Image getSVGImg(String svgPath, String renderColor) throws IOException {
-        BufferedImage tmpSVGImg = loadSvgImage(svgPath, renderColor);
+    public static Image getSVGImg(String svgPath, String renderColor, int width, int height) throws IOException {
+        BufferedImage tmpSVGImg = loadSvgImage(svgPath, renderColor, width, height);
         ImageIcon tmpIcon = new ImageIcon(tmpSVGImg);
         return tmpIcon.getImage();
     }
 
-    public static ImageIcon getSVGIcon(String svgPath, String renderColor) throws IOException {
-        BufferedImage tmpSVGImg = loadSvgImage(svgPath, renderColor);
+    public static ImageIcon getSVGIcon(String svgPath, String renderColor, int width, int height) throws IOException {
+        BufferedImage tmpSVGImg = loadSvgImage(svgPath, renderColor, width, height);
         ImageIcon tmpIcon = new ImageIcon(tmpSVGImg);
         return tmpIcon;
     }
 
-    public static BufferedImage loadSvgImage(String resourceName, String renderColor) throws IOException {
+    public static BufferedImage loadSvgImage(String resourceName, String renderColor, int width, int height) throws IOException {
         System.out.println(renderColor);
         URL resourceURL = svg.class.getResource(resourceName);
         // 创建SVG文档工厂
@@ -50,10 +50,12 @@ public class svg {
         SVGElement rootElement = svgDocument.getRootElement();
 
         rootElement.setAttributeNS(null, "fill", renderColor);
+        rootElement.setAttributeNS(null, "width", String.valueOf(width));
+        rootElement.setAttributeNS(null, "height", String.valueOf(height));
 
 //        System.out.println(convertDocumentToString(svgDocument));
-        float width = Float.parseFloat(rootElement.getAttributeNS(null, "width"));
-        float height = Float.parseFloat(rootElement.getAttributeNS(null, "height"));
+//        float width = Float.parseFloat(rootElement.getAttributeNS(null, "width"));
+//        float height = Float.parseFloat(rootElement.getAttributeNS(null, "height"));
 
         // 创建用户代理
         UserAgent userAgent = new UserAgentAdapter();
@@ -69,7 +71,7 @@ public class svg {
         // 获取SVG图像的尺寸
 
         // 创建一个BufferedImage来绘制SVG图像
-        BufferedImage bufferedImage = new BufferedImage((int) width, (int) height, BufferedImage.TYPE_INT_ARGB);
+        BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 
         // 创建Graphics2D对象并绘制SVG图像
         Graphics2D g2d = bufferedImage.createGraphics();
