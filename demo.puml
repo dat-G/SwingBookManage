@@ -1,0 +1,67 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+
+class Login{
+
+}
+class ConnectionManager{
+String driver
+String url
+String user
+String psd
+Resultset query(String,Object[])
+int Update(String,Object[])
+Connection getConnection()
+}
+
+class Book_sele{
+}
+class Books_panel{
+}
+class Jrame2{
+}
+class New_find_panel{
+}
+class System_setting_panel{
+}
+
+class Manager{
+String userString
+String pswString
+}
+class JFrame{}
+class JPanel{}
+
+Jrame2 <|-- JFrame
+Book_sele <|-- JPanel
+Books_panel <|-- JPanel
+New_find_panel <|-- JPanel
+System_setting_panel <|-- JPanel
+Login <|-- JFrame
+
+Jrame2 -> Manager
+
+Jrame2 -> Book_sele
+System_setting_panel -> Book_sele
+Book_sele ->  Books_panel
+Jrame2 -> Books_panel
+
+Login -> Jrame2
+Book_sele -> Jrame2
+Books_panel ->Jrame2
+System_setting_panel -> Jrame2
+
+Jrame2 -> New_find_panel
+Jrame2 -> System_setting_panel
+
+Login -> ConnectionManager
+Book_sele -> ConnectionManager
+Books_panel -> ConnectionManager
+Jrame2 -> ConnectionManager
+New_find_panel -> ConnectionManager
+System_setting_panel -> ConnectionManager
+
+
+@enduml
