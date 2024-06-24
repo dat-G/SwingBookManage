@@ -59,7 +59,7 @@ public class mainFrame extends JFrame {
         JMenuItem bookSaleMenuItem = new JMenuItem("图书销售",svg.getSVGIcon("/svg/cart4.svg","#1296DB",18,18));
         JMenu advanceMenu = new JMenu("高级");
         JMenuItem settingPanelMenuItem = new JMenuItem("设置",svg.getSVGIcon("/svg/gear.svg","#2F4F4F",18,18));
-        JMenuItem logOutMenuItem = new JMenuItem("登出",svg.getSVGIcon("/svg/box-arrow-in-left.svg","#2F4F4F",18,18));
+        JMenuItem logOutMenuItem = new JMenuItem("退出",svg.getSVGIcon("/svg/box-arrow-in-left.svg","#2F4F4F",18,18));
         menuBar.add(libManageMenuItem);
         menuBar.add(queryPanelMenuItem);
         menuBar.add(bookSaleMenuItem);
@@ -119,17 +119,7 @@ public class mainFrame extends JFrame {
         });
         logOutMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                Login login = null;
-                try {
-                    login = new Login();
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
-                } catch (SQLException ex) {
-                    throw new RuntimeException(ex);
-                }
-//				关闭当前
-                dispose();
-                login.setVisible(true);
+                System.exit(0);
             }
         });
         statusBar = new JLabel("");
