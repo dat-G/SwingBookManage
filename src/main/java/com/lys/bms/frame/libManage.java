@@ -41,6 +41,7 @@ public class libManage extends JPanel {
     public libManage() throws SQLException {
         try {
             UIManager.setLookAndFeel( new FlatIntelliJLaf() );
+            UIManager.put( "TabbedPane.showTabSeparators", true );
         } catch( Exception ex ) {
             System.err.println( "Failed to initialize LaF" );
         }

@@ -37,6 +37,7 @@ public class mainFrame extends JFrame {
     public mainFrame(Manager manager) throws SQLException {
         try {
             UIManager.setLookAndFeel( new FlatIntelliJLaf() );
+            UIManager.put( "TabbedPane.showTabSeparators", true );
         } catch( Exception ex ) {
             System.err.println( "Failed to initialize LaF" );
         }
@@ -72,45 +73,45 @@ public class mainFrame extends JFrame {
 
 //		内容显示面板，可切换，卡片布局
 
-        JPanel tabViewPanel = new JPanel();
-        tabViewPanel.setBounds(5, 10, 730, 530);
-        panel.add(tabViewPanel);
-        tabViewPanel.setLayout(new CardLayout(0, 0));
+        JPanel tabViewPane = new JPanel();
+        tabViewPane.setBounds(5, 10, 730, 530);
+        panel.add(tabViewPane);
+        tabViewPane.setLayout(new CardLayout(0, 0));
 //		给内容面板设置卡片布局
-        tabViewPanel.setLayout(cardLayout);
+        tabViewPane.setLayout(cardLayout);
 //		添加图书面板
         libManage libManage = new libManage();
-        tabViewPanel.add(libManage, "libManage");
+        tabViewPane.add(libManage, "libManage");
 //		添加信息查询面板
         queryPanel queryPanel = new queryPanel();
-        tabViewPanel.add(queryPanel, "queryPanel");
+        tabViewPane.add(queryPanel, "queryPanel");
 //		添加图书销售模块
         bookSale bookSale = new bookSale();
-        tabViewPanel.add(bookSale, "bookSale");
+        tabViewPane.add(bookSale, "bookSale");
 //		添加系统设置面板
         settingPanel settingPanel = new settingPanel();
-        tabViewPanel.add(settingPanel, "4");
+        tabViewPane.add(settingPanel, "4");
 
         libManageMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                cardLayout.show(tabViewPanel, "libManage");
+                cardLayout.show(tabViewPane, "libManage");
             }
         });
         queryPanelMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                cardLayout.show(tabViewPanel, "queryPanel");
+                cardLayout.show(tabViewPane, "queryPanel");
             }
 
         });
         bookSaleMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                cardLayout.show(tabViewPanel, "bookSale");
+                cardLayout.show(tabViewPane, "bookSale");
 
             }
         });
         settingPanelMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                cardLayout.show(tabViewPanel, "4");
+                cardLayout.show(tabViewPane, "4");
             }
         });
         logOutMenuItem.addActionListener(new ActionListener() {
@@ -123,7 +124,6 @@ public class mainFrame extends JFrame {
         });
 
         JLabel welcome_mess = new JLabel("");
-//        welcome_mess.setFont(new Font("宋体", Font.BOLD, 15));
         welcome_mess.setBounds(90, 540, 150, 20);
         panel.add(welcome_mess);
         welcome_mess.setText("当前用户ID: " + manager.getUserString());
@@ -131,7 +131,6 @@ public class mainFrame extends JFrame {
         JLabel day_mess = new JLabel("");
         String string = ConnectionManager.getday();
         day_mess.setText(string);
-//        day_mess.setFont(new Font("宋体", Font.BOLD, 15));
         day_mess.setBounds(540, 540, 150, 20);
         panel.add(day_mess);
 

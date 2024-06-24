@@ -36,6 +36,7 @@ public class queryPanel extends JPanel {
 	public queryPanel() {
 		try {
 			UIManager.setLookAndFeel( new FlatIntelliJLaf() );
+			UIManager.put( "TabbedPane.showTabSeparators", true );
 		} catch( Exception ex ) {
 			System.err.println( "Failed to initialize LaF" );
 		}
