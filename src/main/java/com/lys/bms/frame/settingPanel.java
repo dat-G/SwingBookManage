@@ -47,7 +47,7 @@ public class settingPanel extends JPanel {
 		
 		JPanel panel_4 = new JPanel();
 		panel_4.setLayout(new GridLayout(1,4,20,0));
-		panel_4.setBounds(10, 20, 400, 30);
+		panel_4.setBounds(10, 20, 650, 30);
 		panel_3.add(panel_4);
 
 		JLabel lblNewLabel_4 = new JLabel("标价  =  进价  *");
@@ -65,13 +65,13 @@ public class settingPanel extends JPanel {
 		panel_3.add(panel_4_1);
 		panel_4_1.setLayout(new GridLayout(1,4,20,0));
 //		panel_4_1.setLayout(null);
-		panel_4_1.setBounds(10, 60, 400, 30);
+		panel_4_1.setBounds(10, 60, 650, 30);
 
 
 		JLabel lblNewLabel_4_13 = new JLabel("");
 		panel_4.add(lblNewLabel_4_13);
-		JLabel lblNewLabel_4_2 = new JLabel("");
-		panel_4.add(lblNewLabel_4_2);
+
+
 		JLabel lblNewLabel_4_1 = new JLabel("今日折扣 ： ");
 //		lblNewLabel_4_1.setFont(new Font("宋体", Font.BOLD, 23));
 //		lblNewLabel_4_1.setBounds(211, 28, 121, 27);
@@ -91,10 +91,6 @@ public class settingPanel extends JPanel {
 //		lblNewLabel_4_1.setFont(new Font("宋体", Font.BOLD, 23));
 //		lblNewLabel_4_1.setBounds(211, 28, 121, 27);
 		panel_4_1.add(lblNewLabel_4_133);
-		JLabel lblNewLabel_4_123 = new JLabel("");
-//		lblNewLabel_4_1.setFont(new Font("宋体", Font.BOLD, 23));
-//		lblNewLabel_4_1.setBounds(211, 28, 121, 27);
-		panel_4_1.add(lblNewLabel_4_123);
 		JButton jb_reset = new JButton("重置");
 		jb_reset.setIcon(new ImageIcon(settingPanel.class.getResource("/img/重置.png")));
 		jb_reset.setBounds(420, 0, 150, 35);
@@ -104,10 +100,10 @@ public class settingPanel extends JPanel {
 				jt2.setText("");
 			}
 		});
-		panel_4_1_1.setLayout(null);
+//		panel_4_1_1.setLayout(null);
 //		jb_reset.setFont(new Font("宋体", Font.BOLD, 20));
-		panel_4_1_1.add(jb_reset);
-		
+//		panel_4_1_1.add();
+		panel_4.add(jb_reset);
 		JButton jb_ok = new JButton("确定修改");
 		jb_ok.setIcon(new ImageIcon(settingPanel.class.getResource("/img/确定.png")));
 		jb_ok.addActionListener(new ActionListener() {
@@ -123,16 +119,15 @@ public class settingPanel extends JPanel {
 		});
 		jb_ok.setBounds(420, 40, 150, 35);
 //		jb_ok.setFont(new Font("宋体", Font.BOLD, 20));
-		panel_4_1_1.add(jb_ok);
-		
+//		panel_4_1_1.add();
+		panel_4_1.add(jb_ok);
 		JPanel panel = new JPanel();
 		tabbedPane.addTab("修改密码", new ImageIcon(settingPanel.class.getResource("/img/修改密码 (1).png")), panel, null);
 		panel.setLayout(null);
-		
-		JPanel panel_2 = new JPanel();
-		panel_2.setBounds(10, 44, 500, 41);
-		panel.add(panel_2);
-		
+		JPanel panel_6 = new JPanel();
+		panel_6.setLayout(new GridLayout(1,4,20,0));
+		panel_6.setBounds(10, 20, 650, 30);
+		panel.add(panel_6);
 		//JLabel lblNewLabel_2 = new JLabel("请输入");
 //		lblNewLabel_2.setFont(new Font("宋体", Font.BOLD, 26));
 		//panel_2.add(lblNewLabel_2);
@@ -140,31 +135,43 @@ public class settingPanel extends JPanel {
 		OriginalCode = new JTextField();
 //		OriginalCode.setFont(new Font("宋体", Font.BOLD, 25));
 		OriginalCode.setColumns(10);
-		OriginalCode.setBounds(200, 120, 280, 50);
-		panel.add(OriginalCode);
+//		OriginalCode.setBounds(200, 120, 280, 50);
+
 
 		JLabel lblNewLabel = new JLabel("原密码：");
 //		lblNewLabel.setFont(new Font("宋体", Font.BOLD, 25));
-		lblNewLabel.setBounds(116, 95, 130, 100);
-		panel.add(lblNewLabel);
+//		lblNewLabel.setBounds(116, 95, 130, 100);
+		panel_6.add(lblNewLabel);
+panel_6.add(OriginalCode);
+JLabel lblNewLabel_54 = new JLabel("");
+		panel_6.add(lblNewLabel_54);
+JLabel lblNewLabel_5 = new JLabel("");
+
+		JPanel panel_7 = new JPanel();
+		panel_7.setLayout(new GridLayout(1,4,20,0));
+		panel_7.setBounds(10, 60, 650, 30);
+		panel.add(panel_7);
 
 		JLabel lblNewLabel_1 = new JLabel("新密码：");
 //		lblNewLabel_1.setFont(new Font("宋体", Font.BOLD, 25));
-		lblNewLabel_1.setBounds(116, 163, 130, 100);
-		panel.add(lblNewLabel_1);
+//		lblNewLabel_1.setBounds(116, 163, 130, 100);
+		panel_7.add(lblNewLabel_1);
 		
 		NewPassword = new JTextField();
 //		NewPassword.setFont(new Font("宋体", Font.BOLD, 25));
 		NewPassword.setColumns(10);
-		NewPassword.setBounds(200, 200, 280, 50);
-		panel.add(NewPassword);
-		
+//		NewPassword.setBounds(200, 200, 280, 50);
+		panel_7.add(NewPassword);
+		JLabel lblNewLabel_9 = new JLabel("");
+		panel_7.add(lblNewLabel_9);
+//JLabel lblNewLabel_10 = new JLabel("");
+//		panel_7.add(lblNewLabel_10);
 		JButton btnNewButton = new JButton("重置");
 		btnNewButton.setIcon(new ImageIcon(settingPanel.class.getResource("/img/重置.png")));
 //		btnNewButton.setFont(new Font("宋体", Font.BOLD, 21));
-		btnNewButton.setBounds(120, 300, 150, 60);
-		panel.add(btnNewButton);
-		
+//		btnNewButton.setBounds(120, 300, 150, 60);
+//		panel.add(btnNewButton);
+		panel_6.add(btnNewButton);
 		JButton btnNewButton_1 = new JButton("确定");
 		btnNewButton_1.setIcon(new ImageIcon(settingPanel.class.getResource("/img/确定.png")));
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -205,8 +212,8 @@ public class settingPanel extends JPanel {
 			}
 		});
 //		btnNewButton_1.setFont(new Font("宋体", Font.BOLD, 21));
-		btnNewButton_1.setBounds(360, 300, 150, 60);
-		panel.add(btnNewButton_1);
-
+//		btnNewButton_1.setBounds(360, 300, 150, 60);
+//		panel.add(btnNewButton_1);
+panel_7.add(btnNewButton_1);
 	}
 }
