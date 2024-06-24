@@ -482,7 +482,7 @@ public class bookSale extends JPanel {
 			}
 			
 		});
-		btnNewButton_2.setFont(new Font("宋体", Font.BOLD, 20));
+//		btnNewButton_2.setFont(new Font("宋体", Font.BOLD, 20));
 		panel_6.add(btnNewButton_2);
 		
 		JPanel panel_7 = new JPanel();
