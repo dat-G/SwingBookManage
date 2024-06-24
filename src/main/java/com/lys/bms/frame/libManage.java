@@ -1,5 +1,8 @@
 package com.lys.bms.frame;
 
+import com.formdev.flatlaf.FlatIntelliJLaf;
+import com.lys.bms.jdbc.ConnectionManager;
+
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.DocumentEvent;
@@ -7,18 +10,13 @@ import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.text.Document;
-
-
-import com.formdev.flatlaf.FlatIntelliJLaf;
-import com.formdev.flatlaf.FlatLightLaf;
-import com.lys.bms.jdbc.ConnectionManager;
-
-
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.awt.event.ActionEvent;
+
+import com.lys.bms.dataTemplate.*;
 
 public class libManage extends JPanel {
     private static JTextField jt_isbn;
@@ -78,66 +76,24 @@ public class libManage extends JPanel {
             @Override
             public void removeUpdate(DocumentEvent e) {
                 // TODO Auto-generated method stub
-                dynISBNcomplete();
+                isbn.dynISBNcomplete(jt_isbn);
                 checkBook();
             }
 
             @Override
             public void insertUpdate(DocumentEvent e) {
                 // TODO Auto-generated method stub
-                dynISBNcomplete();
+                isbn.dynISBNcomplete(jt_isbn);
                 checkBook();
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
                 // TODO Auto-generated method stub
-                dynISBNcomplete();
+                isbn.dynISBNcomplete(jt_isbn);
                 checkBook();
             }
 
-            public void dynISBNcomplete() {
-//                System.out.println("Changed.");
-                int caretShift = 0;
-//                System.out.println(caretPos);
-                String fieldText = jt_isbn.getText();
-                String tmpFieldText = fieldText.replaceAll("x", "X").replaceAll("[^0-9X]+", ""); // 过滤非数字字符
-                if (tmpFieldText.length() > 10) {
-                    tmpFieldText = tmpFieldText.substring(0, 10);
-                } // 长度过滤
-                int fieldLen = tmpFieldText.length();
-                StringBuffer dashStr = new StringBuffer(tmpFieldText);
-                if (fieldLen >= 1) {
-                    dashStr.insert(1, "-");
-                    caretShift++;
-                }
-                if (fieldLen >= 5) {
-                    dashStr.insert(6, "-");
-                    caretShift++;
-                }
-                if (fieldLen >= 9) {
-                    dashStr.insert(11, "-");
-                    caretShift++;
-                }
-                tmpFieldText = dashStr.toString();
-                if (!fieldText.equals(tmpFieldText)) {
-                    String finalTmpFieldText = tmpFieldText;
-                    int caretDashTweak = 0;
-                    if (finalTmpFieldText.endsWith("-")) caretDashTweak = 1;
-                    int finalCaretPos = fieldLen + caretShift - caretDashTweak;
-
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            jt_isbn.setText(finalTmpFieldText);
-                            jt_isbn.requestFocus();
-                            jt_isbn.setCaretPosition(finalCaretPos);
-                        }
-                    }).start();
-                }
-            }
-
-            ;
         }); // ISBN 修改事件侦听
 
 //        jt_isbn.setFont(new Font("宋体", Font.BOLD, 18));
@@ -233,12 +189,12 @@ public class libManage extends JPanel {
                 String author = jt_author.getText();
                 String price = jt_inprice.getText();
                 String num = jt_num.getValue().toString();
-                String isbn = jt_isbn.getText();
+                String isbn_str = jt_isbn.getText();
 //				获取时间
                 String time = ConnectionManager.gettime();
-                if (bookname.equals("") || author.equals("") || price.equals("") || num.equals("") || isbn.equals(""))
+                if (bookname.equals("") || author.equals("") || price.equals("") || num.equals("") || isbn_str.equals(""))
                     JOptionPane.showMessageDialog(null, "字段不能为空。", "错误", JOptionPane.ERROR_MESSAGE);
-                if (!checkISBN(isbn)) {
+                if (!isbn.isValidISBN(isbn_str)) {
                     JOptionPane.showMessageDialog(null, "ISBN号不符合规则。", "错误", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
@@ -261,7 +217,7 @@ public class libManage extends JPanel {
                 int booknum1 = 0;
                 String sqlString = "select * from book_stack where ISBN=?";
                 try {
-                    ResultSet set = ConnectionManager.query(sqlString, new Object[]{isbn});
+                    ResultSet set = ConnectionManager.query(sqlString, new Object[]{isbn_str});
                     while (set.next()) {
 //						书已经存在
                         exsit = true;
@@ -279,7 +235,7 @@ public class libManage extends JPanel {
                     String sql6 = "update book_stack set num=? where ISBN=?";
 //					String sql7="insert to new_book_in set num=? where ISBN=?";
                     try {
-                        int n = ConnectionManager.Update(sql6, new Object[]{booknum2, isbn});
+                        int n = ConnectionManager.Update(sql6, new Object[]{booknum2, isbn_str});
                         if (n > 0) {
                             System.out.println("图书已存在，更新数量成功！原有" + booknum1 + ",现有" + booknum2);
                         } else {
@@ -288,7 +244,7 @@ public class libManage extends JPanel {
 
                         String sql1 = "insert into new_book_in values(?,?,?,?,?,?,?);";
                         try {
-                            int m = ConnectionManager.Update(sql1, new Object[]{null, isbn, bookname, author, Double.parseDouble(price), Integer.parseInt(num), time});
+                            int m = ConnectionManager.Update(sql1, new Object[]{null, isbn_str, bookname, author, Double.parseDouble(price), Integer.parseInt(num), time});
                             if (n > 0) {
                                 JOptionPane.showMessageDialog(null, "添加新书成功！", "提示", JOptionPane.INFORMATION_MESSAGE);
 
@@ -309,7 +265,7 @@ public class libManage extends JPanel {
 //					插入新书表
                     String sql1 = "insert into new_book_in values(?,?,?,?,?,?,?);";
                     try {
-                        int n = ConnectionManager.Update(sql1, new Object[]{null, isbn, bookname, author, Double.parseDouble(price), Integer.parseInt(num), time});
+                        int n = ConnectionManager.Update(sql1, new Object[]{null, isbn_str, bookname, author, Double.parseDouble(price), Integer.parseInt(num), time});
                         if (n > 0) {
                             JOptionPane.showMessageDialog(null, "添加新书成功！", "提示", JOptionPane.INFORMATION_MESSAGE);
 
@@ -325,7 +281,7 @@ public class libManage extends JPanel {
 //					插入库存表
                     String sql2 = "insert into book_stack values(?,?,?,?,?)";
                     try {
-                        int m = ConnectionManager.Update(sql2, new Object[]{isbn, bookname, author, num, markprice});
+                        int m = ConnectionManager.Update(sql2, new Object[]{isbn_str, bookname, author, num, markprice});
                         if (m > 0) {
                             System.out.println("插入t2成功！");
                         } else {
@@ -516,7 +472,7 @@ public class libManage extends JPanel {
     /**
      * 获取ISBN框内容并查询
      */
-    public static void checkBook() {
+    public static void  checkBook() {
 //		获取ISBN框的内容
         String str_isbn = jt_isbn.getText();
 //		查询该ISBN是否存在
@@ -549,29 +505,6 @@ public class libManage extends JPanel {
             e1.printStackTrace();
         }
 
-    }
-
-    public static boolean checkISBN(String code) { // ISBN 规则检查
-        String tmpCode = code.replaceAll("x", "X").replaceAll("[^0-9X]+", "");
-        char checkDigit = tmpCode.charAt(tmpCode.length() - 1);
-        String numString = tmpCode.substring(0, tmpCode.length() - 1);
-        if (numString.length() > 9) return false; // 长度错误
-        Integer ISBNnum;
-        try {
-            ISBNnum = Integer.parseInt(numString);
-        } catch (NumberFormatException e) { // 字符错误
-            return false;
-        }
-        Integer ISBNCheckSum = 0;
-        for (int i = 2; i <= 10; i++) {
-            ISBNCheckSum += (ISBNnum % 10) * i;
-            ISBNnum /= 10;
-        }
-        if (11 - ISBNCheckSum % 11 == (int) checkDigit - (int) '0')
-            return true;
-        else if ((11 - ISBNCheckSum % 11 == 10) && (checkDigit == 'X'))
-            return true;
-        else return false;
     }
 
     /**

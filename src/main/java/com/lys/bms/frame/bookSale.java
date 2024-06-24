@@ -2,10 +2,13 @@ package com.lys.bms.frame;
 
 import com.formdev.flatlaf.FlatIntelliJLaf;
 import com.formdev.flatlaf.FlatLightLaf;
+import com.lys.bms.dataTemplate.isbn;
 import com.lys.bms.jdbc.ConnectionManager;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
@@ -22,7 +25,7 @@ import java.awt.event.ActionEvent;
 public class bookSale extends JPanel {
 	private JTextField jt_isbn;
 	private JTextField jt_bookname;
-	private JTextField jt_num;
+	private JSpinner jt_num;
 	private JTextField jt_price;
 	public static JTextField jt_zhekou;
 	private JTextField jt_shouldpay;
@@ -80,6 +83,7 @@ public class bookSale extends JPanel {
 
 			@Override
 			public void removeUpdate(DocumentEvent e) {
+				isbn.dynISBNcomplete(jt_isbn);
 				// TODO Auto-generated method stub
 				get_bookname_markprice();
 
@@ -87,14 +91,16 @@ public class bookSale extends JPanel {
 
 			@Override
 			public void insertUpdate(DocumentEvent e) {
+				isbn.dynISBNcomplete(jt_isbn);
 				// TODO Auto-generated method stub
 				get_bookname_markprice();
 			}
 
 			@Override
 			public void changedUpdate(DocumentEvent e) {
+				isbn.dynISBNcomplete(jt_isbn);
 				// TODO Auto-generated method stub
-
+				get_bookname_markprice();
 			}
 		});
 //		jt_isbn.setFont(new Font("宋体", Font.BOLD, 19));
@@ -124,9 +130,10 @@ public class bookSale extends JPanel {
 		lblNewLabel_2.setBounds(70, 6, 89, 28);
 		panel_3_1.add(lblNewLabel_2);
 
-		jt_num = new JTextField();
+		jt_num = new JSpinner();
+		((SpinnerNumberModel) jt_num.getModel()).setMinimum(0);
 //		jt_num.setFont(new Font("宋体", Font.BOLD, 19));
-		jt_num.setColumns(25);
+//		jt_num.setColumns(25);
 		jt_num.setBounds(131, 10, 171, 21);
 ////		jt_num.setToolTipText("123");
 //		jt_num.createToolTip();
@@ -175,39 +182,15 @@ public class bookSale extends JPanel {
 		
 		jt_shouldpay = new JTextField();
 //		动态计算应付金额
-		Document dtDocument=jt_num.getDocument();
-		dtDocument.addDocumentListener(new DocumentListener() {
-			
+		jt_num.addChangeListener(new ChangeListener() {
 			@Override
-			public void removeUpdate(DocumentEvent e) {
-				// TODO Auto-generated method stub
-				
-					try {
-						get_shouldpay();
-					} catch (SQLException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-				
-			}
-			
-			@Override
-			public void insertUpdate(DocumentEvent e) {
-				// TODO Auto-generated method stub
-				
-					try {
-						get_shouldpay();
-					} catch (SQLException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-				
-			}
-			
-			@Override
-			public void changedUpdate(DocumentEvent e) {
-				// TODO Auto-generated method stub
-				
+			public void stateChanged(ChangeEvent e) {
+				try {
+					get_shouldpay();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 //		jt_shouldpay.setFont(new Font("宋体", Font.BOLD, 19));
@@ -286,7 +269,7 @@ public class bookSale extends JPanel {
 //				重置输出框
 				jt_isbn.setText("");
 				jt_bookname.setText("");
-				jt_num.setText("");
+				jt_num.setValue(0);
 				jt_price.setText("");
 				jt_shouldpay.setText("");
 				jt_receive.setText("");
@@ -320,7 +303,7 @@ public class bookSale extends JPanel {
 //							获取要保存的数据
 							String isbnString=jt_isbn.getText();
 							String bookname=jt_bookname.getText();
-							String num=jt_num.getText();
+							String num=jt_num.getValue().toString();
 							String markprice=jt_price.getText();
 							String zhekou=jt_zhekou.getText();
 							String shouldpay=jt_shouldpay.getText();
@@ -589,11 +572,11 @@ public class bookSale extends JPanel {
 			
 		}
 		
-		if (jt_num.getText().equals("")) {
+		if (jt_num.getValue().equals(0)) {
 			trips_1.setText("");
 		}else if (extis) {
 //			购买数量超过库存
-			num=Integer.parseInt(jt_num.getText());
+			num=Integer.parseInt(jt_num.getValue().toString());
 			if (num>stock_num) {
 				trips_1.setText("该书当前库存(最多购买)"+stock_num+"本!!!");
 			}else {

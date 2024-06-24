@@ -8,6 +8,7 @@ import com.lys.bms.model.Manager;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.EtchedBorder;
 import java.awt.Font;
 import java.awt.Color;
 
@@ -18,12 +19,14 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.awt.event.ActionEvent;
+import java.util.TimerTask;
 
 public class mainFrame extends JFrame {
 
     //	当前用户
     static Manager manager;
     private JPanel panel;
+    private JLabel statusBar;
     CardLayout cardLayout = new CardLayout();
     //	标价设置
     static double inprice_add = 1.0;
@@ -37,10 +40,10 @@ public class mainFrame extends JFrame {
      */
     public mainFrame(Manager manager) throws SQLException {
         try {
-            UIManager.setLookAndFeel( new FlatIntelliJLaf() );
-            UIManager.put( "TabbedPane.showTabSeparators", true );
-        } catch( Exception ex ) {
-            System.err.println( "Failed to initialize LaF" );
+            UIManager.setLookAndFeel(new FlatIntelliJLaf());
+            UIManager.put("TabbedPane.showTabSeparators", true);
+        } catch (Exception ex) {
+            System.err.println("Failed to initialize LaF");
         }
         this.manager = manager;
 
@@ -75,7 +78,7 @@ public class mainFrame extends JFrame {
 //		内容显示面板，可切换，卡片布局
 
         JPanel tabViewPane = new JPanel();
-        tabViewPane.setBounds(5, 10, 730, 530);
+        tabViewPane.setBounds(5, 10, 710, 530);
         panel.add(tabViewPane);
         tabViewPane.setLayout(new CardLayout(0, 0));
 //		给内容面板设置卡片布局
@@ -113,6 +116,7 @@ public class mainFrame extends JFrame {
         settingPanelMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 cardLayout.show(tabViewPane, "4");
+                statusWarn("123", 5);
             }
         });
         logOutMenuItem.addActionListener(new ActionListener() {
@@ -128,19 +132,40 @@ public class mainFrame extends JFrame {
                 login.setVisible(true);
             }
         });
+        statusBar = new JLabel("");
+        statusBar.setBounds(5, 540, 710, 20);
+        panel.add(statusBar);
+        statusBar.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.RAISED));
+        statusBar.setFont(new Font(statusBar.getFont().getFontName(), Font.ITALIC, statusBar.getFont().getSize()));
+//        public static void statusRecover() {
+//            statusBar.setText("[Information] 当前用户ID: " + manager.getUserString() + " | 服务器日期: " + ConnectionManager.getday());
+//        }
+        statusRecover();
 
-        JLabel welcome_mess = new JLabel("");
-        welcome_mess.setBounds(90, 540, 150, 20);
-        panel.add(welcome_mess);
-        welcome_mess.setText("当前用户ID: " + manager.getUserString());
-
-        JLabel day_mess = new JLabel("");
-        String string = ConnectionManager.getday();
-        day_mess.setText(string);
-        day_mess.setBounds(540, 540, 150, 20);
-        panel.add(day_mess);
+//        JLabel day_mess = new JLabel("");
+//        String string = ConnectionManager.getday();
+//        day_mess.setText(string);
+//        day_mess.setBounds(540, 540, 150, 20);
+//        panel.add(day_mess);
 
 
+    }
+
+    public void statusRecover() {
+        statusBar.setForeground(Color.BLACK);
+        statusBar.setText("[Information] 当前用户ID: " + manager.getUserString() + " | 服务器日期: " + ConnectionManager.getday());
+    }
+
+    public void statusWarn(String msg, int time) {
+        statusBar.setForeground(Color.RED);
+        statusBar.setText("[Warning] " + msg);
+        Timer timer = new Timer(time * 1000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                statusRecover();
+            }
+        });
+        timer.start();
     }
 }
 
