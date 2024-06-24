@@ -98,7 +98,7 @@ public class queryPanel extends JPanel {
 		bGroup.add(jrb1_isbn);
 		
 		JScrollPane scrollPane_1_1 = new JScrollPane();
-		scrollPane_1_1.setBounds(0, 148, 685, 300);
+		scrollPane_1_1.setBounds(0, 148, 685, 310);
 		panel_5_1.add(scrollPane_1_1);
 		
 		headrObjects=new Object[]{"序号","ISBN","书名","作者","数量","标价"};
