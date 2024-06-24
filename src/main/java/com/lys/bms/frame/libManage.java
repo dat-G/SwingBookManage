@@ -54,7 +54,7 @@ public class libManage extends JPanel {
         add(tabbedPane);
 
         JPanel panel = new JPanel();
-        tabbedPane.addTab("图书增删改", new ImageIcon(libManage.class.getResource("/img/管理.png")), panel, null);
+        tabbedPane.addTab("信息编辑", new ImageIcon(libManage.class.getResource("/img/管理.png")), panel, null);
         panel.setLayout(null);
 
         JPanel panel_3 = new JPanel();
@@ -203,6 +203,11 @@ public class libManage extends JPanel {
         textField_5.setBounds(419, 8, 171, 25);
         panel_3_2.add(textField_5);
 
+        JPanel panel_3_3 = new JPanel();
+        panel_3_3.setLayout(new GridLayout(1,4,20,0));
+        panel_3_3.setBounds(10, 140, 650, 30);
+        panel.add(panel_3_3);
+
         JButton btnNewButton = new JButton("重置");
         btnNewButton.setIcon(new ImageIcon(libManage.class.getResource("/img/重置.png")));
         btnNewButton.addActionListener(new ActionListener() {
@@ -214,9 +219,9 @@ public class libManage extends JPanel {
                 jt_num.setValue(0);
             }
         });
-        btnNewButton.setFont(new Font("宋体", Font.BOLD, 18));
+//        btnNewButton.setFont(new Font("宋体", Font.BOLD, 18));
         btnNewButton.setBounds(31, 312, 113, 30);
-        panel.add(btnNewButton);
+        panel_3_3.add(btnNewButton);
 
         JButton btnNewButton_1 = new JButton("添加新书");
         btnNewButton_1.setIcon(new ImageIcon(libManage.class.getResource("/img/添加 (3).png")));
@@ -337,9 +342,9 @@ public class libManage extends JPanel {
 //				
             }
         });
-        btnNewButton_1.setFont(new Font("宋体", Font.BOLD, 18));
+//        btnNewButton_1.setFont(new Font("宋体", Font.BOLD, 18));
         btnNewButton_1.setBounds(167, 312, 147, 30);
-        panel.add(btnNewButton_1);
+        panel_3_3.add(btnNewButton_1);
 
 //        JLabel lblNewLabel_4 = new JLabel("图书信息");
 //        lblNewLabel_4.setFont(new Font(lblNewLabel_4.getFont().getFontName(), Font.PLAIN, 21));
@@ -379,9 +384,9 @@ public class libManage extends JPanel {
 
             }
         });
-        btnNewButton_1_1.setFont(new Font("宋体", Font.BOLD, 18));
+//        btnNewButton_1_1.setFont(new Font("宋体", Font.BOLD, 18));
         btnNewButton_1_1.setBounds(504, 312, 138, 30);
-        panel.add(btnNewButton_1_1);
+        panel_3_3.add(btnNewButton_1_1);
 
         JButton btnNewButton_2 = new JButton("修改图书");
         btnNewButton_2.setIcon(new ImageIcon(libManage.class.getResource("/img/修改 (2).png")));
@@ -431,9 +436,9 @@ public class libManage extends JPanel {
 
             }
         });
-        btnNewButton_2.setFont(new Font("宋体", Font.BOLD, 18));
+//        btnNewButton_2.setFont(new Font("宋体", Font.BOLD, 18));
         btnNewButton_2.setBounds(337, 312, 138, 30);
-        panel.add(btnNewButton_2);
+        panel_3_3.add(btnNewButton_2);
 
         JPanel panel_2 = new JPanel();
         tabbedPane.addTab("进书记录", new ImageIcon(libManage.class.getResource("/img/买入.png")), panel_2, null);
