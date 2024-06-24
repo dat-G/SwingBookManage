@@ -25,6 +25,7 @@ public class queryPanel extends JPanel {
 	private JTable table;
 	private JTextField jt_text2;
 	private JTable table_1;
+	private JTextField jt_isbn;
 	private JLabel jl_result; 
 	private Object[] o1;
 	private JLabel jl2;
@@ -88,7 +89,7 @@ public class queryPanel extends JPanel {
 		JRadioButton jrb2_name = new JRadioButton("书名");
 //		jrb2_name.setFont(new Font("宋体", Font.BOLD, 18));
 		panel_7_1.add(jrb2_name);
-		
+
 //		按钮组
 		ButtonGroup bGroup=new ButtonGroup();
 		bGroup.add(jrb2_name);
@@ -206,7 +207,5 @@ public class queryPanel extends JPanel {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
 	}
-	
 }

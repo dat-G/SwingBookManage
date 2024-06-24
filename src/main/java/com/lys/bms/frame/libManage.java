@@ -205,8 +205,8 @@ public class libManage extends JPanel {
         panel_3_2.add(textField_5);
 
         JPanel panel_3_3 = new JPanel();
-        panel_3_3.setLayout(new GridLayout(1,4,20,0));
-        panel_3_3.setBounds(10, 140, 650, 30);
+        panel_3_3.setLayout(new GridLayout(1,4,40,50));
+        panel_3_3.setBounds(10, 180, 650, 50);
         panel.add(panel_3_3);
 
         JButton btnNewButton = new JButton("重置");
@@ -221,7 +221,7 @@ public class libManage extends JPanel {
             }
         });
 //        btnNewButton.setFont(new Font("宋体", Font.BOLD, 18));
-        btnNewButton.setBounds(31, 312, 113, 30);
+        btnNewButton.setBounds(31, 312, 113, 60);
         panel_3_3.add(btnNewButton);
 
         JButton btnNewButton_1 = new JButton("添加新书");
@@ -466,7 +466,7 @@ public class libManage extends JPanel {
         scrollPane_1.setViewportView(table_in_book);
 
         JLabel lblNewLabel_5 = new JLabel("总计：");
-        lblNewLabel_5.setFont(new Font("宋体", Font.BOLD, 16));
+//        lblNewLabel_5.setFont(new Font("宋体", Font.BOLD, 16));
         lblNewLabel_5.setBounds(536, 9, 58, 23);
         panel_2.add(lblNewLabel_5);
 
@@ -500,7 +500,7 @@ public class libManage extends JPanel {
         panel_1.add(jt_get_sum);
 
         table_bookstock = new JTable(objects3, a);
-        table_bookstock.setFont(new Font("宋体", Font.BOLD, 13));
+//        table_bookstock.setFont(new Font("宋体", Font.BOLD, 13));
         scrollPane.setViewportView(table_bookstock);
 
         JLabel lblNewLabel = new JLabel("");
@@ -508,7 +508,7 @@ public class libManage extends JPanel {
         panel_1.add(lblNewLabel);
 
         JLabel lblNewLabel_5_1 = new JLabel("总计：");
-        lblNewLabel_5_1.setFont(new Font("宋体", Font.BOLD, 16));
+//        lblNewLabel_5_1.setFont(new Font("宋体", Font.BOLD, 16));
         lblNewLabel_5_1.setBounds(536, 10, 58, 23);
         panel_1.add(lblNewLabel_5_1);
     }
