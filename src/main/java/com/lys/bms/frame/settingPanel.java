@@ -67,14 +67,14 @@ public class settingPanel extends JPanel {
         panel_4.add(lblNewLabel_4_13);
 
 
-        JLabel lblNewLabel_4_1 = new JLabel("今日折扣 ： ");
+        JLabel lblNewLabel_4_1 = new JLabel("今日折扣： ");
         panel_4_1.add(lblNewLabel_4_1);
 
         jt2 = new JTextField();
         jt2.setColumns(10);
         jt2.setBounds(330, 25, 136, 33);
         panel_4_1.add(jt2);
-        jt2.setText(Double.toString(mainFrame.zhekou));
+        jt2.setText(Double.toString(mainFrame.discount));
 
         JPanel panel_4_1_1 = new JPanel();
         panel_4_1_1.setBounds(10, 263, 665, 80);
@@ -96,12 +96,15 @@ public class settingPanel extends JPanel {
         jb_ok.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 //				拿到数据,设置新数值
-                mainFrame.inprice_add = Double.parseDouble(jt1.getText());
-                mainFrame.zhekou = Double.parseDouble(jt2.getText());
-                System.out.println(mainFrame.inprice_add);
-                System.out.println(mainFrame.zhekou);
-                bookSale.jt_zhekou.setText(jt2.getText());
-//				
+                try {
+                    mainFrame.inprice_add = Double.parseDouble(jt1.getText());
+                    mainFrame.discount = Double.parseDouble(jt2.getText());
+                } catch (Exception ex) {
+                    mainFrame.statusWarn("输入值不合法。", 5);
+                    return;
+                }
+                bookSale.jt_discount.setText(jt2.getText());
+				JOptionPane.showMessageDialog(null, "修改成功。", "提示", JOptionPane.INFORMATION_MESSAGE);
             }
         });
         jb_ok.setBounds(420, 40, 150, 35);

@@ -39,14 +39,13 @@ public class libManage extends JPanel {
      */
     public libManage() throws SQLException, IOException {
         try {
-            UIManager.setLookAndFeel( new FlatIntelliJLaf() );
-            UIManager.put( "TabbedPane.showTabSeparators", true );
-        } catch( Exception ex ) {
-            System.err.println( "Failed to initialize LaF" );
+            UIManager.setLookAndFeel(new FlatIntelliJLaf());
+            UIManager.put("TabbedPane.showTabSeparators", true);
+        } catch (Exception ex) {
+            System.err.println("Failed to initialize LaF");
         }
 //        setBackground(new Color(175, 238, 238));
-        setBorder(new TitledBorder(null, "\u56FE\u4E66\u7BA1\u7406\u6A21\u5757", TitledBorder.LEADING, TitledBorder.TOP,
-                null, null));
+        setBorder(new TitledBorder(null, "\u56FE\u4E66\u7BA1\u7406\u6A21\u5757", TitledBorder.LEADING, TitledBorder.TOP, null, null));
         setLayout(null);
 
 //		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
@@ -54,11 +53,11 @@ public class libManage extends JPanel {
         add(tabbedPane);
 
         JPanel panel = new JPanel();
-        tabbedPane.addTab("信息编辑", svg.getSVGIcon("/svg/card-list.svg","#2F4F4F",25,25), panel, null);
+        tabbedPane.addTab("信息编辑", svg.getSVGIcon("/svg/card-list.svg", "#2F4F4F", 25, 25), panel, null);
         panel.setLayout(null);
 
         JPanel panel_3 = new JPanel();
-        panel_3.setLayout(new GridLayout(1,4,20,0));
+        panel_3.setLayout(new GridLayout(1, 4, 20, 0));
         panel_3.setBounds(10, 20, 650, 30);
         panel.add(panel_3);
 
@@ -112,7 +111,7 @@ public class libManage extends JPanel {
         panel_3.add(jt_name);
 
         JPanel panel_3_1 = new JPanel();
-        panel_3_1.setLayout(new GridLayout(1,4,20,0));
+        panel_3_1.setLayout(new GridLayout(1, 4, 20, 0));
         panel_3_1.setBounds(10, 60, 650, 30);
         panel.add(panel_3_1);
 
@@ -124,7 +123,7 @@ public class libManage extends JPanel {
         jt_author.setColumns(25);
         jt_author.setBounds(131, 10, 171, 21);
         panel_3_1.add(jt_author);
-         JLabel lblNewLabel_2_1 = new JLabel("");
+        JLabel lblNewLabel_2_1 = new JLabel("");
 //        lblNewLabel_2.setBounds(70, 6, 89, 28);
         panel_3_1.add(lblNewLabel_2_1);
 
@@ -133,7 +132,7 @@ public class libManage extends JPanel {
         panel_3_1.add(lblNewLabel_2_2);
 
         JPanel panel_3_6 = new JPanel();
-        panel_3_6.setLayout(new GridLayout(1,4,20,0));
+        panel_3_6.setLayout(new GridLayout(1, 4, 20, 0));
         panel_3_6.setBounds(10, 100, 650, 30);
         panel.add(panel_3_6);
 
@@ -146,14 +145,14 @@ public class libManage extends JPanel {
         jt_inprice.setColumns(25);
 //        jt_inprice.setBounds(420, 10, 171, 21);
         panel_3_6.add(jt_inprice);
-  JLabel lblNewLabel_3_12 = new JLabel("");
+        JLabel lblNewLabel_3_12 = new JLabel("售价: ");
 //        lblNewLabel_2.setBounds(70, 6, 89, 28);
         panel_3_6.add(lblNewLabel_3_12);
-        JLabel lblNewLabel_3_1 = new JLabel("");
+        JTextField jt_outprice = new JTextField("");
 //        lblNewLabel_2.setBounds(70, 6, 89, 28);
-        panel_3_6.add(lblNewLabel_3_1);
+        panel_3_6.add(jt_outprice);
         JPanel panel_3_2 = new JPanel();
-        panel_3_2.setLayout(new GridLayout(1,4,20,0));
+        panel_3_2.setLayout(new GridLayout(1, 4, 20, 0));
         panel_3_2.setBounds(10, 140, 650, 30);
         panel.add(panel_3_2);
 
@@ -179,16 +178,17 @@ public class libManage extends JPanel {
         panel_3_2.add(textField_5);
 
         JPanel panel_3_3 = new JPanel();
-        panel_3_3.setLayout(new GridLayout(1,4,40,50));
+        panel_3_3.setLayout(new GridLayout(1, 4, 40, 50));
         panel_3_3.setBounds(10, 180, 650, 50);
         panel.add(panel_3_3);
 
         JButton btnNewButton = new JButton("重置");
-        btnNewButton.setIcon(svg.getSVGIcon("/svg/arrow-clockwise.svg","#2F4F4F",25,25));
+        btnNewButton.setIcon(svg.getSVGIcon("/svg/arrow-clockwise.svg", "#2F4F4F", 25, 25));
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 jt_author.setText("");
                 jt_inprice.setText("");
+                jt_outprice.setText("");
                 jt_isbn.setText("");
                 jt_name.setText("");
                 jt_num.setValue(0);
@@ -199,18 +199,19 @@ public class libManage extends JPanel {
         panel_3_3.add(btnNewButton);
 
         JButton btnNewButton_1 = new JButton("添加新书");
-        btnNewButton_1.setIcon(svg.getSVGIcon("/svg/check-square.svg","#2F4F4F",25,25));
+        btnNewButton_1.setIcon(svg.getSVGIcon("/svg/check-square.svg", "#2F4F4F", 25, 25));
         btnNewButton_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 //				获取基本信息
                 String bookname = jt_name.getText();
                 String author = jt_author.getText();
-                String price = jt_inprice.getText();
+                String inprice = jt_inprice.getText();
+                String outprice = jt_outprice.getText();
                 String num = jt_num.getValue().toString();
                 String isbn_str = jt_isbn.getText();
 //				获取时间
                 String time = ConnectionManager.gettime();
-                if (bookname.equals("") || author.equals("") || price.equals("") || num.equals("") || isbn_str.equals(""))
+                if (bookname.equals("") || author.equals("") || inprice.equals("") || outprice.equals("") || num.equals("") || isbn_str.equals(""))
                     JOptionPane.showMessageDialog(null, "字段不能为空。", "错误", JOptionPane.ERROR_MESSAGE);
                 if (!isbn.isValidISBN(isbn_str)) {
                     JOptionPane.showMessageDialog(null, "ISBN号不符合规则。", "错误", JOptionPane.ERROR_MESSAGE);
@@ -221,7 +222,7 @@ public class libManage extends JPanel {
                     return;
                 }
                 try {
-                    if (Double.parseDouble(price) <= 0) {
+                    if (Double.parseDouble(inprice) <= 0 || Double.parseDouble(inprice) <= 0) {
                         JOptionPane.showMessageDialog(null, "价格不合法。", "错误", JOptionPane.ERROR_MESSAGE);
                         return;
                     }
@@ -231,14 +232,14 @@ public class libManage extends JPanel {
                 }
 
 //				判断当前要添加的书籍是否存在书库中
-                boolean exsit = false;
+                boolean exist = false;
                 int booknum1 = 0;
                 String sqlString = "select * from book_stack where ISBN=?";
                 try {
                     ResultSet set = ConnectionManager.query(sqlString, new Object[]{isbn_str});
                     while (set.next()) {
 //						书已经存在
-                        exsit = true;
+                        exist = true;
                         booknum1 = set.getInt("num");
                     }
                 } catch (SQLException e1) {
@@ -247,7 +248,7 @@ public class libManage extends JPanel {
                 }
 //				书已经存在
 //				更新数量
-                if (exsit) {
+                if (exist) {
                     int booknum2 = booknum1 + Integer.parseInt(jt_num.getValue().toString());
 //					更新表数据
                     String sql6 = "update book_stack set num=? where ISBN=?";
@@ -260,12 +261,11 @@ public class libManage extends JPanel {
                             System.out.println("更新数量错误！");
                         }
 
-                        String sql1 = "insert into new_book_in values(?,?,?,?,?,?,?);";
+                        String sql1 = "insert into new_book_in values(?,?,?,?,?,?,?,?);";
                         try {
-                            int m = ConnectionManager.Update(sql1, new Object[]{null, isbn_str, bookname, author, Double.parseDouble(price), Integer.parseInt(num), time});
+                            int m = ConnectionManager.Update(sql1, new Object[]{null, isbn_str, bookname, author, Double.parseDouble(inprice), Integer.parseInt(num), time, Double.parseDouble(outprice)});
                             if (n > 0) {
                                 JOptionPane.showMessageDialog(null, "添加新书成功！", "提示", JOptionPane.INFORMATION_MESSAGE);
-
                             }
 
                         } catch (SQLException e1) {
@@ -281,9 +281,9 @@ public class libManage extends JPanel {
 
                 } else {
 //					插入新书表
-                    String sql1 = "insert into new_book_in values(?,?,?,?,?,?,?);";
+                    String sql1 = "insert into new_book_in values(?,?,?,?,?,?,?,?);";
                     try {
-                        int n = ConnectionManager.Update(sql1, new Object[]{null, isbn_str, bookname, author, Double.parseDouble(price), Integer.parseInt(num), time});
+                        int n = ConnectionManager.Update(sql1, new Object[]{null, isbn_str, bookname, author, Double.parseDouble(inprice), Integer.parseInt(num), time, Double.parseDouble(outprice)});
                         if (n > 0) {
                             JOptionPane.showMessageDialog(null, "添加新书成功！", "提示", JOptionPane.INFORMATION_MESSAGE);
 
@@ -295,11 +295,11 @@ public class libManage extends JPanel {
                     }
 
 //					计算标价
-                    double markprice = Double.parseDouble(price) * mainFrame.inprice_add;
+                    double mark_price = Double.parseDouble(outprice);
 //					插入库存表
                     String sql2 = "insert into book_stack values(?,?,?,?,?)";
                     try {
-                        int m = ConnectionManager.Update(sql2, new Object[]{isbn_str, bookname, author, num, markprice});
+                        int m = ConnectionManager.Update(sql2, new Object[]{isbn_str, bookname, author, num, mark_price});
                         if (m > 0) {
                             System.out.println("插入t2成功！");
                         } else {
@@ -326,7 +326,7 @@ public class libManage extends JPanel {
 //        lblNewLabel_4.setBounds(200, 20, 203, 24);
 //        panel.add(lblNewLabel_4);
         JButton btnNewButton_1_1 = new JButton("删除图书");
-        btnNewButton_1_1.setIcon(svg.getSVGIcon("/svg/trash.svg","#2F4F4F",25,25));
+        btnNewButton_1_1.setIcon(svg.getSVGIcon("/svg/trash.svg", "#2F4F4F", 25, 25));
         btnNewButton_1_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 //				根据ISBN码删除图书
@@ -336,8 +336,7 @@ public class libManage extends JPanel {
                 try {
                     int n = ConnectionManager.Update(sql, new Object[]{isbnString});
                     if (n > 0) {
-                        JOptionPane.showInternalMessageDialog(null, isbnString + "图书已经删除！", "提示：",
-                                JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showInternalMessageDialog(null, isbnString + "图书已经删除！", "提示：", JOptionPane.INFORMATION_MESSAGE);
                     } else {
                         JOptionPane.showInternalMessageDialog(null, "操作不成功！", "提示：", JOptionPane.INFORMATION_MESSAGE);
 
@@ -364,13 +363,14 @@ public class libManage extends JPanel {
         panel_3_3.add(btnNewButton_1_1);
 
         JButton btnNewButton_2 = new JButton("修改图书");
-        btnNewButton_2.setIcon(svg.getSVGIcon("/svg/pencil-square.svg","#2F4F4F",25,25));
+        btnNewButton_2.setIcon(svg.getSVGIcon("/svg/pencil-square.svg", "#2F4F4F", 25, 25));
         btnNewButton_2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 //				获取要修改的信息
                 String bookname = jt_name.getText();
                 String author = jt_author.getText();
                 String in_price = jt_inprice.getText();
+                String out_price = jt_outprice.getText();
                 String num = jt_num.getValue().toString();
                 String isbnString = jt_isbn.getText();
 //				保存修改的信息根据
@@ -416,7 +416,7 @@ public class libManage extends JPanel {
         panel_3_3.add(btnNewButton_2);
 
         JPanel panel_2 = new JPanel();
-        tabbedPane.addTab("进书记录", svg.getSVGIcon("/svg/bag.svg","#2F4F4F",20,20), panel_2, null);
+        tabbedPane.addTab("进书记录", svg.getSVGIcon("/svg/bag.svg", "#2F4F4F", 20, 20), panel_2, null);
         panel_2.setLayout(null);
 
         JScrollPane scrollPane_1 = new JScrollPane();
@@ -424,9 +424,8 @@ public class libManage extends JPanel {
         panel_2.add(scrollPane_1);
         Object[][] objects2 = null;
         Object[] objects = null;
-        objects = new Object[]{"序号", "ISBN", "书名", "作者", "进价", "数量", "入库时间"};
-        String
-                sql1 = "SELECT ISBN,bookname,author,price,num,time FROM new_book_in;";
+        objects = new Object[]{"序号", "ISBN", "书名", "作者", "进价", "标价", "数量", "入库时间"};
+        String sql1 = "SELECT ISBN,bookname,author,cost_price,mark_price,num,time,mark_price FROM new_book_in;";
         ResultSet set = ConnectionManager.query(sql1, new Object[]{}); // 计数 int
         int count = 0;
         while (set.next()) {
@@ -450,7 +449,7 @@ public class libManage extends JPanel {
         jt_get_all.setColumns(10);
 
         JPanel panel_1 = new JPanel();
-        tabbedPane.addTab("库存记录", svg.getSVGIcon("/svg/house.svg","#2F4F4F",20,20), panel_1, null);
+        tabbedPane.addTab("库存记录", svg.getSVGIcon("/svg/house.svg", "#2F4F4F", 20, 20), panel_1, null);
         panel_1.setLayout(null);
 
         JScrollPane scrollPane = new JScrollPane();
@@ -490,7 +489,7 @@ public class libManage extends JPanel {
     /**
      * 获取ISBN框内容并查询
      */
-    public static void  checkBook() {
+    public static void checkBook() {
 //		获取ISBN框的内容
         String str_isbn = jt_isbn.getText();
 //		查询该ISBN是否存在
@@ -556,8 +555,8 @@ public class libManage extends JPanel {
      * 刷新进书表
      */
     public static void UpdateNewBookInTable() {
-        Object[] objects = {"序号", "ISBN", "书名", "作者", "进价", "数量", "入库时间"};
-        String sql2 = "SELECT ISBN,bookname,author,price,num,time FROM new_book_in;";
+        Object[] objects = {"序号", "ISBN", "书名", "作者", "进价", "标价", "数量", "入库时间"};
+        String sql2 = "SELECT ISBN,bookname,author,cost_price,mark_price,num,time FROM new_book_in;";
         ResultSet set = null;
         try {
             set = ConnectionManager.query(sql2, new Object[]{});

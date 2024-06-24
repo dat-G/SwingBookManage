@@ -1,12 +1,15 @@
 package com.lys.bms.jdbc;
 
+import com.mysql.jdbc.exceptions.MySQLSyntaxErrorException;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.sql.*;
 
 /**
  * 简述：
- *数据库管理类
+ * 数据库管理类
+ *
  * @author:LiYansheng
  * @date:2021/04/26 19:31
  * @version:
@@ -19,7 +22,7 @@ public class ConnectionManager {
     private static final String url = "jdbc:mysql://localhost:3306/bm?useSSL=false&serverTimezone=Asia/Shanghai";
     private static final String user = "root";
     private static final String psd = "root";
- 
+
     /**
      * 静态块加载驱动
      */
@@ -32,8 +35,10 @@ public class ConnectionManager {
             System.out.println("加载驱动失败！");
         }
     }
+
     /**
      * 返回一个连接对象
+     *
      * @return
      */
     public static Connection getConnection() {
@@ -46,8 +51,10 @@ public class ConnectionManager {
         }
         return connection;
     }
+
     /**
      * 通用查询方法,返回结果集
+     *
      * @param sql
      * @param objects
      * @return
@@ -55,29 +62,31 @@ public class ConnectionManager {
      */
     public static ResultSet query(String sql, Object[] objects) throws SQLException {
         Connection conn = ConnectionManager.getConnection();
-        PreparedStatement pst = conn.prepareStatement(sql,ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
-        ResultSet resultSet=null;
+        PreparedStatement pst = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+        ResultSet resultSet = null;
 //        判断Object是否为空，为空直接执行sql语句
         if (objects == null) {
             resultSet = pst.executeQuery();
         } else {
             for (int i = 0; i < objects.length; i++) {
-                pst.setObject(i+1,objects[i]);
+                pst.setObject(i + 1, objects[i]);
             }
             resultSet = pst.executeQuery();
         }
         return resultSet;
     }
+
     /**
      * 通用增删改方法
+     *
      * @param sql
      * @param objects
      * @return
      * @throws SQLException
      */
-    public static int Update(String sql,Object[] objects) throws SQLException {
+    public static int Update(String sql, Object[] objects) throws SQLException {
         Connection conn = ConnectionManager.getConnection();
-        PreparedStatement pst = conn.prepareStatement(sql,ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+        PreparedStatement pst = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 //      判断数组是否为空
         try {
             if (objects == null || objects.equals("")) {
@@ -91,36 +100,39 @@ public class ConnectionManager {
         } finally {
             closeall(conn, pst);
         }
- 
+
     }
+
     /**
      * 返回结果集的二维数组形式，这个在JavaGUI里创建了表格要调用显示数据库的数据时可以用到
+     *
      * @param set
      * @return
      * @throws SQLException
      */
     public static Object[][] getSetArrays(ResultSet set) throws SQLException {
         Object[][] objects;
-        
+
         set.last();
         int rowcount = set.getRow();
         ResultSetMetaData rsm = set.getMetaData();
         int colcount = rsm.getColumnCount();//获取列数
 //      创建二维数组
-        objects = new Object[rowcount][colcount+1];
+        objects = new Object[rowcount][colcount + 1];
         set.first();
         for (int i = 0; i < rowcount; i++) {
-            objects[i][0]=i+1;//给每一行的第一列添加序号
-            for (int j = 1; j < colcount+1; j++) {
+            objects[i][0] = i + 1;//给每一行的第一列添加序号
+            for (int j = 1; j < colcount + 1; j++) {
                 objects[i][j] = set.getObject(j);
             }
             set.next();
         }
         return objects;
     }
- 
+
     /**
      * 关闭资源
+     *
      * @param resultSet
      * @param statement
      * @param connection
@@ -140,7 +152,7 @@ public class ConnectionManager {
         } catch (SQLException e) {
             e.printStackTrace();
         }
- 
+
         try {
             if (connection != null && (!connection.isClosed())) {
                 connection.close();
@@ -149,6 +161,7 @@ public class ConnectionManager {
             e.printStackTrace();
         }
     }
+
     public static void closeAll(ResultSet resultSet, PreparedStatement preparedStatement, Connection connection) {
         try {
             if (resultSet != null) {
@@ -164,7 +177,7 @@ public class ConnectionManager {
         } catch (SQLException e) {
             e.printStackTrace();
         }
- 
+
         try {
             if (connection != null && (!connection.isClosed())) {
                 connection.close();
@@ -173,28 +186,37 @@ public class ConnectionManager {
             e.printStackTrace();
         }
     }
+
     public static void closeall(Connection c, PreparedStatement p) throws SQLException {
         c.close();
         p.close();
     }
-    
-//    获取时间
+
+    //    获取时间
     public static String gettime() {
-    	Calendar calendar = Calendar.getInstance();
+        Calendar calendar = Calendar.getInstance();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         return simpleDateFormat.format(calendar.getTime());
-	}
-    
+    }
+
     public static String getday() {
-    	Calendar calendar = Calendar.getInstance();
+        Calendar calendar = Calendar.getInstance();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日");
         return simpleDateFormat.format(calendar.getTime());
-	}
+    }
 
-    public static void main(String[] args) {
+    private static boolean checkTableExists(Connection connection, String tableName) throws SQLException {
+        DatabaseMetaData metaData = connection.getMetaData();
+        ResultSet resultSet = metaData.getTables(null, null, tableName, null);
+        if (resultSet.next()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static void main(String[] args) throws SQLException {
         System.out.println(getConnection());
     }
-    
- 
 }
  

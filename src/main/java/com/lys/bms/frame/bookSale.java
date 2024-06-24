@@ -1,7 +1,6 @@
 package com.lys.bms.frame;
 
 import com.formdev.flatlaf.FlatIntelliJLaf;
-import com.formdev.flatlaf.FlatLightLaf;
 import com.lys.bms.dataTemplate.svg;
 import com.lys.bms.dataTemplate.isbn;
 import com.lys.bms.jdbc.ConnectionManager;
@@ -29,7 +28,7 @@ public class bookSale extends JPanel {
     private JTextField jt_bookname;
     private JSpinner jt_num;
     private JTextField jt_price;
-    public static JTextField jt_zhekou;
+    public static JTextField jt_discount;
     private JTextField jt_shouldpay;
     private JTextField jt_receive;
     private JTextField jt_return;
@@ -56,16 +55,16 @@ public class bookSale extends JPanel {
             System.err.println("Failed to initialize LaF");
         }
 //		setBackground(new Color(152, 251, 152));
-		setBorder(new TitledBorder(null, "\u56FE\u4E66\u9500\u552E\u6A21\u5757", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		setLayout(null);
-		
-		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+        setBorder(new TitledBorder(null, "\u56FE\u4E66\u9500\u552E\u6A21\u5757", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+        setLayout(null);
+
+        JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setBounds(10, 23, 690, 495);
-		add(tabbedPane);
-		
-		JPanel panel = new JPanel();
-		tabbedPane.addTab("图书销售", svg.getSVGIcon("/svg/cart-check.svg","#2F4F4F",20,20), panel, null);
-		panel.setLayout(null);
+        add(tabbedPane);
+
+        JPanel panel = new JPanel();
+        tabbedPane.addTab("图书销售", svg.getSVGIcon("/svg/cart-check.svg", "#2F4F4F", 20, 20), panel, null);
+        panel.setLayout(null);
 
         JPanel panel_3 = new JPanel();
         panel_3.setLayout(new GridLayout(1, 4, 20, 0));
@@ -86,7 +85,7 @@ public class bookSale extends JPanel {
             public void removeUpdate(DocumentEvent e) {
                 isbn.dynISBNcomplete(jt_isbn);
                 // TODO Auto-generated method stub
-                get_bookname_markprice();
+                get_bookname_mark_price();
 
             }
 
@@ -94,14 +93,14 @@ public class bookSale extends JPanel {
             public void insertUpdate(DocumentEvent e) {
                 isbn.dynISBNcomplete(jt_isbn);
                 // TODO Auto-generated method stub
-                get_bookname_markprice();
+                get_bookname_mark_price();
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
                 isbn.dynISBNcomplete(jt_isbn);
                 // TODO Auto-generated method stub
-                get_bookname_markprice();
+                get_bookname_mark_price();
             }
         });
 //		jt_isbn.setFont(new Font("宋体", Font.BOLD, 19));
@@ -168,13 +167,12 @@ public class bookSale extends JPanel {
         lblNewLabel_3.setBounds(68, 6, 91, 28);
         panel_3_2.add(lblNewLabel_3);
 
-        jt_zhekou = new JTextField();
-        jt_zhekou.setText(Double.toString(mainFrame.zhekou));
-        jt_zhekou.setEditable(false);
-//		jt_zhekou.setFont(new Font("宋体", Font.BOLD, 19));
-        jt_zhekou.setColumns(25);
-        jt_zhekou.setBounds(131, 10, 171, 21);
-        panel_3_2.add(jt_zhekou);
+        jt_discount = new JTextField();
+        jt_discount.setText(Double.toString(mainFrame.discount));
+        jt_discount.setHorizontalAlignment(4);
+        jt_discount.setColumns(25);
+        jt_discount.setBounds(131, 10, 171, 21);
+        panel_3_2.add(jt_discount);
 
         JLabel lblNewLabel_1_2 = new JLabel("应付：");
 //		lblNewLabel_1_2.setFont(new Font("宋体", Font.BOLD, 19));
@@ -243,12 +241,12 @@ public class bookSale extends JPanel {
         panel_3_3.add(jt_return);
 
 
-		JButton btnNewButton = new JButton("重置");
-		btnNewButton.setIcon(svg.getSVGIcon("/svg/arrow-clockwise.svg","#2F4F4F",20,20));
-		btnNewButton.setBounds(20,240,300,60);
-		panel.add(btnNewButton);
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+        JButton btnNewButton = new JButton("重置");
+        btnNewButton.setIcon(svg.getSVGIcon("/svg/arrow-clockwise.svg", "#2F4F4F", 20, 20));
+        btnNewButton.setBounds(20, 240, 300, 60);
+        panel.add(btnNewButton);
+        btnNewButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
 //				重置输出框
                 jt_isbn.setText("");
                 jt_bookname.setText("");
@@ -261,13 +259,13 @@ public class bookSale extends JPanel {
         });
 //		btnNewButton.setFont(new Font("宋体", Font.BOLD, 18));
 //		btnNewButton.setBounds(155, 180, 113, 30);
-		//panel_3_5.add(btnNewButton);
-		JButton btnNewButton_1 = new JButton("确定");
-		btnNewButton_1.setIcon(svg.getSVGIcon("/svg/check-square.svg","#2F4F4F",20,20));
-		btnNewButton_1.setBounds(360,240,300,60);
-		panel.add(btnNewButton_1);
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+        //panel_3_5.add(btnNewButton);
+        JButton btnNewButton_1 = new JButton("确定");
+        btnNewButton_1.setIcon(svg.getSVGIcon("/svg/check-square.svg", "#2F4F4F", 20, 20));
+        btnNewButton_1.setBounds(360, 240, 300, 60);
+        panel.add(btnNewButton_1);
+        btnNewButton_1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
 //				判断当前ISBN对应的图书是否存在
 
                 if (jt_isbn.getText().equals("")) {
@@ -287,8 +285,8 @@ public class bookSale extends JPanel {
                             String isbnString = jt_isbn.getText();
                             String bookname = jt_bookname.getText();
                             String num = jt_num.getValue().toString();
-                            String markprice = jt_price.getText();
-                            String zhekou = jt_zhekou.getText();
+                            String mark_price = jt_price.getText();
+                            String discount = jt_discount.getText();
                             String shouldpay = jt_shouldpay.getText();
                             String receive = jt_receive.getText();
                             String returnmoney = jt_return.getText();
@@ -296,7 +294,7 @@ public class bookSale extends JPanel {
                             String time = ConnectionManager.gettime();
 //							保存数据到表
                             String sqlstring = "insert into book_out values(?,?,?,?,?,?,?,?,?,?);";
-                            int n = ConnectionManager.Update(sqlstring, new Object[]{null, isbnString, bookname, num, markprice, zhekou, shouldpay, receive, returnmoney, time});
+                            int n = ConnectionManager.Update(sqlstring, new Object[]{null, isbnString, bookname, num, mark_price, discount, shouldpay, receive, returnmoney, time});
                             if (n > 0) {
                                 JOptionPane.showMessageDialog(null, "下单成功！", "提示", JOptionPane.INFORMATION_MESSAGE);
 //								修改库存数量
@@ -354,57 +352,55 @@ public class bookSale extends JPanel {
         //panel_3_5.add(panel_3_5_14);
 
 
+        JPanel panel_1 = new JPanel();
+        tabbedPane.addTab("订单一览", svg.getSVGIcon("/svg/eye.svg", "#2F4F4F", 25, 25), panel_1, null);
+        panel_1.setLayout(null);
 
+        JPanel panel_4 = new JPanel();
+        panel_4.setBounds(0, 43, 685, 470);
+        panel_1.add(panel_4);
+        panel_4.setLayout(null);
 
-		JPanel panel_1 = new JPanel();
-		tabbedPane.addTab("订单一览", svg.getSVGIcon("/svg/eye.svg","#2F4F4F",25,25), panel_1, null);
-		panel_1.setLayout(null);
+        JScrollPane scrollPane = new JScrollPane();
+        scrollPane.setBounds(0, 0, 685, 415);
+        panel_4.add(scrollPane);
 
-		JPanel panel_4 = new JPanel();
-		panel_4.setBounds(0, 43, 685, 470);
-		panel_1.add(panel_4);
-		panel_4.setLayout(null);
-		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 0, 685, 415);
-		panel_4.add(scrollPane);
-		
-		o1=new Object[] {"序号","ISBN","书名","购买数量","标价","折扣","应付","收取","找零","下单时间"};
-		o2=new Object[][] {
-		
-		};
-		
-		table = new JTable(o2,o1);
-		scrollPane.setViewportView(table);
-		
-		JLabel lblNewLabel_5 = new JLabel("订单总数：");
+        o1 = new Object[]{"序号", "ISBN", "书名", "购买数量", "标价", "折扣", "应付", "收取", "找零", "下单时间"};
+        o2 = new Object[][]{
+
+        };
+
+        table = new JTable(o2, o1);
+        scrollPane.setViewportView(table);
+
+        JLabel lblNewLabel_5 = new JLabel("订单总数：");
 //		lblNewLabel_5.setFont(new Font("宋体", Font.BOLD, 19));
 		lblNewLabel_5.setBounds(468, 10, 124, 28);
-		panel_1.add(lblNewLabel_5);
-		
-		dingdan_nums = new JTextField();
-		dingdan_nums.setEditable(false);
+        panel_1.add(lblNewLabel_5);
+
+        dingdan_nums = new JTextField();
+        dingdan_nums.setEditable(false);
 		dingdan_nums.setBounds(556, 10, 93, 28);
-		panel_1.add(dingdan_nums);
-		dingdan_nums.setColumns(10);
-		
-		JPanel panel_5 = new JPanel();
-		tabbedPane.addTab("订单查询", svg.getSVGIcon("/svg/search.svg","#2F4F4F",20,20), panel_5, null);
-		panel_5.setLayout(null);
+        panel_1.add(dingdan_nums);
+        dingdan_nums.setColumns(10);
 
-		JPanel panel_6 = new JPanel();
-		panel_6.setBounds(0, 22, 685, 43);
-		panel_5.add(panel_6);
+        JPanel panel_5 = new JPanel();
+        tabbedPane.addTab("订单查询", svg.getSVGIcon("/svg/search.svg", "#2F4F4F", 20, 20), panel_5, null);
+        panel_5.setLayout(null);
 
-		find_text = new JTextField();
+        JPanel panel_6 = new JPanel();
+        panel_6.setBounds(0, 22, 685, 43);
+        panel_5.add(panel_6);
+
+        find_text = new JTextField();
 //		find_text.setFont(new Font("宋体", Font.BOLD, 20));
-		panel_6.add(find_text);
+        panel_6.add(find_text);
 		find_text.setColumns(52);
 
-		JButton btnNewButton_2 = new JButton("查询");
-		btnNewButton_2.setIcon(svg.getSVGIcon("/svg/search.svg","#1296DB",20,20));
-		btnNewButton_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+        JButton btnNewButton_2 = new JButton("查询");
+        btnNewButton_2.setIcon(svg.getSVGIcon("/svg/search.svg", "#1296DB", 20, 20));
+        btnNewButton_2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
 //				获取文本框数据
                 String text = find_text.getText();
                 if (text.equals("")) {
@@ -422,20 +418,19 @@ public class bookSale extends JPanel {
                         isselect = 3;
                     }
 //					按ISBN查询结果
-//					String sql2="SELECT ISBN,bookname,out_num,markprice,zhekou,sholdpay,`return`,receive,time from book_out;";
+//					String sql2="SELECT ISBN,bookname,out_num,mark_price,discount,sum,`return`,receive,time from book_out;";
 
                     if (isselect == 1) {
-                        String sql = "SELECT ISBN,bookname,out_num,markprice,zhekou,sholdpay,`return`,receive,time from book_out where ISBN like '" + text + "%';";
+                        String sql = "SELECT ISBN,bookname,out_num,mark_price,discount,sum,`return`,receive,time from book_out where ISBN like '" + text + "%';";
                         get_find_result(sql);
                     }
                     if (isselect == 2) {
-                        String sql = "SELECT ISBN,bookname,out_num,markprice,zhekou,sholdpay,`return`,receive,time from book_out where bookname like '" + text + "%';";
+                        String sql = "SELECT ISBN,bookname,out_num,mark_price,discount,sum,`return`,receive,time from book_out where bookname like '" + text + "%';";
                         get_find_result(sql);
-
 
                     }
                     if (isselect == 3) {
-                        String sql = "SELECT ISBN,bookname,out_num,markprice,zhekou,sholdpay,`return`,receive,time from book_out where time like '" + text + "%';";
+                        String sql = "SELECT ISBN,bookname,out_num,mark_price,discount,sum,`return`,receive,time from book_out where time like '" + text + "%';";
                         get_find_result(sql);
                     }
                 }
@@ -444,7 +439,6 @@ public class bookSale extends JPanel {
             }
 
         });
-//		btnNewButton_2.setFont(new Font("宋体", Font.BOLD, 20));
         panel_6.add(btnNewButton_2);
 
         JPanel panel_7 = new JPanel();
@@ -452,21 +446,17 @@ public class bookSale extends JPanel {
         panel_5.add(panel_7);
 
         JLabel lblNewLabel_6 = new JLabel("查询方式：");
-//		lblNewLabel_6.setFont(new Font("宋体", Font.BOLD, 18));
         panel_7.add(lblNewLabel_6);
 
         jrb_isbn = new JRadioButton("ISBN");
         jrb_isbn.setSelected(true);
-//		jrb_isbn.setFont(new Font("宋体", Font.BOLD, 18));
         panel_7.add(jrb_isbn);
 
         jrb_bookname = new JRadioButton("书名");
-//		jrb_bookname.setFont(new Font("宋体", Font.BOLD, 18));
         panel_7.add(jrb_bookname);
 
         jrb_time = new JRadioButton("交易时间");
         jrb_time.setForeground(Color.BLACK);
-//		jrb_time.setFont(new Font("宋体", Font.BOLD, 18));
         panel_7.add(jrb_time);
 
 //		按钮组
@@ -483,7 +473,6 @@ public class bookSale extends JPanel {
         scrollPane_1.setViewportView(table_1);
 
         JLabel lblNewLabel_7 = new JLabel("查询结果：");
-//		lblNewLabel_7.setFont(new Font("宋体", Font.PLAIN, 17));
         lblNewLabel_7.setBounds(2, 120, 86, 18);
         panel_5.add(lblNewLabel_7);
 
@@ -494,9 +483,9 @@ public class bookSale extends JPanel {
     }
 
     /**
-     * 动态查询ISBN如有结果返回bookname和markprice
+     * 动态查询ISBN如有结果返回bookname和mark_price
      */
-    public void get_bookname_markprice() {
+    public void get_bookname_mark_price() {
 //		获取ISBN值
         String isbn = jt_isbn.getText();
 //		从库存表中查询是否有该图书
@@ -507,10 +496,10 @@ public class bookSale extends JPanel {
 //			判断结果集
             if (set.next()) {
                 String bookname = set.getString("bookname");
-                double markprice = set.getDouble("markprice");
+                double mark_price = set.getDouble("mark_price");
 //				将值设置到文本框
                 jt_bookname.setText(bookname);
-                jt_price.setText(Double.toString(markprice));
+                jt_price.setText(Double.toString(mark_price));
             } else {
                 jt_bookname.setText("");
                 jt_price.setText("");
@@ -554,7 +543,7 @@ public class bookSale extends JPanel {
             } else {
 //				获取价格，数量，折扣
                 double price = Double.parseDouble(jt_price.getText());
-                double discount = Double.parseDouble(jt_zhekou.getText());
+                double discount = Double.parseDouble(jt_discount.getText());
 //				计算应付金额
                 double shouldpay = num * price * discount;
 //				会显
@@ -596,7 +585,7 @@ public class bookSale extends JPanel {
         int count = 0;
 
         Object[] objects = new Object[]{"序号", "ISBN", "书名", "购买数量", "标价", "折扣", "应付", "收取", "找零", "下单时间"};
-        String sql2 = "SELECT ISBN,bookname,out_num,markprice,zhekou,sholdpay,`return`,receive,time from book_out;";
+        String sql2 = "SELECT ISBN,bookname,out_num,mark_price,discount,sum,receive,`return`,time from book_out;";
         ResultSet set = null;
         try {
             set = ConnectionManager.query(sql2, new Object[]{});

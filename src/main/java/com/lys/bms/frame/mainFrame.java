@@ -14,13 +14,11 @@ import java.awt.Font;
 import java.awt.Color;
 
 
-import java.awt.Toolkit;
 import java.awt.CardLayout;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.awt.event.ActionEvent;
-import java.util.TimerTask;
 
 public class mainFrame extends JFrame {
 
@@ -32,7 +30,7 @@ public class mainFrame extends JFrame {
     //	标价设置
     static double inprice_add = 1.0;
     //	折扣设置
-    static double zhekou = 1.00;
+    static double discount = 1.00;
 
     /**
      * Create the frame.
@@ -117,7 +115,6 @@ public class mainFrame extends JFrame {
         settingPanelMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 cardLayout.show(tabViewPane, "4");
-                statusWarn("123", 5);
             }
         });
         logOutMenuItem.addActionListener(new ActionListener() {
@@ -126,6 +123,8 @@ public class mainFrame extends JFrame {
                 try {
                     login = new Login();
                 } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                } catch (SQLException ex) {
                     throw new RuntimeException(ex);
                 }
 //				关闭当前

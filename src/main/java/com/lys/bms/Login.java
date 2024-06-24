@@ -56,7 +56,7 @@ public class Login extends JFrame {
     /**
      * 创建窗口
      */
-    public Login() throws IOException {
+    public Login() throws IOException, SQLException {
 //        try {
 ////            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 //        } catch (Exception e) {
@@ -69,8 +69,6 @@ public class Login extends JFrame {
             System.err.println( "Failed to initialize LaF" );
         }
 
-//        setBackground(new Color(224, 255, 255));
-//         Login.class.getResource("/img/线性图书 (1).png")
         setIconImage(svg.getSVGImg("/svg/book-half.svg", "#515151", 256, 256));
         setTitle("图书信息管理系统");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -186,22 +184,21 @@ public class Login extends JFrame {
                             System.out.println(user + psw);
 //							判断密码
                             if (pswString.equals("")) {
-                                mess2.setText("请输入密码!");
+                                JOptionPane.showMessageDialog(null, "密码不能为空！", "警告", JOptionPane.WARNING_MESSAGE);
                             } else if (psw.equals(pswString)) {
 //								登录成功
-                                System.out.println("登录成功！");
+                                JOptionPane.showMessageDialog(null, "登陆成功！", "提示", JOptionPane.INFORMATION_MESSAGE);
 //								打开新窗口
                                 jrame = new mainFrame(new Manager(userString, pswString));
 //								关闭当前
                                 dispose();
                                 jrame.setVisible(true);
                             } else {
-                                System.out.println("密码输入错误！");
-                                mess2.setText("密码输入错误!");
+                                JOptionPane.showMessageDialog(null, "密码错误！", "警告", JOptionPane.WARNING_MESSAGE);
                             }
                         } else {
-                            System.out.println("账号不存在！");
-                            mess1.setText("该账号不存在!");
+                            JOptionPane.showMessageDialog(null, "账号不存在！", "警告", JOptionPane.WARNING_MESSAGE);
+
                         }
                     } catch (SQLException e1) {
                         // TODO Auto-generated catch block
