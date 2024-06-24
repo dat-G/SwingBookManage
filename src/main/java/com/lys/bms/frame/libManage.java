@@ -123,20 +123,37 @@ public class libManage extends JPanel {
         jt_author.setColumns(25);
         jt_author.setBounds(131, 10, 171, 21);
         panel_3_1.add(jt_author);
+         JLabel lblNewLabel_2_1 = new JLabel("");
+//        lblNewLabel_2.setBounds(70, 6, 89, 28);
+        panel_3_1.add(lblNewLabel_2_1);
+
+        JLabel lblNewLabel_2_2 = new JLabel("");
+        lblNewLabel_2.setBounds(70, 6, 89, 28);
+        panel_3_1.add(lblNewLabel_2_2);
+
+        JPanel panel_3_6 = new JPanel();
+        panel_3_6.setLayout(new GridLayout(1,4,20,0));
+        panel_3_6.setBounds(10, 100, 650, 30);
+        panel.add(panel_3_6);
 
         JLabel lblNewLabel_1_1_1 = new JLabel("进价: ");
         lblNewLabel_1_1_1.setBounds(352, 6, 75, 28);
-        panel_3_1.add(lblNewLabel_1_1_1);
+        panel_3_6.add(lblNewLabel_1_1_1);
 
         jt_inprice = new JTextField();
-//        jt_inprice.setFont(new Font("宋体", Font.BOLD, 18));
+//      jt_inprice.setFont(new Font("宋体", Font.BOLD, 18));
         jt_inprice.setColumns(25);
-        jt_inprice.setBounds(420, 10, 171, 21);
-        panel_3_1.add(jt_inprice);
-
+//        jt_inprice.setBounds(420, 10, 171, 21);
+        panel_3_6.add(jt_inprice);
+  JLabel lblNewLabel_3_12 = new JLabel("");
+//        lblNewLabel_2.setBounds(70, 6, 89, 28);
+        panel_3_6.add(lblNewLabel_3_12);
+        JLabel lblNewLabel_3_1 = new JLabel("");
+//        lblNewLabel_2.setBounds(70, 6, 89, 28);
+        panel_3_6.add(lblNewLabel_3_1);
         JPanel panel_3_2 = new JPanel();
         panel_3_2.setLayout(new GridLayout(1,4,20,0));
-        panel_3_2.setBounds(10, 100, 650, 30);
+        panel_3_2.setBounds(10, 140, 650, 30);
         panel.add(panel_3_2);
 
         JLabel lblNewLabel_3 = new JLabel("数量：");
