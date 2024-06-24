@@ -24,14 +24,16 @@ import java.net.URL;
 
 public class svg {
     public static Image getSVGImg(String svgPath, String renderColor, int width, int height) throws IOException {
-        BufferedImage tmpSVGImg = loadSvgImage(svgPath, renderColor, width, height);
-        ImageIcon tmpIcon = new ImageIcon(tmpSVGImg);
-        return tmpIcon.getImage();
+        BufferedImage tmpSVGImg = loadSvgImage(svgPath, renderColor, 512, 512);
+        Image tmpSmooth = tmpSVGImg.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+//        ImageIcon tmpIcon = new ImageIcon(tmpSVGImg);
+        return tmpSmooth;
     }
 
     public static ImageIcon getSVGIcon(String svgPath, String renderColor, int width, int height) throws IOException {
-        BufferedImage tmpSVGImg = loadSvgImage(svgPath, renderColor, width, height);
-        ImageIcon tmpIcon = new ImageIcon(tmpSVGImg);
+        BufferedImage tmpSVGImg = loadSvgImage(svgPath, renderColor, 512, 512);
+        Image tmpSmooth = tmpSVGImg.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        ImageIcon tmpIcon = new ImageIcon(tmpSmooth);
         return tmpIcon;
     }
 
