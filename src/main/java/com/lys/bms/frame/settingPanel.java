@@ -96,7 +96,7 @@ public class settingPanel extends JPanel {
 		panel_4_1.add(lblNewLabel_4_123);
 		JButton jb_reset = new JButton("重置");
 		jb_reset.setIcon(new ImageIcon(settingPanel.class.getResource("/img/重置.png")));
-		jb_reset.setBounds(172, 5, 103, 35);
+		jb_reset.setBounds(172, 5, 666, 35);
 		jb_reset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				jt1.setText("");
