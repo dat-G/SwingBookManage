@@ -87,7 +87,6 @@ public class settingPanel extends JPanel {
         jb_reset.setBounds(420, 0, 150, 35);
         jb_reset.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                jt1.setText("1.0");
                 jt2.setText("1.0");
             }
         });
