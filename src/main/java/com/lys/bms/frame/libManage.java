@@ -24,6 +24,7 @@ public class libManage extends JPanel {
     private static JTextField jt_name;
     private static JTextField jt_author;
     private static JTextField jt_inprice;
+    private static JTextField jt_outprice;
     private static JSpinner jt_num;
     private JTextField textField_5;
     private static JTable table_bookstock;
@@ -148,7 +149,7 @@ public class libManage extends JPanel {
         JLabel lblNewLabel_3_12 = new JLabel("售价: ");
 //        lblNewLabel_2.setBounds(70, 6, 89, 28);
         panel_3_6.add(lblNewLabel_3_12);
-        JTextField jt_outprice = new JTextField("");
+        jt_outprice = new JTextField("");
 //        lblNewLabel_2.setBounds(70, 6, 89, 28);
         panel_3_6.add(jt_outprice);
         JPanel panel_3_2 = new JPanel();
@@ -256,9 +257,9 @@ public class libManage extends JPanel {
                     try {
                         int n = ConnectionManager.Update(sql6, new Object[]{booknum2, isbn_str});
                         if (n > 0) {
-                            System.out.println("图书已存在，更新数量成功！原有" + booknum1 + ",现有" + booknum2);
+                            JOptionPane.showMessageDialog(null, "图书已存在，更新数量成功！原有" + booknum1 + ",现有" + booknum2 +"本。", "提示", JOptionPane.INFORMATION_MESSAGE);
                         } else {
-                            System.out.println("更新数量错误！");
+                            JOptionPane.showMessageDialog(null, "更新数量错误！", "警告", JOptionPane.WARNING_MESSAGE);
                         }
 
                         String sql1 = "insert into new_book_in values(?,?,?,?,?,?,?,?);";
@@ -301,9 +302,9 @@ public class libManage extends JPanel {
                     try {
                         int m = ConnectionManager.Update(sql2, new Object[]{isbn_str, bookname, author, num, mark_price});
                         if (m > 0) {
-                            System.out.println("插入t2成功！");
+                            JOptionPane.showMessageDialog(null,"插入成功！", "提示", JOptionPane.INFORMATION_MESSAGE);
                         } else {
-                            System.out.println("插入t2发生错误！");
+                            JOptionPane.showMessageDialog(null, "插入发生错误！", "警告", JOptionPane.WARNING_MESSAGE);
                         }
                     } catch (SQLException e1) {
                         // TODO Auto-generated catch block
@@ -343,9 +344,9 @@ public class libManage extends JPanel {
                     }
                     int m = ConnectionManager.Update(sql1, new Object[]{isbnString});
                     if (m > 0) {
-                        System.out.println("从库存中已经删除！");
+                        JOptionPane.showMessageDialog(null, "从库存中已经删除！", "提示", JOptionPane.INFORMATION_MESSAGE);
                     } else {
-                        System.out.println("从库存中删除失败！");
+                        JOptionPane.showMessageDialog(null, "从库存中删除失败！", "警告", JOptionPane.WARNING_MESSAGE);
                     }
                 } catch (SQLException e1) {
                     // TODO Auto-generated catch block
@@ -374,13 +375,13 @@ public class libManage extends JPanel {
                 String num = jt_num.getValue().toString();
                 String isbnString = jt_isbn.getText();
 //				保存修改的信息根据
-                String sql = "UPDATE new_book_in SET bookname=?,author=?,price=?,num=? where ISBN=?";
+                String sql = "UPDATE new_book_in SET bookname=?,author=?,cost_price=?,mark_price=?,num=? where ISBN=?";
 //				执行
                 try {
 //					返回结果
-                    int n = ConnectionManager.Update(sql, new Object[]{bookname, author, in_price, num, isbnString});
+                    int n = ConnectionManager.Update(sql, new Object[]{bookname, author, in_price, out_price, num, isbnString});
                     if (n > 0) {
-                        JOptionPane.showMessageDialog(null, "t1图书信息修改成功！", "提示", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "图书信息修改成功！", "提示", JOptionPane.INFORMATION_MESSAGE);
                     } else {
                         JOptionPane.showMessageDialog(null, "图书信息修改失败！", "提示", JOptionPane.INFORMATION_MESSAGE);
                     }
@@ -502,11 +503,13 @@ public class libManage extends JPanel {
                 String name = set.getString("bookname");
                 String author = set.getString("author");
                 int num = set.getInt("num");
-                double inprice = set.getDouble("price");
-                System.out.println(name + author + num + inprice);
+                double inprice = set.getDouble("cost_price");
+                double outprice = set.getDouble("mark_price");
+//                System.out.println(name + author + num + inprice);
                 jt_author.setText(author);
                 jt_name.setText(name);
                 jt_inprice.setText(Double.toString(inprice));
+                jt_outprice.setText(Double.toString(outprice));
                 jt_num.setValue(num);
                 a = true;
 
@@ -548,7 +551,7 @@ public class libManage extends JPanel {
 
         TableModel dataModel1 = new DefaultTableModel(objects3, a);
         table_bookstock.setModel(dataModel1);
-        System.out.println("库存表格刷新!");
+//        JOptionPane.showMessageDialog(null, "库存表格更新成功。", "提示", JOptionPane.INFORMATION_MESSAGE);
     }
 
     /**

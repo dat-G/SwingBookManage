@@ -79,7 +79,7 @@ public class queryPanel extends JPanel {
 		panel_7_1.setBounds(0, 67, 685, 43);
 		panel_5_1.add(panel_7_1);
 		
-		JLabel lblNewLabel_6_1 = new JLabel("查询方式：");
+		JLabel lblNewLabel_6_1 = new JLabel("查询方式；");
 //		lblNewLabel_6_1.setFont(new Font("宋体", Font.BOLD, 18));
 		panel_7_1.add(lblNewLabel_6_1);
 		

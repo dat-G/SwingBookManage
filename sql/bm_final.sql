@@ -59,7 +59,6 @@ create table if not exists new_book_in
     row_format = DYNAMIC;
 
 INSERT INTO bm.book_stack (ISBN, bookname, author, num, mark_price) VALUES ('7-5111-5645-2', '有机食品加工技术', '邹磊', 3, 48.00);
-INSERT INTO bm.book_stack (ISBN, bookname, author, num, mark_price) VALUES ('9-7871-0011-7', '英语的故事', '克里斯特尔', 5, 25.00);
-INSERT INTO bm.book_stack (ISBN, bookname, author, num, mark_price) VALUES ('9-7875-2073-8', '“四史”精要学习公开课', '李忠杰', 2, 78.00);
+INSERT INTO bm.new_book_in (ID, ISBN, bookname, author, cost_price, num, time, mark_price) VALUES (1, '7-5111-5645-2', '有机食品加工技术', '邹磊', 24.00, 3, '2024-06-25 03:31:53', 48.00);
 
 INSERT INTO bm.manager (ID, user, password) VALUES (1, 'admin', 'admin');
