@@ -296,7 +296,7 @@ public class bookSale extends JPanel {
                             String sqlstring = "insert into book_out values(?,?,?,?,?,?,?,?,?,?);";
                             int n = ConnectionManager.Update(sqlstring, new Object[]{null, isbnString, bookname, num, mark_price, discount, shouldpay, receive, returnmoney, time});
                             if (n > 0) {
-                                JOptionPane.showMessageDialog(null, "下单成功！", "提示", JOptionPane.INFORMATION_MESSAGE);
+//                                JOptionPane.showMessageDialog(null, "下单成功！", "提示", JOptionPane.INFORMATION_MESSAGE);
 //								修改库存数量
                                 int stocknum = 0;
                                 String sqlString2 = "select num from book_stack where ISBN=?";

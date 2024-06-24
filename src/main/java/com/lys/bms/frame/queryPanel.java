@@ -135,13 +135,13 @@ public class queryPanel extends JPanel {
 					}
 //					按ISBN查询结果
 					if (isselect==1) {
-						String sql="select ISBN,bookname,author,num,markprice from book_stack where ISBN like '"+text+"%';";
+						String sql="select ISBN,bookname,author,num,mark_price from book_stack where ISBN like '"+text+"%';";
 						get_result1(sql);
 						
 					}
 //					按书名查询
 					if (isselect==2) {
-						String sql="select ISBN,bookname,author,num,markprice from book_stack where bookname like '"+text+"%';";
+						String sql="select ISBN,bookname,author,num,mark_price from book_stack where bookname like '"+text+"%';";
 						get_result1(sql);
 					}
 					
