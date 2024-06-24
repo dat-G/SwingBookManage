@@ -43,7 +43,7 @@ public class settingPanel extends JPanel {
 		add(tabbedPane);
 		
 		JPanel panel_3 = new JPanel();
-		tabbedPane.addTab("买卖设置", svg.getSVGIcon("/svg/sliders.svg","#515151",20,20), panel_3, null);
+		tabbedPane.addTab("买卖设置", svg.getSVGIcon("/svg/sliders.svg","#5555FF",20,20), panel_3, null);
 		panel_3.setLayout(null);
 		
 		JPanel panel_4 = new JPanel();
@@ -93,7 +93,7 @@ public class settingPanel extends JPanel {
 //		lblNewLabel_4_1.setBounds(211, 28, 121, 27);
 		panel_4_1.add(lblNewLabel_4_133);
 		JButton jb_reset = new JButton("重置");
-		jb_reset.setIcon(svg.getSVGIcon("/svg/arrow-clockwise.svg","#515151",20,20));
+		jb_reset.setIcon(svg.getSVGIcon("/svg/arrow-clockwise.svg","#2F4F4F",20,20));
 		jb_reset.setBounds(420, 0, 150, 35);
 		jb_reset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -106,7 +106,7 @@ public class settingPanel extends JPanel {
 //		panel_4_1_1.add();
 		panel_4.add(jb_reset);
 		JButton jb_ok = new JButton("确定修改");
-		jb_ok.setIcon(svg.getSVGIcon("/svg/check-square.svg","#515151",15,15));
+		jb_ok.setIcon(svg.getSVGIcon("/svg/check-square.svg","#2F4F4F",15,15));
 		jb_ok.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 //				拿到数据,设置新数值
@@ -123,7 +123,7 @@ public class settingPanel extends JPanel {
 //		panel_4_1_1.add();
 		panel_4_1.add(jb_ok);
 		JPanel panel = new JPanel();
-		tabbedPane.addTab("修改密码", svg.getSVGIcon("/svg/key.svg","#515151",20,20), panel, null);
+		tabbedPane.addTab("修改密码", svg.getSVGIcon("/svg/key.svg","#2F4F4F",20,20), panel, null);
 		panel.setLayout(null);
 		JPanel panel_6 = new JPanel();
 		panel_6.setLayout(new GridLayout(1,4,20,0));
@@ -168,13 +168,13 @@ JLabel lblNewLabel_5 = new JLabel("");
 //JLabel lblNewLabel_10 = new JLabel("");
 //		panel_7.add(lblNewLabel_10);
 		JButton btnNewButton = new JButton("重置");
-		btnNewButton.setIcon(svg.getSVGIcon("/svg/arrow-clockwise.svg","#515151",20,20));
+		btnNewButton.setIcon(svg.getSVGIcon("/svg/arrow-clockwise.svg","#2F4F4F",20,20));
 //		btnNewButton.setFont(new Font("宋体", Font.BOLD, 21));
 //		btnNewButton.setBounds(120, 300, 150, 60);
 //		panel.add(btnNewButton);
 		panel_6.add(btnNewButton);
 		JButton btnNewButton_1 = new JButton("确定");
-		btnNewButton_1.setIcon(svg.getSVGIcon("/svg/check-square.svg","#515151",20,20));
+		btnNewButton_1.setIcon(svg.getSVGIcon("/svg/check-square.svg","#2F4F4F",20,20));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 //				先获取输入的密码与已经登录的密码匹配是否一致
