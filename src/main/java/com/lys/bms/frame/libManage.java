@@ -50,7 +50,7 @@ public class libManage extends JPanel {
         setLayout(null);
 
 //		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-        tabbedPane.setBounds(10, 24, 690, 426);
+        tabbedPane.setBounds(10, 24, 690, 495);
         add(tabbedPane);
 
         JPanel panel = new JPanel();
@@ -420,7 +420,7 @@ public class libManage extends JPanel {
         panel_2.setLayout(null);
 
         JScrollPane scrollPane_1 = new JScrollPane();
-        scrollPane_1.setBounds(0, 42, 685, 355);
+        scrollPane_1.setBounds(0, 42, 685, 415);
         panel_2.add(scrollPane_1);
         Object[][] objects2 = null;
         Object[] objects = null;
@@ -441,11 +441,11 @@ public class libManage extends JPanel {
 
         JLabel lblNewLabel_5 = new JLabel("总计：");
 //        lblNewLabel_5.setFont(new Font("宋体", Font.BOLD, 16));
-        lblNewLabel_5.setBounds(536, 9, 58, 23);
+        lblNewLabel_5.setBounds(536, 10, 58, 23);
         panel_2.add(lblNewLabel_5);
 
         jt_get_all.setEditable(false);
-        jt_get_all.setBounds(578, 9, 97, 21);
+        jt_get_all.setBounds(578, 10, 97, 21);
         panel_2.add(jt_get_all);
         jt_get_all.setColumns(10);
 
@@ -454,7 +454,7 @@ public class libManage extends JPanel {
         panel_1.setLayout(null);
 
         JScrollPane scrollPane = new JScrollPane();
-        scrollPane.setBounds(0, 42, 685, 345);
+        scrollPane.setBounds(0, 42, 685, 415);
         panel_1.add(scrollPane);
 //		库存记录
         Object[] a = {"序号", "ISBN", "书名", "作者", "数量", "标价"};

@@ -48,7 +48,7 @@ public class queryPanel extends JPanel {
 		setLayout(null);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(10, 24, 690, 426);
+		tabbedPane.setBounds(10, 24, 690, 495);
 		add(tabbedPane);
 
 		JPanel panel_1 = new JPanel();
@@ -57,7 +57,7 @@ public class queryPanel extends JPanel {
 		
 		JPanel panel_5_1 = new JPanel();
 		panel_5_1.setLayout(null);
-		panel_5_1.setBounds(0, 0, 685, 387);
+		panel_5_1.setBounds(0, 0, 685, 490);
 		panel_1.add(panel_5_1);
 		
 		JPanel panel_6_1 = new JPanel();
@@ -98,7 +98,7 @@ public class queryPanel extends JPanel {
 		bGroup.add(jrb1_isbn);
 		
 		JScrollPane scrollPane_1_1 = new JScrollPane();
-		scrollPane_1_1.setBounds(0, 148, 685, 249);
+		scrollPane_1_1.setBounds(0, 148, 685, 300);
 		panel_5_1.add(scrollPane_1_1);
 		
 		headrObjects=new Object[]{"序号","ISBN","书名","作者","数量","标价"};
