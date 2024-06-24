@@ -16,6 +16,7 @@ import java.awt.Color;
 import java.awt.Font;
 
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 
@@ -182,6 +183,8 @@ public class settingPanel extends JPanel {
 					} catch (SQLException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
+					} catch (IOException ex) {
+						throw new RuntimeException(ex);
 					}
 				}else {
 					JOptionPane.showMessageDialog(null,"原密码错误!","提示",JOptionPane.INFORMATION_MESSAGE);

@@ -15,6 +15,7 @@ import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.CardLayout;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 
@@ -116,7 +117,12 @@ public class mainFrame extends JFrame {
         });
         logOutMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                Login login = new Login();
+                Login login = null;
+                try {
+                    login = new Login();
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
 //				关闭当前
                 dispose();
                 login.setVisible(true);

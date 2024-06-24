@@ -10,6 +10,7 @@ import javax.swing.text.Document;
 
 import com.formdev.flatlaf.FlatIntelliJLaf;
 import com.formdev.flatlaf.FlatLightLaf;
+import com.lys.bms.dataTemplate.svg;
 import com.lys.bms.frame.mainFrame;
 import com.lys.bms.jdbc.ConnectionManager;
 import com.lys.bms.model.Manager;
@@ -19,6 +20,7 @@ import java.awt.Font;
 import java.awt.Color;
 import java.awt.SystemColor;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.awt.event.ActionEvent;
@@ -54,7 +56,7 @@ public class Login extends JFrame {
     /**
      * 创建窗口
      */
-    public Login() {
+    public Login() throws IOException {
 //        try {
 ////            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 //        } catch (Exception e) {
@@ -68,7 +70,9 @@ public class Login extends JFrame {
         }
 
 //        setBackground(new Color(224, 255, 255));
-        setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("/img/线性图书 (1).png")));
+//         Login.class.getResource("/img/线性图书 (1).png")
+        Color iconColor = new Color(112,112,112);
+        setIconImage(svg.getSVGImg("/svg/book-half.svg", "#515151"));
         setTitle("图书信息管理系统");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 350, 270);
