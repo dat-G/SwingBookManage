@@ -33,7 +33,6 @@ public class settingPanel extends JPanel {
 		} catch( Exception ex ) {
 			System.err.println( "Failed to initialize LaF" );
 		}
-		setBackground(new Color(220, 220, 220));
 		setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "\u7CFB\u7EDF\u8BBE\u7F6E\u6A21\u5757", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		setSize(710, 460);
 		setLayout(null);

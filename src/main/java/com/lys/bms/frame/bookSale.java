@@ -51,7 +51,6 @@ public class bookSale extends JPanel {
 		} catch( Exception ex ) {
 			System.err.println( "Failed to initialize LaF" );
 		}
-		setBackground(new Color(152, 251, 152));
 		setBorder(new TitledBorder(null, "\u56FE\u4E66\u9500\u552E\u6A21\u5757", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		setLayout(null);
 		

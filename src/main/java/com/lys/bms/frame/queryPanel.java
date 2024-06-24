@@ -39,8 +39,8 @@ public class queryPanel extends JPanel {
 		} catch( Exception ex ) {
 			System.err.println( "Failed to initialize LaF" );
 		}
-		setBackground(new Color(255, 192, 203));
-		setBorder(new TitledBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "\u4FE1\u606F\u67E5\u8BE2\u6A21\u5757", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)), "\u4FE1\u606F\u67E5\u8BE2\u6A21\u5757", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		setBorder(new TitledBorder(null, "\u4FE1\u606F\u67E5\u8BE2\u6A21\u5757", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+
 		setLayout(null);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
