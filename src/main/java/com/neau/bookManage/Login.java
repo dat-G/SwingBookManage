@@ -66,7 +66,7 @@ public class Login extends JFrame {
         } catch( Exception ex ) {
             System.err.println( "Failed to initialize LaF" );
         }
-
+//        System.setProperty("sun.java2d.uiScale", "2.0");
         setIconImage(svg.getSVGImg("/svg/book-half.svg", "#515151", 256, 256));
         setTitle("图书信息管理系统");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -85,7 +85,7 @@ public class Login extends JFrame {
         panel.setLayout(null);
 
         JLabel lblNewLabel = new JLabel("登录");
-        lblNewLabel.setIcon(svg.getSVGIcon("/svg/box-arrow-in-right.svg","#000000", 25, 25));
+        lblNewLabel.setIcon(svg.getSVGIcon("/svg/box-arrow-in-right.svg","#000000", 28, 28));
         lblNewLabel.setIconTextGap(20);
         lblNewLabel.setBounds(110, 5, 400, 30);
 //        lblNewLabel.setForeground(new Color(0, 0, 0));
@@ -100,7 +100,7 @@ public class Login extends JFrame {
 
         JLabel lblNewLabel_1 = new JLabel("账号：");
         lblNewLabel_1.setBounds(20, 10, 80, 30);
-        lblNewLabel_1.setIcon(svg.getSVGIcon("/svg/person-circle.svg","#1296DB ",20,20));
+        lblNewLabel_1.setIcon(svg.getSVGIcon("/svg/person-circle.svg","#1296DB ",28,28));
 //        lblNewLabel_1.setFont(new Font("宋体", Font.BOLD, 20));
         panel_1.add(lblNewLabel_1);
 
@@ -124,7 +124,7 @@ public class Login extends JFrame {
 
         JLabel lblNewLabel_1_1 = new JLabel("密码：");
         lblNewLabel_1_1.setBounds(20, 10, 80, 30);
-        lblNewLabel_1_1.setIcon(svg.getSVGIcon("/svg/key.svg","#1296DB",25,25));
+        lblNewLabel_1_1.setIcon(svg.getSVGIcon("/svg/key.svg","#1296DB",28,28));
 //        lblNewLabel_1_1.setFont(new Font("宋体", Font.BOLD, 20));
         panel_1_1.add(lblNewLabel_1_1);
 

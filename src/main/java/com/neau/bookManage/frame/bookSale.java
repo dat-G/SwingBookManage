@@ -305,6 +305,11 @@ public class bookSale extends JPanel {
                             String returnmoney = jt_return.getText();
 //							下单时间
                             String time = ConnectionManager.gettime();
+
+                            if (receive.equals("")) {
+                                JOptionPane.showMessageDialog(null, "收款金额不能为空！", "警告", JOptionPane.WARNING_MESSAGE);
+                                return;
+                            }
                             int questnum = 0;
                             try {
                                 questnum = Integer.parseInt(num);
