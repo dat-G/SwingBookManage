@@ -270,14 +270,17 @@ public class bookSale extends JPanel {
 		jt_return.setBounds(420, 10, 171, 21);
 		panel_3_3.add(jt_return);
 		
-		JPanel panel_3_5 = new JPanel();
-        panel_3_5.setLayout(new GridLayout(1,4,20,0));
-        panel_3_5.setBounds(10, 180, 650, 30);
-        panel.add(panel_3_5);
-		JLabel panel_3_5_1 = new JLabel(" ");
-        panel_3_5.add(panel_3_5_1);
+		//JPanel panel_3_5 = new JPanel();
+        //panel_3_5.setLayout(new GridLayout(1,4,20,0));
+        //panel_3_5.setBounds(10, 180, 650, 30);
+	    //panel.add(panel_3_5);
+		//JLabel panel_3_5_1 = new JLabel(" ");
+		//panel_3_5.add(panel_3_5_1);
+
 		JButton btnNewButton = new JButton("重置");
 		btnNewButton.setIcon(new ImageIcon(bookSale.class.getResource("/img/重置.png")));
+		btnNewButton.setBounds(20,240,300,60);
+		panel.add(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 //				重置输出框
@@ -292,9 +295,11 @@ public class bookSale extends JPanel {
 		});
 //		btnNewButton.setFont(new Font("宋体", Font.BOLD, 18));
 //		btnNewButton.setBounds(155, 180, 113, 30);
-		panel_3_5.add(btnNewButton);
+		//panel_3_5.add(btnNewButton);
 		JButton btnNewButton_1 = new JButton("确定");
 		btnNewButton_1.setIcon(new ImageIcon(bookSale.class.getResource("/img/确定.png")));
+		btnNewButton_1.setBounds(360,240,300,60);
+		panel.add(btnNewButton_1);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 //				判断当前ISBN对应的图书是否存在
@@ -380,10 +385,10 @@ public class bookSale extends JPanel {
 //		btnNewButton_1.setFont(new Font("宋体", Font.BOLD, 18));
 //		btnNewButton_1.setBounds(455, 180, 113, 30);
 		JLabel panel_3_5_12 = new JLabel(" ");
-        panel_3_5.add(panel_3_5_12);
-		panel_3_5.add(btnNewButton_1);
-		JLabel panel_3_5_14 = new JLabel(" ");
-        panel_3_5.add(panel_3_5_14);
+        //panel_3_5.add(panel_3_5_12);
+		//panel_3_5.add(btnNewButton_1);
+		//JLabel panel_3_5_14 = new JLabel(" ");
+        //panel_3_5.add(panel_3_5_14);
 
 
 
