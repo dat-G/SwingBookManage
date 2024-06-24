@@ -13,6 +13,7 @@ import javax.swing.text.Document;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -36,7 +37,7 @@ public class libManage extends JPanel {
      *
      * @throws SQLException
      */
-    public libManage() throws SQLException {
+    public libManage() throws SQLException, IOException {
         try {
             UIManager.setLookAndFeel( new FlatIntelliJLaf() );
             UIManager.put( "TabbedPane.showTabSeparators", true );
@@ -53,7 +54,7 @@ public class libManage extends JPanel {
         add(tabbedPane);
 
         JPanel panel = new JPanel();
-        tabbedPane.addTab("信息编辑", new ImageIcon(libManage.class.getResource("/img/管理.png")), panel, null);
+        tabbedPane.addTab("信息编辑", svg.getSVGIcon("/svg/card-list.svg","#515151",25,25), panel, null);
         panel.setLayout(null);
 
         JPanel panel_3 = new JPanel();
@@ -183,7 +184,7 @@ public class libManage extends JPanel {
         panel.add(panel_3_3);
 
         JButton btnNewButton = new JButton("重置");
-        btnNewButton.setIcon(new ImageIcon(libManage.class.getResource("/img/重置.png")));
+        btnNewButton.setIcon(svg.getSVGIcon("/svg/arrow-clockwise.svg","#515151",25,25));
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 jt_author.setText("");
@@ -198,7 +199,7 @@ public class libManage extends JPanel {
         panel_3_3.add(btnNewButton);
 
         JButton btnNewButton_1 = new JButton("添加新书");
-        btnNewButton_1.setIcon(new ImageIcon(libManage.class.getResource("/img/添加 (3).png")));
+        btnNewButton_1.setIcon(svg.getSVGIcon("/svg/check-square.svg","#515151",25,25));
         btnNewButton_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 //				获取基本信息
@@ -325,7 +326,7 @@ public class libManage extends JPanel {
 //        lblNewLabel_4.setBounds(200, 20, 203, 24);
 //        panel.add(lblNewLabel_4);
         JButton btnNewButton_1_1 = new JButton("删除图书");
-        btnNewButton_1_1.setIcon(new ImageIcon(libManage.class.getResource("/img/删 除.png")));
+        btnNewButton_1_1.setIcon(svg.getSVGIcon("/svg/trash.svg","#515151",25,25));
         btnNewButton_1_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 //				根据ISBN码删除图书
@@ -363,7 +364,7 @@ public class libManage extends JPanel {
         panel_3_3.add(btnNewButton_1_1);
 
         JButton btnNewButton_2 = new JButton("修改图书");
-        btnNewButton_2.setIcon(new ImageIcon(libManage.class.getResource("/img/修改 (2).png")));
+        btnNewButton_2.setIcon(svg.getSVGIcon("/svg/pencil-square.svg","#515151",25,25));
         btnNewButton_2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 //				获取要修改的信息
@@ -415,7 +416,7 @@ public class libManage extends JPanel {
         panel_3_3.add(btnNewButton_2);
 
         JPanel panel_2 = new JPanel();
-        tabbedPane.addTab("进书记录", new ImageIcon(libManage.class.getResource("/img/买入.png")), panel_2, null);
+        tabbedPane.addTab("进书记录", svg.getSVGIcon("/svg/bag.svg","#515151",20,20), panel_2, null);
         panel_2.setLayout(null);
 
         JScrollPane scrollPane_1 = new JScrollPane();
@@ -449,7 +450,7 @@ public class libManage extends JPanel {
         jt_get_all.setColumns(10);
 
         JPanel panel_1 = new JPanel();
-        tabbedPane.addTab("库存记录", new ImageIcon(libManage.class.getResource("/img/库存2.png")), panel_1, null);
+        tabbedPane.addTab("库存记录", svg.getSVGIcon("/svg/house.svg","#515151",20,20), panel_1, null);
         panel_1.setLayout(null);
 
         JScrollPane scrollPane = new JScrollPane();

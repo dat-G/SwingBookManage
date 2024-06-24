@@ -89,7 +89,7 @@ public class Login extends JFrame {
         panel.setLayout(null);
 
         JLabel lblNewLabel = new JLabel("登录");
-        lblNewLabel.setIcon(svg.getSVGIcon("/svg/emoji-smile.svg","#515151", 32, 32));
+        lblNewLabel.setIcon(svg.getSVGIcon("/svg/box-arrow-in-right.svg","#515151", 25, 25));
         lblNewLabel.setIconTextGap(20);
         lblNewLabel.setBounds(110, 5, 400, 30);
 //        lblNewLabel.setForeground(new Color(0, 0, 0));
@@ -104,7 +104,7 @@ public class Login extends JFrame {
 
         JLabel lblNewLabel_1 = new JLabel("账号：");
         lblNewLabel_1.setBounds(20, 10, 80, 30);
-        lblNewLabel_1.setIcon(new ImageIcon(Login.class.getResource("/img/账号 (1).png")));
+        lblNewLabel_1.setIcon(svg.getSVGIcon("/svg/person-circle.svg","#515151",20,20));
 //        lblNewLabel_1.setFont(new Font("宋体", Font.BOLD, 20));
         panel_1.add(lblNewLabel_1);
 
@@ -128,7 +128,7 @@ public class Login extends JFrame {
 
         JLabel lblNewLabel_1_1 = new JLabel("密码：");
         lblNewLabel_1_1.setBounds(20, 10, 80, 30);
-        lblNewLabel_1_1.setIcon(new ImageIcon(Login.class.getResource("/img/密码 (7).png")));
+        lblNewLabel_1_1.setIcon(svg.getSVGIcon("/svg/key.svg","#515151",25,25));
 //        lblNewLabel_1_1.setFont(new Font("宋体", Font.BOLD, 20));
         panel_1_1.add(lblNewLabel_1_1);
 
@@ -158,13 +158,13 @@ public class Login extends JFrame {
                 jt_psw.setText("");
             }
         });
-        jb_reset.setIcon(new ImageIcon(Login.class.getResource("/img/重置.png")));
+        jb_reset.setIcon(svg.getSVGIcon("/svg/arrow-clockwise.svg","#515151",20,20));
 //        jb_reset.setFont(new Font("宋体", Font.BOLD, 17));
         jb_reset.setBounds(40, 20, 100, 30);
         panel_2.add(jb_reset);
 
         JButton jb_login = new JButton("登录");
-        jb_login.setIcon(new ImageIcon(Login.class.getResource("/img/登录统计.png")));
+        jb_login.setIcon(svg.getSVGIcon("/svg/box-arrow-in-right.svg","#515151",20,20));
         jb_login.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 //				获取账号和密码
@@ -206,6 +206,8 @@ public class Login extends JFrame {
                     } catch (SQLException e1) {
                         // TODO Auto-generated catch block
                         e1.printStackTrace();
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
                     }
                 }
 

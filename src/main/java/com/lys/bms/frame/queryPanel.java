@@ -2,6 +2,7 @@ package com.lys.bms.frame;
 
 import com.formdev.flatlaf.FlatIntelliJLaf;
 import com.formdev.flatlaf.FlatLightLaf;
+import com.lys.bms.dataTemplate.svg;
 import com.lys.bms.jdbc.ConnectionManager;
 
 import javax.swing.*;
@@ -16,6 +17,7 @@ import java.awt.Color;
 import java.awt.Font;
 
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.awt.event.ActionEvent;
@@ -34,7 +36,7 @@ public class queryPanel extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public queryPanel() {
+	public queryPanel() throws IOException {
 		try {
 			UIManager.setLookAndFeel( new FlatIntelliJLaf() );
 			UIManager.put( "TabbedPane.showTabSeparators", true );
@@ -50,7 +52,7 @@ public class queryPanel extends JPanel {
 		add(tabbedPane);
 
 		JPanel panel_1 = new JPanel();
-		tabbedPane.addTab("库存查询", new ImageIcon(queryPanel.class.getResource("/img/查询 (2).png")), panel_1, null);
+		tabbedPane.addTab("库存查询", svg.getSVGIcon("/svg/search.svg","#515151",20,20), panel_1, null);
 		panel_1.setLayout(null);
 		
 		JPanel panel_5_1 = new JPanel();
@@ -68,7 +70,7 @@ public class queryPanel extends JPanel {
 		panel_6_1.add(jt_text2);
 		
 		JButton jb_find = new JButton("查询");
-		jb_find.setIcon(new ImageIcon(queryPanel.class.getResource("/img/查询 (3).png")));
+		jb_find.setIcon(svg.getSVGIcon("/svg/search.svg","#515151",20,20));
 		
 //		jb_find.setFont(new Font("宋体", Font.BOLD, 20));
 		panel_6_1.add(jb_find);

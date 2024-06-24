@@ -3,6 +3,7 @@ package com.lys.bms.frame;
 
 import com.formdev.flatlaf.FlatIntelliJLaf;
 import com.lys.bms.Login;
+import com.lys.bms.dataTemplate.svg;
 import com.lys.bms.jdbc.ConnectionManager;
 import com.lys.bms.model.Manager;
 
@@ -38,7 +39,7 @@ public class mainFrame extends JFrame {
      *
      * @throws SQLException
      */
-    public mainFrame(Manager manager) throws SQLException {
+    public mainFrame(Manager manager) throws SQLException, IOException {
         try {
             UIManager.setLookAndFeel(new FlatIntelliJLaf());
             UIManager.put("TabbedPane.showTabSeparators", true);
@@ -47,7 +48,7 @@ public class mainFrame extends JFrame {
         }
         this.manager = manager;
 
-        setIconImage(Toolkit.getDefaultToolkit().getImage("/img/线性图书 (1).png"));
+        setIconImage(svg.getSVGImg("/svg/book.svg","#515151",25,25));
         setFont(new Font("Courier New", Font.BOLD, 21));
         setTitle("图书信息管理系统");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -55,12 +56,12 @@ public class mainFrame extends JFrame {
         setResizable(false);
 
         JMenuBar menuBar = new JMenuBar();
-        JMenuItem libManageMenuItem = new JMenuItem("书库管理");
-        JMenuItem queryPanelMenuItem = new JMenuItem("信息查询");
-        JMenuItem bookSaleMenuItem = new JMenuItem("图书销售");
+        JMenuItem libManageMenuItem = new JMenuItem("书库管理", svg.getSVGIcon("/svg/gear.svg","#515151",18,18));
+        JMenuItem queryPanelMenuItem = new JMenuItem("信息查询",svg.getSVGIcon("/svg/search.svg","#515151",18,18));
+        JMenuItem bookSaleMenuItem = new JMenuItem("图书销售",svg.getSVGIcon("/svg/cart4.svg","#515151",18,18));
         JMenu advanceMenu = new JMenu("高级");
-        JMenuItem settingPanelMenuItem = new JMenuItem("设置");
-        JMenuItem logOutMenuItem = new JMenuItem("登出");
+        JMenuItem settingPanelMenuItem = new JMenuItem("设置",svg.getSVGIcon("/svg/gear.svg","#515151",18,18));
+        JMenuItem logOutMenuItem = new JMenuItem("登出",svg.getSVGIcon("/svg/power.svg","#515151",18,18));
         menuBar.add(libManageMenuItem);
         menuBar.add(queryPanelMenuItem);
         menuBar.add(bookSaleMenuItem);

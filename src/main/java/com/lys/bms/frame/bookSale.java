@@ -2,6 +2,7 @@ package com.lys.bms.frame;
 
 import com.formdev.flatlaf.FlatIntelliJLaf;
 import com.formdev.flatlaf.FlatLightLaf;
+import com.lys.bms.dataTemplate.svg;
 import com.lys.bms.dataTemplate.isbn;
 import com.lys.bms.jdbc.ConnectionManager;
 
@@ -18,6 +19,7 @@ import javax.swing.text.Document;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.awt.event.ActionEvent;
@@ -47,7 +49,7 @@ public class bookSale extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public bookSale() {
+	public bookSale() throws IOException {
 		try {
 			UIManager.setLookAndFeel( new FlatIntelliJLaf() );
 			UIManager.put( "TabbedPane.showTabSeparators", true );
@@ -63,7 +65,7 @@ public class bookSale extends JPanel {
 		add(tabbedPane);
 		
 		JPanel panel = new JPanel();
-		tabbedPane.addTab("图书销售", new ImageIcon(bookSale.class.getResource("/img/销售 (3).png")), panel, null);
+		tabbedPane.addTab("图书销售", svg.getSVGIcon("/svg/cart-check.svg","#515151",20,20), panel, null);
 		panel.setLayout(null);
 
 		JPanel panel_3 = new JPanel();
@@ -377,7 +379,7 @@ public class bookSale extends JPanel {
 
 
 		JPanel panel_1 = new JPanel();
-		tabbedPane.addTab("订单一览", new ImageIcon(bookSale.class.getResource("/img/浏览.png")), panel_1, null);
+		tabbedPane.addTab("订单一览", svg.getSVGIcon("/svg/eye.svg","#515151",25,25), panel_1, null);
 		panel_1.setLayout(null);
 
 		JPanel panel_4 = new JPanel();
@@ -409,7 +411,7 @@ public class bookSale extends JPanel {
 		dingdan_nums.setColumns(10);
 		
 		JPanel panel_5 = new JPanel();
-		tabbedPane.addTab("订单查询", new ImageIcon(bookSale.class.getResource("/img/查询 (2).png")), panel_5, null);
+		tabbedPane.addTab("订单查询", svg.getSVGIcon("/svg/search.svg","#515151",20,20), panel_5, null);
 		panel_5.setLayout(null);
 		
 		JPanel panel_6 = new JPanel();
@@ -422,7 +424,7 @@ public class bookSale extends JPanel {
 		find_text.setColumns(30);
 		
 		JButton btnNewButton_2 = new JButton("查询");
-		btnNewButton_2.setIcon(new ImageIcon(bookSale.class.getResource("/img/查询 (3).png")));
+		btnNewButton_2.setIcon(svg.getSVGIcon("/svg/search.svg","#515151",20,20));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 //				获取文本框数据
