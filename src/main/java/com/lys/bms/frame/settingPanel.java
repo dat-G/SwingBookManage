@@ -11,9 +11,7 @@ import javax.swing.border.TitledBorder;
 
 
 import javax.swing.border.EtchedBorder;
-import java.awt.Color;
-
-import java.awt.Font;
+import java.awt.*;
 
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
@@ -47,43 +45,55 @@ public class settingPanel extends JPanel {
 		panel_3.setLayout(null);
 		
 		JPanel panel_4 = new JPanel();
-		panel_4.setBounds(10, 58, 665, 80);
+		panel_4.setLayout(new GridLayout(1,4,20,0));
+		panel_4.setBounds(10, 20, 650, 30);
 		panel_3.add(panel_4);
-		panel_4.setLayout(null);
-		
+
 		JLabel lblNewLabel_4 = new JLabel("标价=进价*");
-		lblNewLabel_4.setBounds(190, 27, 136, 27);
+//		lblNewLabel_4.setBounds(190, 27, 136, 27);
 //		lblNewLabel_4.setFont(new Font("宋体", Font.BOLD, 23));
 		panel_4.add(lblNewLabel_4);
-		
 		jt1 = new JTextField();
-		jt1.setBounds(331, 24, 136, 33);
+//		jt1.setBounds(331, 24, 136, 33);
 //		jt1.setFont(new Font("宋体", Font.BOLD, 23));
 		panel_4.add(jt1);
 		jt1.setColumns(10);
 		jt1.setText(Double.toString(mainFrame.inprice_add));
-		
+
 		JPanel panel_4_1 = new JPanel();
-		panel_4_1.setLayout(null);
-		panel_4_1.setBounds(10, 156, 665, 80);
 		panel_3.add(panel_4_1);
-		
+		panel_4_1.setLayout(new GridLayout(1,4,20,0));
+//		panel_4_1.setLayout(null);
+		panel_4_1.setBounds(10, 60, 650, 30);
+
+
+		JLabel lblNewLabel_4_13 = new JLabel("");
+		panel_4.add(lblNewLabel_4_13);
+		JLabel lblNewLabel_4_2 = new JLabel("");
+		panel_4.add(lblNewLabel_4_2);
 		JLabel lblNewLabel_4_1 = new JLabel("今日折扣：");
 //		lblNewLabel_4_1.setFont(new Font("宋体", Font.BOLD, 23));
-		lblNewLabel_4_1.setBounds(211, 28, 121, 27);
+//		lblNewLabel_4_1.setBounds(211, 28, 121, 27);
 		panel_4_1.add(lblNewLabel_4_1);
-		
+
 		jt2 = new JTextField();
 //		jt2.setFont(new Font("宋体", Font.BOLD, 23));
 		jt2.setColumns(10);
 		jt2.setBounds(330, 25, 136, 33);
 		panel_4_1.add(jt2);
 		jt2.setText(Double.toString(mainFrame.zhekou));
-		
+
 		JPanel panel_4_1_1 = new JPanel();
 		panel_4_1_1.setBounds(10, 263, 665, 80);
 		panel_3.add(panel_4_1_1);
-		
+	JLabel lblNewLabel_4_133 = new JLabel("");
+//		lblNewLabel_4_1.setFont(new Font("宋体", Font.BOLD, 23));
+//		lblNewLabel_4_1.setBounds(211, 28, 121, 27);
+		panel_4_1.add(lblNewLabel_4_133);
+		JLabel lblNewLabel_4_123 = new JLabel("");
+//		lblNewLabel_4_1.setFont(new Font("宋体", Font.BOLD, 23));
+//		lblNewLabel_4_1.setBounds(211, 28, 121, 27);
+		panel_4_1.add(lblNewLabel_4_123);
 		JButton jb_reset = new JButton("重置");
 		jb_reset.setIcon(new ImageIcon(settingPanel.class.getResource("/img/重置.png")));
 		jb_reset.setBounds(172, 5, 103, 35);
