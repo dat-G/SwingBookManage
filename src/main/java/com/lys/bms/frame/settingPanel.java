@@ -46,10 +46,10 @@ public class settingPanel extends JPanel {
 		
 		JPanel panel_4 = new JPanel();
 		panel_4.setLayout(new GridLayout(1,4,20,0));
-		panel_4.setBounds(10, 20, 650, 30);
+		panel_4.setBounds(10, 20, 400, 30);
 		panel_3.add(panel_4);
 
-		JLabel lblNewLabel_4 = new JLabel("标价=进价*");
+		JLabel lblNewLabel_4 = new JLabel("标价  =  进价  *");
 //		lblNewLabel_4.setBounds(190, 27, 136, 27);
 //		lblNewLabel_4.setFont(new Font("宋体", Font.BOLD, 23));
 		panel_4.add(lblNewLabel_4);
@@ -64,14 +64,14 @@ public class settingPanel extends JPanel {
 		panel_3.add(panel_4_1);
 		panel_4_1.setLayout(new GridLayout(1,4,20,0));
 //		panel_4_1.setLayout(null);
-		panel_4_1.setBounds(10, 60, 650, 30);
+		panel_4_1.setBounds(10, 60, 400, 30);
 
 
 		JLabel lblNewLabel_4_13 = new JLabel("");
 		panel_4.add(lblNewLabel_4_13);
 		JLabel lblNewLabel_4_2 = new JLabel("");
 		panel_4.add(lblNewLabel_4_2);
-		JLabel lblNewLabel_4_1 = new JLabel("今日折扣：");
+		JLabel lblNewLabel_4_1 = new JLabel("今日折扣 ： ");
 //		lblNewLabel_4_1.setFont(new Font("宋体", Font.BOLD, 23));
 //		lblNewLabel_4_1.setBounds(211, 28, 121, 27);
 		panel_4_1.add(lblNewLabel_4_1);
@@ -96,7 +96,7 @@ public class settingPanel extends JPanel {
 		panel_4_1.add(lblNewLabel_4_123);
 		JButton jb_reset = new JButton("重置");
 		jb_reset.setIcon(new ImageIcon(settingPanel.class.getResource("/img/重置.png")));
-		jb_reset.setBounds(172, 5, 666, 35);
+		jb_reset.setBounds(420, 0, 150, 35);
 		jb_reset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				jt1.setText("");
@@ -120,7 +120,7 @@ public class settingPanel extends JPanel {
 //				
 			}
 		});
-		jb_ok.setBounds(342, 5, 146, 35);
+		jb_ok.setBounds(420, 40, 150, 35);
 //		jb_ok.setFont(new Font("宋体", Font.BOLD, 20));
 		panel_4_1_1.add(jb_ok);
 		
