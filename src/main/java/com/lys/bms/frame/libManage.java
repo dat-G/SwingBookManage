@@ -257,7 +257,7 @@ public class libManage extends JPanel {
                     try {
                         int n = ConnectionManager.Update(sql6, new Object[]{booknum2, isbn_str});
                         if (n > 0) {
-                            JOptionPane.showMessageDialog(null, "图书已存在，更新数量成功！原有" + booknum1 + ",现有" + booknum2 +"本。", "提示", JOptionPane.INFORMATION_MESSAGE);
+                            JOptionPane.showMessageDialog(null, "图书已存在，更新数量成功！原有" + booknum1 + ",现有" + booknum2 + "本。", "提示", JOptionPane.INFORMATION_MESSAGE);
                         } else {
                             JOptionPane.showMessageDialog(null, "更新数量错误！", "警告", JOptionPane.WARNING_MESSAGE);
                         }
@@ -302,7 +302,7 @@ public class libManage extends JPanel {
                     try {
                         int m = ConnectionManager.Update(sql2, new Object[]{isbn_str, bookname, author, num, mark_price});
                         if (m > 0) {
-                            JOptionPane.showMessageDialog(null,"插入成功！", "提示", JOptionPane.INFORMATION_MESSAGE);
+                            JOptionPane.showMessageDialog(null, "插入成功！", "提示", JOptionPane.INFORMATION_MESSAGE);
                         } else {
                             JOptionPane.showMessageDialog(null, "插入发生错误！", "警告", JOptionPane.WARNING_MESSAGE);
                         }
@@ -375,33 +375,35 @@ public class libManage extends JPanel {
                 String num = jt_num.getValue().toString();
                 String isbnString = jt_isbn.getText();
 //				保存修改的信息根据
-                String sql = "UPDATE new_book_in SET bookname=?,author=?,cost_price=?,mark_price=?,num=? where ISBN=?";
-//				执行
-                try {
-//					返回结果
-                    int n = ConnectionManager.Update(sql, new Object[]{bookname, author, in_price, out_price, num, isbnString});
-                    if (n > 0) {
-                        JOptionPane.showMessageDialog(null, "图书信息修改成功！", "提示", JOptionPane.INFORMATION_MESSAGE);
-                    } else {
-                        JOptionPane.showMessageDialog(null, "图书信息修改失败！", "提示", JOptionPane.INFORMATION_MESSAGE);
-                    }
-//					
-
-                } catch (SQLException e1) {
-                    // TODO Auto-generated catch block
-                    e1.printStackTrace();
-                }
+//                String sql = "UPDATE new_book_in SET bookname=?,author=?,cost_price=?,mark_price=?,num=? where ISBN=?";
+////				执行
+//                try {
+////					返回结果
+//                    int n = ConnectionManager.Update(sql, new Object[]{bookname, author, in_price, out_price, num, isbnString});
+//                    if (n > 0) {
+//                        JOptionPane.showMessageDialog(null, "图书信息修改成功！", "提示", JOptionPane.INFORMATION_MESSAGE);
+//                    } else {
+//                        JOptionPane.showMessageDialog(null, "图书信息修改失败！", "提示", JOptionPane.INFORMATION_MESSAGE);
+//                    }
+////
+//
+//                } catch (SQLException e1) {
+//                    // TODO Auto-generated catch block
+//                    e1.printStackTrace();
+//                }
 
 //				修改库存表
-                double markprice = Double.parseDouble(in_price) * mainFrame.inprice_add;//计算标价
-                String sqlString = "update book_stack set bookname=?,author=?,num=?,markprice=? where ISBN=?";
+                double markprice = Double.parseDouble(out_price);//计算标价
+                String sqlIN = "UPDATE new_book_in SET bookname=?,author=?,cost_price=?,mark_price=?,num=? where ISBN=?";
+                String sqlLIB = "UPDATE book_stack set bookname=?,author=?,num=?,mark_price=? where ISBN=?";
 //				执行
                 try {
-                    int m = ConnectionManager.Update(sqlString, new Object[]{bookname, author, num, markprice, isbnString});
-                    if (m > 0) {
-                        System.out.println("t2信息修改成功！");
+                    int m1 = ConnectionManager.Update(sqlIN, new Object[]{bookname, author, in_price, markprice, num, isbnString});
+                    int m2 = ConnectionManager.Update(sqlLIB, new Object[]{bookname, author, num, markprice, isbnString});
+                    if (m1 > 0 && m2 > 0) {
+                        JOptionPane.showMessageDialog(null, "信息修改成功！", "提示", JOptionPane.INFORMATION_MESSAGE);
                     } else {
-                        System.out.println("t2修改发生error！");
+                        JOptionPane.showMessageDialog(null, "修改发生错误！", "警告", JOptionPane.WARNING_MESSAGE);
                     }
 //					刷新数据
                     update_table_items();

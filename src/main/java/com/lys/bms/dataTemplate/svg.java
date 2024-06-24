@@ -38,7 +38,6 @@ public class svg {
     }
 
     public static BufferedImage loadSvgImage(String resourceName, String renderColor, int width, int height) throws IOException {
-        System.out.println(renderColor);
         URL resourceURL = svg.class.getResource(resourceName);
         // 创建SVG文档工厂
         String parser = XMLResourceDescriptor.getXMLParserClassName();
@@ -47,7 +46,6 @@ public class svg {
 //        factory.getClass("fill") = ;
 
         // 加载SVG文档
-        System.out.println("file:"+resourceURL.getPath());
         SVGDocument svgDocument = factory.createSVGDocument("file:"+resourceURL.getPath());
         SVGElement rootElement = svgDocument.getRootElement();
 
